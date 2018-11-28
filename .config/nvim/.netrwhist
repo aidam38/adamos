@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/adam/.android'
+let g:netrw_dirhist_2='/home/adam/.scripts'
+let g:netrw_dirhist_3='/home/adam/ahoj'
+let g:netrw_dirhist_4='/home/adam/builds'
+let g:netrw_dirhist_5='/home/adam/builds/st/colorthemes'
+let g:netrw_dirhist_6='/home/adam/drive/School/Matika/Krouzek/2018-2019/G1-G2/181009_delitelnost'

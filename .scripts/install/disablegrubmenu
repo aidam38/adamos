@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp /home/adam/adamos/grub /etc/default/grub
+exec grub-mkconfig -o /boot/grub/grub.cfg "$@"

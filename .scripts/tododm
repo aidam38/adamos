@@ -1,0 +1,15 @@
+#/bin/bash
+# Login anti-procrastination tool
+# By Adam Křivka (aidam38)
+
+echo "Enter the things, you want to do in this session."
+list=""
+read next
+while [[ -n "$next" ]]
+do
+	list="$list$next\n"
+	read next
+done
+echo $list
+# convert -font Arial -pointsize 30 -draw "gravity northeast fill white text 20,50 '$(echo -e $list)'" /home/adam/.wallpapers/bg1src.jpg /home/adam/.wallpapers/bg1.jpg 
+# feh --bg-scale '/home/adam/.wallpapers/bg1.jpg' &

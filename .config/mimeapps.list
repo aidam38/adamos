@@ -1,0 +1,14 @@
+
+[Default Applications]
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
+image/jpeg=sxiv-usercreated-1.desktop;
+image/x-eps=org.pwmt.zathura-ps.desktop;
+text/plain=nvim.desktop;
+image/png=sxiv.desktop;
+video/x-matroska=mpv.desktop;
+video/mp4=mpv.desktop;
+image/svg+xml=inkscape.desktop;

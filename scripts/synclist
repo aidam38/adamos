@@ -1,0 +1,16 @@
+.config/dunst/*
+.config/lf/*
+.config/nvim/*
+.config/qutebrowser/*
+.config/zathura/*
+.config/mimeapps.list
+.scripts/*
+scripts/
+.wallpapers/*
+.bash_profile
+.bashrc
+.dircolors
+.Xmodmap
+.xinitrc
+.gitmodules
+README.md

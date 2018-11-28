@@ -1,0 +1,19 @@
+r /
+e /etc
+M /mnt
+u /mnt/usb1
+h ~
+d ~/downloads
+B ~/builds
+c ~/.scripts
+D ~/drive
+s ~/drive/School
+S ~/drive/School/SOČ
+m ~/drive/School/Matika
+k ~/drive/School/Matika/Krouzek/2018-2019/
+st ~/builds/st config.h
+dwm ~/builds/dwm config.h
+v ~/.config/nvim init.vim
+q ~/.config/qutebrowser config.py
+b ~ .bashrc
+lf ~/.config/lf lfrc

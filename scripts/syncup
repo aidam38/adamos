@@ -1,0 +1,23 @@
+#!/bin/bash
+# By Adam Krivka (aidam38)
+
+cd ~
+
+if [[ ! -d .git/ ]]; then
+	echo "Initializing git directory."
+	git init
+fi
+
+if [[ ! "$(git remote)" =~ "origin" ]]; then
+	git remote add origin https://github.com/aidam38/adamos
+fi
+
+while read line; do
+	git add "$line"
+done < "/home/adam/scripts/synclist"
+
+echo "Commit message: "
+read msg
+
+git commit -m "$msg" 
+git push origin master

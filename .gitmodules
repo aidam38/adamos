@@ -1,0 +1,3 @@
+[submodule ".config/nvim/bundle/vim-live-latex-preview"]
+	path = .config/nvim/bundle/vim-live-latex-preview
+	url = https://github.com/ying17zi/vim-live-latex-preview.git
