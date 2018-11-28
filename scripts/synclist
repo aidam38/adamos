@@ -12,5 +12,6 @@ scripts/
 .dircolors
 .Xmodmap
 .xinitrc
+.gitignore
 .gitmodules
 README.md

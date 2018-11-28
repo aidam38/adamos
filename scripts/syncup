@@ -12,7 +12,9 @@ if [[ ! "$(git remote)" =~ "origin" ]]; then
 	git remote add origin https://github.com/aidam38/adamos
 fi
 
+echo "*" > .gitignore
 while read line; do
+	echo "!$line" >> .gitignore
 	git add -f "$line"
 done < "/home/adam/scripts/synclist"
 

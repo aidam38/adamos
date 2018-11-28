@@ -87,6 +87,7 @@ map K half-up
 map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
 map C clear
+map <f-5> reload
 
 # execute current file (must be executable)
 map x $$f
