@@ -1,2 +1,2 @@
-# Dotfiles for my Arch + dwm Linux rice.
-By Adam Křivka (aidam38)
+# Dotfiles for my personal linux rice (void, dwm, st, lf, qute, ...)
+## By Adam Křivka (aidam38)
