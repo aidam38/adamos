@@ -3,9 +3,15 @@
 set -o vi
 stty -ixon
 
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# append history
+export HISTCONTROL=ignoredups:erasedups  
+shopt -s histappend
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# global environment variables and colors
 export VISUAL="nvim"
 export EDITOR="nvim"
 export PATH="/home/adam/.scripts:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"

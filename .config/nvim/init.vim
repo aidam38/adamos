@@ -53,7 +53,7 @@ map L $
 " Fold maps
 noremap z za
 noremap Z zf
-noremap dz zd
+noremap <C-z> zd
 
 vnoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
 inoremap <C-space> <Esc>/<++><Enter>"_c4l
