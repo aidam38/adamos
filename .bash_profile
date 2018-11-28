@@ -17,6 +17,5 @@ done
 convert -font Hack-Regular -pointsize 30 -draw "gravity northeast fill white text 20,50 '$(echo -e $list)'" /home/adam/.wallpapers/bg1src.jpg /home/adam/.wallpapers/bg1.jpg 
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-       exec startx
-fi       
+
+exec startx

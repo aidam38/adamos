@@ -1,8 +1,8 @@
 #/bin/sh
 
 choice=$(echo -e "Shutdown\nReboot" | dmenu -i) 
-if [ choice="Shutdown" ]; then
-	sudo shutdown now
+if [ choice="Poweroff" ]; then
+	sudo poweroff now
 elif [ choice="Reboot" ]; then
-	sudo reboot
+	sudo reboot now
 fi
