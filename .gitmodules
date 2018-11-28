@@ -1,3 +1,6 @@
 [submodule ".config/nvim/bundle/vim-live-latex-preview"]
 	path = .config/nvim/bundle/vim-live-latex-preview
 	url = https://github.com/ying17zi/vim-live-latex-preview.git
+[submodule ".config/nvim/bundle/Colorizer"]
+	path = .config/nvim/bundle/Colorizer
+	url = https://github.com/chrisbra/Colorizer.git
