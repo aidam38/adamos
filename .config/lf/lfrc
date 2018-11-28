@@ -88,6 +88,7 @@ map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
 map C clear
 map <f-5> reload
+map i !stat $f
 
 # execute current file (must be executable)
 map x $$f

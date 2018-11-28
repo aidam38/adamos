@@ -1,1 +1,7 @@
-ahoj
+#!/bin/bash
+
+cd ~
+git pull
+
+cd drive
+grive
