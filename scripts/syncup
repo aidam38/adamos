@@ -12,8 +12,6 @@ if [[ ! "$(git remote)" =~ "origin" ]]; then
 	git remote add origin https://github.com/aidam38/adamos
 fi
 
-git pull origin master
-
 echo "*" > .gitignore
 while read line; do
 	echo "!$line" >> .gitignore
