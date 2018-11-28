@@ -14,4 +14,6 @@
 !.dircolors
 !.Xmodmap
 !.xinitrc
+!README.md
+!.gitmodules
 !.gitignore
