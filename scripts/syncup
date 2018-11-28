@@ -13,7 +13,7 @@ if [[ ! "$(git remote)" =~ "origin" ]]; then
 fi
 
 while read line; do
-	git add "$line"
+	git add -f "$line"
 done < "/home/adam/scripts/synclist"
 
 echo "Commit message: "

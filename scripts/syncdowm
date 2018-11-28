@@ -1,0 +1,8 @@
+#!/bin/bash
+# By Adam Krivka (aidam38)
+
+cd ~
+git pull
+
+cd drive
+grive
