@@ -20,10 +20,16 @@ font-hack-ttf
 compton
 neovim
 lf
+perl-File-MimeInfo
 w3m
 qutebrowser
 feh
+imlib2-devel
+libexif-devel
+giflib-devel
 zathura
+zathura-pdf-mupdf
+zathura-ps
 mupdf
 mpv
 pulseaudio

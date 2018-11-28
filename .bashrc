@@ -14,6 +14,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 # global environment variables and colors
 export VISUAL="nvim"
 export EDITOR="nvim"
+export OPENER="mimeopen"
 export PATH="/home/adam/.scripts:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
 
 eval $(dircolors -b $HOME/.dircolors)
@@ -38,6 +39,7 @@ alias tr='transmission-remote -w /home/adam/torrents -a'
 alias trl='transmission-remote -l'
 alias sc='scanimage >'
 alias print='lp -o fit-to-page'
+alias drive='cd ~/drive && grive -s School Skaut Karate Temp Random'
 
 # directories aliases
 alias gr='cd /'

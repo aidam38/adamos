@@ -40,8 +40,8 @@ DOOR                  38;5;127
 EXEC                  38;5;208;1
 FILE                  0
 FIFO                  38;5;126
-LINK                  38;5;221;1
-MULTIHARDLINK         38;5;222;1
+LINK                  48;5;235;38;5;139;3
+MULTIHARDLINK         48;5;236;38;5;139;3
 # "NORMAL don't reset the bold attribute -
 # https://github.com/trapd00r/LS_COLORS/issues/11
 #NORMAL                38;5;254

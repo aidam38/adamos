@@ -7,6 +7,18 @@ set drawbox on
 set info size
 set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\033[38;5;15m\] \[\033[38;5;155;1m\]%w" 
 
+# responsive columns
+%{{
+    w=$(tput cols)
+    if [ $w -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
+    elif [ $w -le 160 ]; then
+        lf -remote "send $id set ratios 1:2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3:5"
+    fi
+}}
+
 # make sure trash folder exists
 %mkdir -p ~/.trash
 
@@ -78,7 +90,7 @@ map md push :$mkdir<space>
 map mv push :$nvim<space>
 map e $$SHELL
 map E &st
-map o &mimeopen --ask $f
+map o $mimeopen --ask $f
 map O $mimeopen --ask-default $f
 map D trash
 map <c-d> delete
