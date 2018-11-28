@@ -58,11 +58,11 @@ sudo -u adam git clone git://git.suckless.org/dmenu
 cd dmenu
 sudo make clean install
 
-echo "Installing vim-live-latex-preview plugin"
-sudo -u adam mkdir -p /home/adam/.config/nvim/bundle
-cd /home/adam/.config/nvim/bundle
-sudo -u adam git clone https://github.com/ying17zi/vim-live-latex-preview.git
+#echo "Installing vim-live-latex-preview plugin"
+#sudo -u adam mkdir -p /home/adam/.config/nvim/bundle
+#cd /home/adam/.config/nvim/bundle
+#sudo -u adam git clone https://github.com/ying17zi/vim-live-latex-preview.git
 
 cd /home/adam
 echo -e "%%%%%%%% \n ---Done!--- \n %%%%%%%%"
-echo -e "You need to resolve following issues yourself: \n Graphics drivers"
+echo -e "You probably need to resolve following issues yourself: \n Graphics drivers"
