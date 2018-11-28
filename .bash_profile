@@ -2,7 +2,9 @@
 
 clear
 
-./home/adam/scripts/syncdown
+cd ~/scripts
+./syncdown
+cd ~
 
 echo "Enter the things, you want to do in this session:"
 list=""
@@ -12,7 +14,7 @@ do
 	list="$list$next\n"
 	read next
 done
-convert -font monospace -pointsize 30 -draw "gravity northeast fill white text 20,50 '$(echo -e $list)'" /home/adam/.wallpapers/bg1src.jpg /home/adam/.wallpapers/bg1.jpg 
+convert -font Hack-Regular -pointsize 30 -draw "gravity northeast fill white text 20,50 '$(echo -e $list)'" /home/adam/.wallpapers/bg1src.jpg /home/adam/.wallpapers/bg1.jpg 
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
