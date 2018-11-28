@@ -16,7 +16,7 @@ xrdb
 xmodmap
 xev
 setxkbmap
-font-inconsolata-otf
+font-hack-ttf
 compton
 neovim
 ranger

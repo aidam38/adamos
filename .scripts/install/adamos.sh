@@ -58,6 +58,11 @@ sudo -u adam git clone git://git.suckless.org/dmenu
 cd dmenu
 sudo make clean install
 
+echo "Installing suckless pomodoro timer (spt) from https://github.com/pickfire/spt.git"
+sudo -u adam git clone https://github.com/pickfire/spt.git
+cd spt
+sudo make clean install
+
 #echo "Installing vim-live-latex-preview plugin"
 #sudo -u adam mkdir -p /home/adam/.config/nvim/bundle
 #cd /home/adam/.config/nvim/bundle
