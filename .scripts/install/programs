@@ -19,7 +19,7 @@ setxkbmap
 font-hack-ttf
 compton
 neovim
-ranger
+lf
 w3m
 qutebrowser
 feh
