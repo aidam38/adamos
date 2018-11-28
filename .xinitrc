@@ -10,7 +10,7 @@ pulseaudio --start &
 
 while true;
 do
-	xsetroot -name "$(pulseaudio-ctl current) | $(date "+%a %d. %m. | %T")"
+	xsetroot -name "$(pamixer --get-volume)% | $(date "+%a %d. %m. | %T")"
 	sleep 1
 done &
 exec dwm
