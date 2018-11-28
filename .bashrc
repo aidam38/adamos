@@ -8,7 +8,7 @@ stty -ixon
 
 export VISUAL="nvim"
 export EDITOR="nvim"
-export PATH="/home/adam/.scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
+export PATH="/home/adam/.scripts:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
 
 eval $(dircolors -b $HOME/.dircolors)
 
