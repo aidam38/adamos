@@ -1,7 +1,7 @@
 #!/bin/python
 
 # load input files
-aliases = open('/home/adam/.scripts/aliases', 'r')
+aliases = open('/home/adam/scripts/aliases', 'r')
 lfrc_in = open('/home/adam/.config/lf/lfrc', 'r')
 bashrc_in = open('/home/adam/.bashrc', 'r')
 

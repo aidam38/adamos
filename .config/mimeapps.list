@@ -11,5 +11,5 @@ video/x-matroska=mpv.desktop;
 video/mp4=mpv.desktop;
 image/svg+xml=inkscape.desktop;
 image/x-eps=org.pwmt.zathura-ps.desktop;
-application/pdf=zathura-usercreated-1.desktop;
 image/png=sxiv-usercreated-1.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;

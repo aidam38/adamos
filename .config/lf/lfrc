@@ -8,16 +8,16 @@ set info size
 set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\033[38;5;15m\] \[\033[38;5;155;1m\]%w" 
 
 # responsive columns
-%{{
-    w=$(tput cols)
-    if [ $w -le 80 ]; then
-        lf -remote "send $id set ratios 1:2"
-    elif [ $w -le 160 ]; then
-        lf -remote "send $id set ratios 1:2:3"
-    else
-        lf -remote "send $id set ratios 1:2:3:5"
-    fi
-}}
+# %{{
+    #w=$(tput cols)
+    #if [ $w -le 80 ]; then
+        #lf -remote "send $id set ratios 1:2"
+    #elif [ $w -le 160 ]; then
+        #lf -remote "send $id set ratios 1:2:3"
+    #else
+        #lf -remote "send $id set ratios 1:2:3:5"
+    #fi
+#}}
 
 # make sure trash folder exists
 %mkdir -p ~/.trash
@@ -84,25 +84,24 @@ cmd zip ${{
 # basic
 map ů read
 map ú search
+map J push jjjjjjjjjj
+map K push kkkkkkkkkk
 map <enter> open
+map o $mimeopen --ask $f
+map O $mimeopen --ask-default $f
+map e $$SHELL
+map E &st
 map r push :rename<space>
 map md push :$mkdir<space>
 map mv push :$nvim<space>
-map e $$SHELL
-map E &st
-map o $mimeopen --ask $f
-map O $mimeopen --ask-default $f
 map D trash
 map <c-d> delete
-map J half-down
-map K half-up
+map Z push zh
 map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
 map C clear
 map <f-5> reload
 map i !stat $f
-
-# execute current file (must be executable)
 map x $$f
 map X !$f
 
@@ -112,19 +111,6 @@ map w
 map m
 
 # directories aliases
-map gr cd /
-map ge cd /etc
-map gM cd /mnt
-map gu cd /mnt/usb1
-map gh cd ~
-map gd cd ~/downloads
-map gB cd ~/builds
-map gc cd ~/.scripts
-map gD cd ~/drive
-map gs cd ~/drive/School
-map gS cd ~/drive/School/SOČ
-map gm cd ~/drive/School/Matika
-map gk cd ~/drive/School/Matika/Krouzek/2018-2019/
 map gst cd ~/builds/st
 map cst :cd ~/builds/st; $$EDITOR config.h
 map gdwm cd ~/builds/dwm
@@ -137,3 +123,20 @@ map gb cd ~
 map cb :cd ~; $$EDITOR .bashrc
 map glf cd ~/.config/lf
 map clf :cd ~/.config/lf; $$EDITOR lfrc
+map gr cd /
+map gh cd ~
+map ge cd /etc
+map gu cd /mnt
+map gb cd ~/builds
+map gdo cd ~/downloads
+map gde cd ~/drive
+map gsk cd ~/drive/School
+map gan cd ~/drive/School/Anki
+map gso cd ~/drive/School/SOČ
+map gM cd ~/drive/School/Matika
+map gmi cd ~/drive/School/Matika/iKS
+map gmk cd ~/drive/School/Matika/Krouzek/2018-2019/
+map gmm cd ~/drive/School/Matika/MO
+map gmp cd ~/drive/School/Matika/PraSe
+map gms cd ~/drive/School/Matika/Sady
+map gsc cd ~/scripts
