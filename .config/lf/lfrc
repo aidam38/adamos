@@ -99,7 +99,7 @@ map <c-d> delete
 map Z push zh
 map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
-map C clear
+map <esc> clear
 map <f-5> reload
 map i !stat $f
 map x $$f
@@ -129,10 +129,10 @@ map ge cd /etc
 map gu cd /mnt
 map gb cd ~/builds
 map gdo cd ~/downloads
-map gde cd ~/drive
+map gdr cd ~/drive
 map gsk cd ~/drive/School
 map gan cd ~/drive/School/Anki
-map gso cd ~/drive/School/SOČ
+map gso cd ~/drive/School/SOC/tex
 map gM cd ~/drive/School/Matika
 map gmi cd ~/drive/School/Matika/iKS
 map gmk cd ~/drive/School/Matika/Krouzek/2018-2019/

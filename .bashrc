@@ -15,7 +15,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 export VISUAL="nvim"
 export EDITOR="nvim"
 export OPENER="mimeopen"
-export PATH="/home/adam/.scripts:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
+export PATH="/home/adam/bin:/home/adam/.scripts:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
 
 eval $(dircolors -b $HOME/.dircolors)
 
@@ -28,7 +28,8 @@ alias r='lf'
 alias sr='sudo lf'
 alias ls='ls --color=auto'
 alias i='sudo xbps-install'
-alias q='sudo xbps-query -Rs'
+alias s='sudo xbps-query -Rs'
+alias q='sudo xbps-query -l'
 alias u='sudo xbps-remove'
 alias y='yaourt'
 alias au='pulsemixer'
@@ -39,7 +40,7 @@ alias tr='transmission-remote -w /home/adam/torrents -a'
 alias trl='transmission-remote -l'
 alias sc='scanimage >'
 alias print='lp -o fit-to-page'
-alias drive='cd ~/drive && grive -s School Skaut Karate Temp Random'
+alias gpom='git pull origin master'
 
 # directories aliases
 alias gst='cd ~/builds/st'
@@ -60,10 +61,10 @@ alias ge='cd /etc'
 alias gu='cd /mnt'
 alias gb='cd ~/builds'
 alias gdo='cd ~/downloads'
-alias gde='cd ~/drive'
+alias gdr='cd ~/drive'
 alias gsk='cd ~/drive/School'
 alias gan='cd ~/drive/School/Anki'
-alias gso='cd ~/drive/School/SOČ'
+alias gso='cd ~/drive/School/SOC/tex'
 alias gM='cd ~/drive/School/Matika'
 alias gmi='cd ~/drive/School/Matika/iKS'
 alias gmk='cd ~/drive/School/Matika/Krouzek/2018-2019/'

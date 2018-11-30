@@ -70,7 +70,8 @@ map <C-w> <Nop>
 
 " TeX
 autocmd VimLeave *.tex !texclear %
-autocmd filetype tex nnoremap <leader>l :w<CR>:!zathura %:r.pdf & <CR>
+autocmd filetype tex nnoremap <leader>l :w<CR>:!latexmk --pdf %<CR>
+autocmd filetype tex nnoremap <leader>k :w<CR>:!zathura %:r.pdf & <CR>
 autocmd filetype tex nnoremap <leader>, :w<CR>:!pdflatex %<CR>
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
 

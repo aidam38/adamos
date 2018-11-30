@@ -1,3 +1,4 @@
+void-repo-nonfree
 base-devel
 make
 xorg-minimal
@@ -16,12 +17,12 @@ xrdb
 xmodmap
 xev
 setxkbmap
+NetworkManager
 font-hack-ttf
 compton
 neovim
 lf
 perl-File-MimeInfo
-w3m
 qutebrowser
 feh
 imlib2-devel
@@ -32,9 +33,11 @@ zathura-pdf-mupdf
 zathura-ps
 mupdf
 texlive
-mpv
+gnuplot
 pulseaudio
 pamixer
+mpv
+spotify
 grive2
 dunst
 ImageMagick
@@ -44,5 +47,3 @@ geogebra
 sl
 neofetch
 cmatrix
-void-repo-nonfree
-spotify
