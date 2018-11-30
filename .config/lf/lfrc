@@ -132,7 +132,8 @@ map gdo cd ~/downloads
 map gde cd ~/drive
 map gsk cd ~/drive/School
 map gan cd ~/drive/School/Anki
-map gso cd ~/drive/School/SOČ
+map gsod cd ~/drive/School/SOC/tex
+map gsof cd ~/soc
 map gM cd ~/drive/School/Matika
 map gmi cd ~/drive/School/Matika/iKS
 map gmk cd ~/drive/School/Matika/Krouzek/2018-2019/
