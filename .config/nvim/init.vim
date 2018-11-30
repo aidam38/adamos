@@ -55,8 +55,7 @@ noremap z za
 noremap Z zf
 noremap <C-z> zd
 
-vnoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
-inoremap <C-space> <Esc>/<++><Enter>"_c4l
+inoremap <C-space> <Esc>i<Esc>/<++><Enter>"_c4l
 map <space><Tab> <Esc>/<++><Enter>"_c4l
 
 " Increment number
