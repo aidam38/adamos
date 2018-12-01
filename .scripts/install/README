@@ -1,0 +1,11 @@
+Install scripts of my Void+dwm linux rice
+A short description of what it does:
+* syncs home folder with github dotfiles repostiry
+* disables tty3, tty4, ... and only leaves tty2
+* changes tty1 to an auto-login tty
+* disables grub os prober a changes the splash screen to Void logo
+* allows user to run reboot, poweroff and shutdown without requiring password (it overwrites the sudoers file)
+* syncs void repository and installs a list of programs from the 'programs' file through xbps-install or from my or others' forks on github
+* symlinks user configs of bash, lf and vim to system-wide configs
+
+TODO: revamp installing loop, manage services and network

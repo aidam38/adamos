@@ -1,11 +1,5 @@
 # ~/.bash_profile
 
-clear
-
-cd ~/scripts
-./syncdown
-cd ~
-
 echo "Enter the things, you want to do in this session:"
 list=""
 read next

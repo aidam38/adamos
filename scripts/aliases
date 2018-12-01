@@ -1,24 +1,24 @@
-st ~/builds/st config.h
-dwm ~/builds/dwm config.h
-v ~/.config/nvim init.vim
-q ~/.config/qutebrowser config.py
-b ~ .bashrc
-lf ~/.config/lf lfrc
+st /home/adam/builds/st config.h
+dwm /home/adam/builds/dwm config.h
+v /home/adam/.config/nvim init.vim
+q /home/adam/.config/qutebrowser config.py
+b /home/adam .bashrc
+lf /home/adam/.config/lf lfrc
 r /
-h ~
+h /home/adam
 e /etc
 u /mnt
-b ~/builds
-do ~/downloads
-dr ~/drive
-sk ~/drive/School
-an ~/drive/School/Anki
-sod ~/drive/School/SOC/tex
-sof ~/soc
-M ~/drive/School/Matika
-mi ~/drive/School/Matika/iKS
-mk ~/drive/School/Matika/Krouzek/2018-2019/
-mm ~/drive/School/Matika/MO
-mp ~/drive/School/Matika/PraSe
-ms ~/drive/School/Matika/Sady
-sc ~/scripts
+b /home/adam/builds
+do /home/adam/downloads
+dr /home/adam/drive
+sk /home/adam/drive/School
+an /home/adam/drive/School/Anki
+sod /home/adam/drive/School/SOC/tex
+sof /home/adam/soc
+M /home/adam/drive/School/Matika
+mi /home/adam/drive/School/Matika/iKS
+mk /home/adam/drive/School/Matika/Krouzek/2018-2019/
+mm /home/adam/drive/School/Matika/MO
+mp /home/adam/drive/School/Matika/PraSe
+ms /home/adam/drive/School/Matika/Sady
+sc /home/adam/scripts

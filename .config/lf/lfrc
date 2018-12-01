@@ -111,37 +111,33 @@ map w
 map m
 
 # directories aliases
-map gst cd ~/builds/st
-map cst :cd ~/builds/st; $$EDITOR config.h
-map gdwm cd ~/builds/dwm
-map cdwm :cd ~/builds/dwm; $$EDITOR config.h
-map gv cd ~/.config/nvim
-map cv :cd ~/.config/nvim; $$EDITOR init.vim
-map gq cd ~/.config/qutebrowser
-map cq :cd ~/.config/qutebrowser; $$EDITOR config.py
-map gb cd ~
-map cb :cd ~; $$EDITOR .bashrc
-map glf cd ~/.config/lf
-map clf :cd ~/.config/lf; $$EDITOR lfrc
+map gst cd /home/adam/builds/st
+map cst :cd /home/adam/builds/st; $$EDITOR config.h
+map gdwm cd /home/adam/builds/dwm
+map cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
+map gv cd /home/adam/.config/nvim
+map cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
+map gq cd /home/adam/.config/qutebrowser
+map cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
+map gb cd /home/adam
+map cb :cd /home/adam; $$EDITOR .bashrc
+map glf cd /home/adam/.config/lf
+map clf :cd /home/adam/.config/lf; $$EDITOR lfrc
 map gr cd /
-map gh cd ~
+map gh cd /home/adam
 map ge cd /etc
 map gu cd /mnt
-map gb cd ~/builds
-map gdo cd ~/downloads
-map gdr cd ~/drive
-map gsk cd ~/drive/School
-map gan cd ~/drive/School/Anki
-<<<<<<< HEAD
-map gso cd ~/drive/School/SOC/tex
-=======
-map gsod cd ~/drive/School/SOC/tex
-map gsof cd ~/soc
->>>>>>> 8697f8698e5131b794b1393748ad18f6a16baf2a
-map gM cd ~/drive/School/Matika
-map gmi cd ~/drive/School/Matika/iKS
-map gmk cd ~/drive/School/Matika/Krouzek/2018-2019/
-map gmm cd ~/drive/School/Matika/MO
-map gmp cd ~/drive/School/Matika/PraSe
-map gms cd ~/drive/School/Matika/Sady
-map gsc cd ~/scripts
+map gb cd /home/adam/builds
+map gdo cd /home/adam/downloads
+map gdr cd /home/adam/drive
+map gsk cd /home/adam/drive/School
+map gan cd /home/adam/drive/School/Anki
+map gsod cd /home/adam/drive/School/SOC/tex
+map gsof cd /home/adam/soc
+map gM cd /home/adam/drive/School/Matika
+map gmi cd /home/adam/drive/School/Matika/iKS
+map gmk cd /home/adam/drive/School/Matika/Krouzek/2018-2019/
+map gmm cd /home/adam/drive/School/Matika/MO
+map gmp cd /home/adam/drive/School/Matika/PraSe
+map gms cd /home/adam/drive/School/Matika/Sady
+map gsc cd /home/adam/scripts

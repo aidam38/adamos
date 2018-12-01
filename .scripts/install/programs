@@ -40,6 +40,7 @@ mpv
 spotify
 grive2
 dunst
+spt
 ImageMagick
 gimp
 inkscape
@@ -47,3 +48,6 @@ geogebra
 sl
 neofetch
 cmatrix
+dwm https://github.com/aidam38/dwm.git
+st https://github.com/aidam38/st.git 
+dmenu git://git.suckless.org/dmenu
