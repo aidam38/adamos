@@ -777,7 +777,8 @@ c.downloads.remove_finished = -1
 #`{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 #Same as `{column}`, but starting from index 0.
 #Type: ShellCommand
-c.editor.command = ['nvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+#c.editor.command = ['nvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['st', '-e', 'nvim', '{file}']
 
 #Encoding to use for the editor.
 #Type: Encoding
@@ -1486,9 +1487,9 @@ config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
 config.bind('"y', 'hint links yank')
 config.bind('<Escape>', 'download-clear ;; clear-keychain ;; search ;; fullscreen --leave')
-config.bind('do', 'download-open') 
-config.bind('dd', 'set-cmd-text -s :download') 
-config.bind('dc', 'download-cancel')
+config.bind('Do', 'download-open') 
+config.bind('Dd', 'set-cmd-text -s :download') 
+config.bind('Dc', 'download-cancel')
 config.bind('t', 'open -t')
 config.bind('<Alt-W>', 'quit --save')
 
@@ -1677,7 +1678,7 @@ config.bind('<Escape>', 'leave-mode', mode='hint')
 config.bind('<Return>', 'follow-hint', mode='hint')
 
 #Bindings for insert mode
-config.bind('<Ctrl-E>', 'open-editor nvim', mode='insert')
+config.bind('<Ctrl-E>', 'open-editor', mode='insert')
 config.bind('<Escape>', 'leave-mode', mode='insert')
 config.bind('<Shift-Ins>', 'insert-text {primary}', mode='insert')
 

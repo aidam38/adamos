@@ -36,8 +36,8 @@ nnoremap ú /
 noremap <C-r> :reg<CR>
 nnoremap  Y "+y
 nnoremap  P "+p
-vnoremap Y "+Y
-vnoremap P "+P
+vnoremap Y "+y
+vnoremap P "+p
 noremap x "_x
 
 map <C-a> <esc>ggVG<CR>
@@ -47,32 +47,29 @@ map j gj
 map k gk
 map J 10gj
 map K 10gk
-map H 0
-map L $
+map H g0
+map L g$
 
 " Fold maps
 noremap z za
 noremap Z zf
 noremap <C-z> zd
 
-inoremap <C-space> <Esc>i<Esc>/<++><Enter>"_c4l
-map <space><Tab> <Esc>/<++><Enter>"_c4l
-
 " Increment number
 nnoremap <C-i> <C-a> "
 
-" Delete word
-imap <C-d> <C-w> 
-map <C-w> <Nop>
+inoremap <C-space> <Esc>i<Esc>/<++><Enter>"_c4l
+map <leader><Tab> <Esc>/<++><Enter>"_c4l
 
 " Filetype specific maps
-
 " TeX
 autocmd VimLeave *.tex !texclear %
 autocmd filetype tex nnoremap <leader>l :w<CR>:!latexmk --pdf %<CR>
-autocmd filetype tex nnoremap <leader>k :w<CR>:!zathura %:r.pdf & <CR>
-autocmd filetype tex nnoremap <leader>, :w<CR>:!pdflatex %<CR>
+autocmd filetype tex nnoremap <leader>, :w<CR>:silent !pdflatex %<CR>
+autocmd filetype tex nnoremap <leader>k :w<CR>:silent !zathura %:r.pdf & <CR>
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
+autocmd filetype tex nnoremap <leader>e ea}<ESC>bi\{<ESC>i
+autocmd filetype tex inoremap <C-f> \frac{}{<++>}<ESC>6hi
 
 " C++
 autocmd filetype cpp nnoremap <leader>r :w<CR>:!g++ % -o torun && ./torun < 

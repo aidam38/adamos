@@ -18,8 +18,5 @@ while read line; do
 	git add -f "$line"
 done < "/home/adam/scripts/synclist"
 
-echo "Commit message: "
-read msg
-
-git commit -m "$msg" 
+git commit -v
 git push origin master
