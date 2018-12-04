@@ -1,11 +1,26 @@
 " --------------------------------
 " init.vim (.vimrc) of Adam Krivka
 " --------------------------------
+
+" Fundamentals
 set encoding=utf-8
 set clipboard=unnamed
-set relativenumber
+set number relativenumber
+set cursorline
+
+" Persistent undo
+set undodir=/home/adam/.config/nvim/undodir
+set undofile
+
+" Better search
 set hlsearch
 set incsearch
+
+" Autocompletion
+set wildmode=longest,list,full
+
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Pathogen plugin manager
 execute pathogen#infect()
@@ -13,17 +28,15 @@ syntax on
 filetype plugin on
 
 " Colorscheme settings
-"let g:solarized_termtrans = 1
-"let g:solarized_termcolors = 256
-"set background=dark
-"colorscheme solarized
+let g:solarized_termtrans = 1
+let g:solarized_termcolors = 256
+set background=dark
+colorscheme base16-classic-dark
 
 " Remember folds
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+set viewoptions-=options
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent! loadview
 
 " Some basic maps
 noremap ů :
@@ -31,6 +44,7 @@ map <space> <leader>
 noremap U <C-r> 
 nnoremap <ESC> :noh<CR>:<CR>
 nnoremap ú /
+map <C-S> <CR>:wq!<CR>
 
 " Copy and paste maps
 noremap <C-r> :reg<CR>
@@ -41,25 +55,36 @@ vnoremap P "+p
 noremap x "_x
 
 map <C-a> <esc>ggVG<CR>
+nnoremap S :%s//g<Left><Left>
 
 " Movement maps
-map j gj
-map k gk
-map J 10gj
-map K 10gk
-map H g0
-map L g$
+noremap j gj
+noremap k gk
+noremap J 10gj
+noremap K 10gk
+noremap H g0
+noremap L g$
 
-" Fold maps
+" Folding maps
 noremap z za
 noremap Z zf
 noremap <C-z> zd
 
-" Increment number
-nnoremap <C-i> <C-a> "
+" Marking maps
+noremap <leader>g `
 
+" Increment number
+nnoremap <C-i> <C-a>
+
+" Placeholder replacement
 inoremap <C-space> <Esc>i<Esc>/<++><Enter>"_c4l
-map <leader><Tab> <Esc>/<++><Enter>"_c4l
+map <C-space> <Esc>/<++><Enter>"_c4l
+
+" Goyo - focus
+map <leader>f :Goyo<CR>:set linebreak<CR>
+
+" Compiler
+nnoremap <leader>c :w! \| :!compile <c-r>%<CR><CR>
 
 " Filetype specific maps
 " TeX

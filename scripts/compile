@@ -1,0 +1,6 @@
+#!/bin/bash
+# A script for automatic compiling of stuff from vim
+
+case "$1" in
+	*) ./$1
+esac

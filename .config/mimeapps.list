@@ -13,4 +13,6 @@ image/x-eps=org.pwmt.zathura-ps.desktop;
 image/png=sxiv-usercreated-1.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 text/x-fortran=nvim.desktop;
-image/jpeg=inkscape-usercreated-1.desktop;
+image/gif=sxiv.desktop;
+image/jpeg=sxiv.desktop;
+audio/mpeg=mpv.desktop;

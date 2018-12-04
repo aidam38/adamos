@@ -1,0 +1,410 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+$(PLUGIN).vmb	bundle/Colorizer/Makefile	/^$(PLUGIN).vmb:$/;"	t
+<C-a>	init.vim	/^map <C-a> <esc>ggVG<CR>$/;"	m
+<C-i>	init.vim	/^nnoremap <C-i> <C-a>$/;"	m
+<C-r>	init.vim	/^noremap <C-r> :reg<CR>$/;"	m
+<C-space>	init.vim	/^inoremap <C-space> <Esc>i<Esc>\/<++><Enter>"_c4l$/;"	m
+<C-z>	init.vim	/^noremap <C-z> zd$/;"	m
+<ESC>	init.vim	/^nnoremap <ESC> :noh<CR>:<CR>$/;"	m
+<Leader>cC	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^        nmap <silent> <Leader>cC <Plug>Colorizer$/;"	m
+<Leader>cC	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^        xmap <silent> <Leader>cC <Plug>Colorizer$/;"	m
+<Leader>cF	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^        nmap <silent> <Leader>cF <Plug>ColorFgBg$/;"	m
+<Leader>cF	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^        xmap <silent> <Leader>cF <Plug>ColorFgBg$/;"	m
+<Leader>cT	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^        nmap <silent> <Leader>cT <Plug>ColorContrast$/;"	m
+<Leader>cT	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^        xmap <silent> <Leader>cT <Plug>ColorContrast$/;"	m
+<LocalLeader>+	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>+ :silent! call system("xdotool key --window " . b:M/;"	m
+<LocalLeader>-	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>- :silent! call system("xdotool key --window " . b:M/;"	m
+<LocalLeader><Down>	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader><Down> :silent! call system("xdotool key --window " /;"	m
+<LocalLeader><Left>	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader><Left> :silent! call system("xdotool key --window " /;"	m
+<LocalLeader><PageDown>	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader><PageDown> :silent! call system("xdotool key --windo/;"	m
+<LocalLeader><PageUp>	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader><PageUp> :silent! call system("xdotool key --window /;"	m
+<LocalLeader><Right>	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader><Right> :silent! call system("xdotool key --window "/;"	m
+<LocalLeader><Up>	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader><Up> :silent! call system("xdotool key --window " . /;"	m
+<LocalLeader>=	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>= :silent! call system("xdotool key --window " . b:M/;"	m
+<LocalLeader>G	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>G :silent! call system("xdotool key --window " . b:M/;"	m
+<LocalLeader>c	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>c :call ManualCompilation()<CR>$/;"	m
+<LocalLeader>f	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>f :call MuPDFForward()<CR>$/;"	m
+<LocalLeader>m	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>m :silent! call system("xdotool key --window " . b:M/;"	m
+<LocalLeader>o	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>o :call UpdatingToggle()<CR>$/;"	m
+<LocalLeader>p	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>p :call PDFViewingToggle()<CR>$/;"	m
+<LocalLeader>r	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>r :call MuPDFReverse()<CR>$/;"	m
+<LocalLeader>s	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>s :call CheckLiveUpdateStatus()<CR>$/;"	m
+<LocalLeader>t	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    nnoremap <silent> <buffer> <LocalLeader>t :silent! call system("xdotool key --window " . b:M/;"	m
+<Plug>ColorContrast	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^nnoremap <Plug>ColorContrast    :<C-U>ColorContrast<CR>$/;"	m
+<Plug>ColorContrast	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^xnoremap <Plug>ColorContrast    :<C-U>ColorContrast<CR>$/;"	m
+<Plug>ColorFgBg	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^nnoremap <Plug>ColorFgBg        :<C-U>ColorSwapFgBg<CR>$/;"	m
+<Plug>ColorFgBg	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^xnoremap <Plug>ColorFgBg        :<C-U>ColorSwapFgBg<CR>$/;"	m
+<Plug>Colorizer	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^nnoremap <Plug>Colorizer        :<C-U>ColorToggle<CR>$/;"	m
+<Plug>Colorizer	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^xnoremap <Plug>Colorizer        :ColorHighlight<CR>$/;"	m
+<leader><Tab>	init.vim	/^map <leader><Tab> <Esc>\/<++><Enter>"_c4l$/;"	m
+<leader>f	init.vim	/^map <leader>f :Goyo \\| set linebreak<CR>$/;"	m
+<plug>(goyo-resize)	bundle/goyo.vim/autoload/goyo.vim	/^nnoremap <silent> <plug>(goyo-resize) :<c-u>call <sid>resize_pads()<cr>$/;"	m
+<space>	init.vim	/^map <space> <leader>$/;"	m
+AUTOL	bundle/Colorizer/Makefile	/^AUTOL=$(wildcard autoload\/*.vim)$/;"	m
+Callbacks	bundle/goyo.vim/README.md	/^### Callbacks$/;"	S
+CheckLiveUpdateStatus	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! CheckLiveUpdateStatus()$/;"	f
+CloseMuPDF	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! CloseMuPDF()$/;"	f
+ColorClear	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command! -bang    ColorClear    :call Colorizer#ColorOff()$/;"	c
+ColorContrast	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command!          ColorContrast :call Colorizer#SwitchContrast()$/;"	c
+ColorHiArgs	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^fu! ColorHiArgs(A,L,P)$/;"	f
+ColorHighlight	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command! -bang -range=%  -nargs=? -complete=custom,ColorHiArgs ColorHighlight$/;"	c
+ColorSwapFgBg	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command!          ColorSwapFgBg :call Colorizer#SwitchFGBG()$/;"	c
+ColorToggle	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command! -bang    ColorToggle   :call Colorizer#ColorToggle()$/;"	c
+Colorizer	bundle/Colorizer/README.md	/^Colorizer$/;"	c
+Colorizer	bundle/Colorizer/autoload/Colorizer.vim	/^        aug Colorizer$/;"	a
+Colorizer#AutoCmds	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#AutoCmds(enable) "{{{1$/;"	f
+Colorizer#ColorLine	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#ColorLine(force, start, end) "{{{1$/;"	f
+Colorizer#ColorOff	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#ColorOff() "{{{1$/;"	f
+Colorizer#ColorToggle	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#ColorToggle() "{{{1$/;"	f
+Colorizer#ColorWinEnter	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#ColorWinEnter(...) "{{{1$/;"	f
+Colorizer#DoColor	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#DoColor(force, line1, line2, ...) "{{{1$/;"	f
+Colorizer#HSL2Term	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#HSL2Term(arg) "{{{1$/;"	f
+Colorizer#LocalFTAutoCmds	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#LocalFTAutoCmds(enable) "{{{1$/;"	f
+Colorizer#RGB2Term	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#RGB2Term(arg,bang) "{{{1$/;"	f
+Colorizer#SwitchContrast	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#SwitchContrast() "{{{1$/;"	f
+Colorizer#SwitchFGBG	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#SwitchFGBG() "{{{1$/;"	f
+Colorizer#Term2RGB	bundle/Colorizer/autoload/Colorizer.vim	/^function! Colorizer#Term2RGB(arg) "{{{1$/;"	f
+ColorizerGet	bundle/Colorizer/autoload/Colorizer.vim	/^fu! ColorizerGet(args) "{{{2$/;"	f
+ColorizerXtermColors	bundle/Colorizer/autoload/Colorizer.vim	/^fu! ColorizerXtermColors() "{{{2$/;"	f
+Configuration	bundle/goyo.vim/README.md	/^Configuration$/;"	s
+DOC	bundle/Colorizer/Makefile	/^DOC=$(wildcard doc\/*.txt)$/;"	m
+Dimension expression	bundle/goyo.vim/README.md	/^### Dimension expression$/;"	S
+FTColorizer	bundle/Colorizer/autoload/Colorizer.vim	/^        aug FTColorizer$/;"	a
+FT_ColorizerPlugin	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^    aug FT_ColorizerPlugin$/;"	a
+Goyo	bundle/goyo.vim/plugin/goyo.vim	/^command! -nargs=? -bar -bang Goyo call goyo#execute(<bang>0, <q-args>)$/;"	c
+H	init.vim	/^map H g0$/;"	m
+HSL2RGB	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command! -nargs=1 HSL2RGB       :call Colorizer#HSL2Term(<q-args>)$/;"	c
+Helptags	autoload/pathogen.vim	/^command! -bar Helptags :call pathogen#helptags()$/;"	c
+Inspiration	bundle/goyo.vim/README.md	/^Inspiration$/;"	s
+Installation	bundle/Colorizer/README.md	/^Installation$/;"	s
+Installation	bundle/goyo.vim/README.md	/^Installation$/;"	s
+J	init.vim	/^map J 10gj$/;"	m
+K	init.vim	/^map K 10gk$/;"	m
+L	init.vim	/^map L g\$$/;"	m
+LaunchMuPDF	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! LaunchMuPDF() $/;"	f
+License	bundle/goyo.vim/README.md	/^License$/;"	s
+License & Copyright	bundle/Colorizer/README.md	/^License & Copyright$/;"	s
+LivePreviewFindRoot	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! LivePreviewFindRoot()$/;"	f
+ManualCompilation	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function ManualCompilation()$/;"	f
+MuPDFForward	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! MuPDFForward()$/;"	f
+MuPDFReverse	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! MuPDFReverse()$/;"	f
+P	init.vim	/^nnoremap  P "+p$/;"	m
+P	init.vim	/^vnoremap P "+p$/;"	m
+PDFViewingToggle	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! PDFViewingToggle()$/;"	f
+PLUGIN	bundle/Colorizer/Makefile	/^PLUGIN=$(shell basename "$$PWD")$/;"	m
+PowerlineMain	bundle/goyo.vim/autoload/goyo.vim	/^    augroup PowerlineMain$/;"	a
+Pros.	bundle/goyo.vim/README.md	/^Pros.$/;"	s
+RGB2Term	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command! -bang -nargs=1  RGB2Term  $/;"	c
+SCRIPT	bundle/Colorizer/Makefile	/^SCRIPT=$(wildcard plugin\/*.vim)$/;"	m
+SolarizedHiTrail	colors/solarized.vim	/^augroup SolarizedHiTrail$/;"	a
+SolarizedMenu	colors/solarized.vim	/^function! SolarizedMenu()$/;"	f
+SolarizedOptions	colors/solarized.vim	/^    command SolarizedOptions :call s:SolarizedOptions()$/;"	c
+Term2RGB	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^command! -nargs=1  Term2RGB     :call Colorizer#Term2RGB(<q-args>)$/;"	c
+U	init.vim	/^noremap U <C-r> $/;"	m
+UpdatePDF	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    function! UpdatePDF()$/;"	f
+UpdatingToggle	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^function! UpdatingToggle()$/;"	f
+Usage	bundle/Colorizer/README.md	/^Usage$/;"	s
+Usage	bundle/goyo.vim/README.md	/^Usage$/;"	s
+VERSION	bundle/Colorizer/Makefile	/^VERSION=$(shell sed -n '\/Version:\/{s\/^.*\\(\\S\\.\\S\\+\\)$$\/\\1\/;p}' $(SCRIPT))$/;"	m
+Y	init.vim	/^nnoremap  Y "+y$/;"	m
+Y	init.vim	/^vnoremap Y "+y$/;"	m
+Z	init.vim	/^noremap Z zf$/;"	m
+all	bundle/Colorizer/Makefile	/^all: uninstall vimball install$/;"	t
+b:Liveupdating	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^let b:Liveupdating = "no"$/;"	v
+b:MuPDFWindowID	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^let b:MuPDFWindowID = "999999"$/;"	v
+b:Pdfviewing	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^let b:Pdfviewing = "no"$/;"	v
+b:did_llpplugin	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^let b:did_llpplugin = 1$/;"	v
+clean	bundle/Colorizer/Makefile	/^clean:$/;"	t
+colors_name	colors/solarized.vim	/^let colors_name = "solarized"$/;"	v
+dist-clean	bundle/Colorizer/Makefile	/^dist-clean: clean$/;"	t
+g:colorizer_fgcontrast	bundle/Colorizer/autoload/Colorizer.vim	/^        let g:colorizer_fgcontrast = len(s:predefined_fgcolors['dark']) - 1$/;"	v
+g:colorizer_fgcontrast	bundle/Colorizer/autoload/Colorizer.vim	/^    let g:colorizer_fgcontrast-=1$/;"	v
+g:colorizer_only_unfolded	bundle/Colorizer/autoload/Colorizer.vim	/^    let g:colorizer_only_unfolded = 1$/;"	v
+g:colors_name	colors/one-dark.vim	/^let g:colors_name="one-dark"$/;"	v
+g:colortable	bundle/Colorizer/autoload/Colorizer.vim	/^            let g:colortable = s:colortable$/;"	v
+g:loaded_colorizer	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^let g:loaded_colorizer = 1$/;"	v
+g:loaded_pathogen	autoload/pathogen.vim	/^let g:loaded_pathogen = 1$/;"	v
+g:loaded_solarized_menu	colors/solarized.vim	/^    let g:loaded_solarized_menu = 1$/;"	v
+g:solarized_termcolors	init.vim	/^let g:solarized_termcolors = 256$/;"	v
+g:solarized_termtrans	init.vim	/^let g:solarized_termtrans = 1$/;"	v
+goyo	bundle/goyo.vim/autoload/goyo.vim	/^  augroup goyo$/;"	a
+goyo#execute	bundle/goyo.vim/autoload/goyo.vim	/^function! goyo#execute(bang, dim)$/;"	f
+goyo.vim ([고요](http://en.wiktionary.org/wiki/고요하다))	bundle/goyo.vim/README.md	/^goyo.vim ([고요](http:\/\/en.wiktionary.org\/wiki\/고요하다))$/;"	c
+goyop	bundle/goyo.vim/autoload/goyo.vim	/^  augroup goyop$/;"	a
+hs_highlight_boolean	colors/solarized.vim	/^let hs_highlight_boolean=1$/;"	v
+hs_highlight_delimiters	colors/solarized.vim	/^let hs_highlight_delimiters=1$/;"	v
+install	bundle/Colorizer/Makefile	/^install:$/;"	t
+j	init.vim	/^map j gj$/;"	m
+k	init.vim	/^map k gk$/;"	m
+pathogen#cycle_filetype	autoload/pathogen.vim	/^function! pathogen#cycle_filetype() abort$/;"	f
+pathogen#execute	autoload/pathogen.vim	/^function! pathogen#execute(...) abort$/;"	f
+pathogen#expand	autoload/pathogen.vim	/^function! pathogen#expand(pattern, ...) abort$/;"	f
+pathogen#fnameescape	autoload/pathogen.vim	/^function! pathogen#fnameescape(string) abort$/;"	f
+pathogen#glob	autoload/pathogen.vim	/^function! pathogen#glob(pattern) abort$/;"	f
+pathogen#glob_directories	autoload/pathogen.vim	/^function! pathogen#glob_directories(pattern) abort$/;"	f
+pathogen#helptags	autoload/pathogen.vim	/^function! pathogen#helptags() abort$/;"	f
+pathogen#infect	autoload/pathogen.vim	/^function! pathogen#infect(...) abort$/;"	f
+pathogen#interpose	autoload/pathogen.vim	/^function! pathogen#interpose(name) abort$/;"	f
+pathogen#is_absolute	autoload/pathogen.vim	/^function! pathogen#is_absolute(path) abort$/;"	f
+pathogen#is_disabled	autoload/pathogen.vim	/^function! pathogen#is_disabled(path) abort$/;"	f
+pathogen#join	autoload/pathogen.vim	/^function! pathogen#join(...) abort$/;"	f
+pathogen#legacyjoin	autoload/pathogen.vim	/^function! pathogen#legacyjoin(...) abort$/;"	f
+pathogen#runtime_findfile	autoload/pathogen.vim	/^function! pathogen#runtime_findfile(file,count) abort$/;"	f
+pathogen#separator	autoload/pathogen.vim	/^function! pathogen#separator() abort$/;"	f
+pathogen#slash	autoload/pathogen.vim	/^function! pathogen#slash() abort$/;"	f
+pathogen#split	autoload/pathogen.vim	/^function! pathogen#split(path) abort$/;"	f
+pathogen#surround	autoload/pathogen.vim	/^function! pathogen#surround(path) abort$/;"	f
+pathogen#uniq	autoload/pathogen.vim	/^function! pathogen#uniq(list) abort$/;"	f
+release	bundle/Colorizer/Makefile	/^release: version all$/;"	t
+remember_folds	init.vim	/^augroup remember_folds$/;"	a
+s:AddOffset	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:AddOffset(list) "{{{1$/;"	f
+s:Ansi2Color	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Ansi2Color(chars) "{{{1$/;"	f
+s:ApplyAlphaValue	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:ApplyAlphaValue(rgb) "{{{1$/;"	f
+s:Check16ColorTerm	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Check16ColorTerm(rgblist, minlist) "{{{1$/;"	f
+s:CheckTimeout	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:CheckTimeout(pattern, force) "{{{1$/;"	f
+s:ColorHSLValues	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:ColorHSLValues(val) "{{{2$/;"	f
+s:ColorInit	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:ColorInit(...) "{{{1$/;"	f
+s:ColorRGBValues	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:ColorRGBValues(val) "{{{2$/;"	f
+s:DictFromList	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:DictFromList(dict, list) "{{{1$/;"	f
+s:DidColor	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:DidColor(clr, pat) "{{{1$/;"	f
+s:DoHlGroup	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:DoHlGroup(group, Dict) "{{{1$/;"	f
+s:Exe	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Exe(stmt) "{{{1$/;"	f
+s:FGforBG	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:FGforBG(bg) "{{{1$/;"	f
+s:GenerateColors	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:GenerateColors(dict) "{{{1$/;"	f
+s:GetColorPattern	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:GetColorPattern(list) "{{{1$/;"	f
+s:GetMatchList	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:GetMatchList() "{{{1$/;"	f
+s:GetPatternLiteral	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:GetPatternLiteral(pat) "{{{1$/;"	f
+s:HSL2RGB	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:HSL2RGB(h, s, l, ...) "{{{1$/;"	f
+s:HasColorPattern	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:HasColorPattern() "{{{1$/;"	f
+s:HasGui	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:HasGui() "{{{1$/;"	f
+s:Hue2RGB	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Hue2RGB(m1, m2, h) "{{{1$/;"	f
+s:IsInComment	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:IsInComment() "{{{1$/;"	f
+s:LoadSyntax	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:LoadSyntax(file) "{{{1$/;"	f
+s:PrepareHSLArgs	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PrepareHSLArgs(list) "{{{1$/;"	f
+s:PreviewColorHex	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewColorHex(match) "{{{2$/;"	f
+s:PreviewColorName	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewColorName(color) "{{{2$/;"	f
+s:PreviewColorNroff	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewColorNroff(match) "{{{2$/;"	f
+s:PreviewColorTerm	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewColorTerm(pre, text, post) "{{{2$/;"	f
+s:PreviewTaskWarriorColors	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewTaskWarriorColors(submatch) "{{{2$/;"	f
+s:PreviewVimColors	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewVimColors(submatch) "{{{2$/;"	f
+s:PreviewVimHighlight	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewVimHighlight(match) "{{{2$/;"	f
+s:PreviewVimHighlightDump	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PreviewVimHighlightDump(match) "{{{2$/;"	f
+s:PrintColorStatistics	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:PrintColorStatistics() "{{{1$/;"	f
+s:Reltime	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Reltime(...) "{{{1$/;"	f
+s:Rgb2xterm	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Rgb2xterm(color) "{{{1$/;"	f
+s:RoundColor	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:RoundColor(...) "{{{1$/;"	f
+s:SaveOptions	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:SaveOptions(list) "{{{1$/;"	f
+s:SaveRestoreOptions	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:SaveRestoreOptions(save, dict, list) "{{{1$/;"	f
+s:SetMatch	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:SetMatch(group, pattern, param_dict) "{{{1$/;"	f
+s:SetMatcher	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:SetMatcher(pattern, Dict) "{{{1$/;"	f
+s:SetOption	colors/solarized.vim	/^function! s:SetOption(name,default)$/;"	f
+s:SolarizedHiTrail	colors/solarized.vim	/^function! s:SolarizedHiTrail()$/;"	f
+s:SolarizedOptions	colors/solarized.vim	/^function! s:SolarizedOptions()$/;"	f
+s:StripParentheses	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:StripParentheses(val) "{{{1$/;"	f
+s:SwapColors	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:SwapColors(list) "{{{1$/;"	f
+s:SynID	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:SynID(group, ...) "{{{1$/;"	f
+s:SyntaxMatcher	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:SyntaxMatcher(enable) "{{{1$/;"	f
+s:Term2RGB	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Term2RGB(index) "{{{1$/;"	f
+s:TermConceal	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:TermConceal(pattern) "{{{1$/;"	f
+s:Warn	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Warn(msg) "{{{1$/;"	f
+s:Xterm2rgb16	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Xterm2rgb16(color) "{{{1$/;"	f
+s:Xterm2rgb256	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Xterm2rgb256(color)  "{{{1$/;"	f
+s:Xterm2rgb88	bundle/Colorizer/autoload/Colorizer.vim	/^function! s:Xterm2rgb88(color) "{{{1$/;"	f
+s:b	colors/solarized.vim	/^    let s:b           = ""$/;"	v
+s:b	colors/solarized.vim	/^    let s:b           = ",bold"$/;"	v
+s:back	colors/solarized.vim	/^        let s:back    = s:base03$/;"	v
+s:back	colors/solarized.vim	/^    let s:back        = "NONE"$/;"	v
+s:back	colors/solarized.vim	/^    let s:back        = s:back$/;"	v
+s:back	colors/solarized.vim	/^    let s:back        = s:base02$/;"	v
+s:back	colors/solarized.vim	/^    let s:back        = s:base03$/;"	v
+s:base0	colors/solarized.vim	/^    let s:base0       = "#808080"$/;"	v
+s:base0	colors/solarized.vim	/^    let s:base0       = "#839496"$/;"	v
+s:base0	colors/solarized.vim	/^    let s:base0       = "12"$/;"	v
+s:base0	colors/solarized.vim	/^    let s:base0       = "244"$/;"	v
+s:base0	colors/solarized.vim	/^    let s:base0       = "LightBlue"     " 4*$/;"	v
+s:base0	colors/solarized.vim	/^    let s:base0       = s:base1$/;"	v
+s:base0	colors/solarized.vim	/^    let s:base0       = s:temp00$/;"	v
+s:base00	colors/solarized.vim	/^    let s:base00      = "#585858"$/;"	v
+s:base00	colors/solarized.vim	/^    let s:base00      = "#657b83"$/;"	v
+s:base00	colors/solarized.vim	/^    let s:base00      = "11"$/;"	v
+s:base00	colors/solarized.vim	/^    let s:base00      = "240"$/;"	v
+s:base00	colors/solarized.vim	/^    let s:base00      = "LightYellow"   " 3*$/;"	v
+s:base00	colors/solarized.vim	/^    let s:base00      = s:base0$/;"	v
+s:base01	colors/solarized.vim	/^    let s:base01      = "#4e4e4e"$/;"	v
+s:base01	colors/solarized.vim	/^    let s:base01      = "#586e75"$/;"	v
+s:base01	colors/solarized.vim	/^    let s:base01      = "10"$/;"	v
+s:base01	colors/solarized.vim	/^    let s:base01      = "239"$/;"	v
+s:base01	colors/solarized.vim	/^    let s:base01      = "LightGreen"    " 2*$/;"	v
+s:base01	colors/solarized.vim	/^    let s:base01      = s:base00$/;"	v
+s:base01	colors/solarized.vim	/^    let s:base01      = s:base1$/;"	v
+s:base02	colors/solarized.vim	/^    let s:base02      = "#073642"$/;"	v
+s:base02	colors/solarized.vim	/^    let s:base02      = "#262626"$/;"	v
+s:base02	colors/solarized.vim	/^    let s:base02      = "0"$/;"	v
+s:base02	colors/solarized.vim	/^    let s:base02      = "235"$/;"	v
+s:base02	colors/solarized.vim	/^    let s:base02      = "Black"         " 0$/;"	v
+s:base02	colors/solarized.vim	/^    let s:base02      = s:base2$/;"	v
+s:base03	colors/solarized.vim	/^    let s:base03      = "#002b36"$/;"	v
+s:base03	colors/solarized.vim	/^    let s:base03      = "#1c1c1c"$/;"	v
+s:base03	colors/solarized.vim	/^    let s:base03      = "234"$/;"	v
+s:base03	colors/solarized.vim	/^    let s:base03      = "8"$/;"	v
+s:base03	colors/solarized.vim	/^    let s:base03      = "DarkGray"      " 0*$/;"	v
+s:base03	colors/solarized.vim	/^    let s:base03      = s:base3$/;"	v
+s:base1	colors/solarized.vim	/^    let s:base1       = "#8a8a8a"$/;"	v
+s:base1	colors/solarized.vim	/^    let s:base1       = "#93a1a1"$/;"	v
+s:base1	colors/solarized.vim	/^    let s:base1       = "14"$/;"	v
+s:base1	colors/solarized.vim	/^    let s:base1       = "245"$/;"	v
+s:base1	colors/solarized.vim	/^    let s:base1       = "LightCyan"     " 6*$/;"	v
+s:base1	colors/solarized.vim	/^    let s:base1       = s:base2$/;"	v
+s:base1	colors/solarized.vim	/^    let s:base1       = s:temp01$/;"	v
+s:base2	colors/solarized.vim	/^    let s:base2       = "#d7d7af"$/;"	v
+s:base2	colors/solarized.vim	/^    let s:base2       = "#eee8d5"$/;"	v
+s:base2	colors/solarized.vim	/^    let s:base2       = "187"$/;"	v
+s:base2	colors/solarized.vim	/^    let s:base2       = "7"$/;"	v
+s:base2	colors/solarized.vim	/^    let s:base2       = "LightGray"     " 7$/;"	v
+s:base2	colors/solarized.vim	/^    let s:base2       = s:base3$/;"	v
+s:base2	colors/solarized.vim	/^    let s:base2       = s:temp02$/;"	v
+s:base3	colors/solarized.vim	/^    let s:base3       = "#fdf6e3"$/;"	v
+s:base3	colors/solarized.vim	/^    let s:base3       = "#ffffd7"$/;"	v
+s:base3	colors/solarized.vim	/^    let s:base3       = "15"$/;"	v
+s:base3	colors/solarized.vim	/^    let s:base3       = "230"$/;"	v
+s:base3	colors/solarized.vim	/^    let s:base3       = "White"         " 7*$/;"	v
+s:base3	colors/solarized.vim	/^    let s:base3       = s:temp03$/;"	v
+s:basic16	bundle/Colorizer/autoload/Colorizer.vim	/^    let s:basic16 = [$/;"	v
+s:basic16	bundle/Colorizer/autoload/Colorizer.vim	/^let s:basic16 = [$/;"	v
+s:bb	colors/solarized.vim	/^    let s:bb          = ""$/;"	v
+s:bb	colors/solarized.vim	/^    let s:bb          = ",bold"$/;"	v
+s:blank	bundle/goyo.vim/autoload/goyo.vim	/^function! s:blank(repel)$/;"	f
+s:blue	colors/solarized.vim	/^    let s:blue        = "#0087ff"$/;"	v
+s:blue	colors/solarized.vim	/^    let s:blue        = "#268bd2"$/;"	v
+s:blue	colors/solarized.vim	/^    let s:blue        = "33"$/;"	v
+s:blue	colors/solarized.vim	/^    let s:blue        = "4"$/;"	v
+s:blue	colors/solarized.vim	/^    let s:blue        = "DarkBlue"      " 4$/;"	v
+s:bright	colors/solarized.vim	/^    let s:bright      = "* term=bold cterm=bold"$/;"	v
+s:c	colors/solarized.vim	/^    let s:c               = ",undercurl"$/;"	v
+s:colorscheme_list	colors/solarized.vim	/^let s:colorscheme_list=[$/;"	v
+s:const	bundle/goyo.vim/autoload/goyo.vim	/^function! s:const(val, min, max)$/;"	f
+s:cpo_save	bundle/Colorizer/autoload/Colorizer.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	bundle/Colorizer/plugin/ColorizerPlugin.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	bundle/goyo.vim/autoload/goyo.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cyan	colors/solarized.vim	/^    let s:cyan        = "#00afaf"$/;"	v
+s:cyan	colors/solarized.vim	/^    let s:cyan        = "#2aa198"$/;"	v
+s:cyan	colors/solarized.vim	/^    let s:cyan        = "37"$/;"	v
+s:cyan	colors/solarized.vim	/^    let s:cyan        = "6"$/;"	v
+s:cyan	colors/solarized.vim	/^    let s:cyan        = "DarkCyan"      " 6$/;"	v
+s:defaults_list	colors/solarized.vim	/^let s:defaults_list=[$/;"	v
+s:done_bundles	autoload/pathogen.vim	/^let s:done_bundles = {}$/;"	v
+s:fg_pdef	colors/solarized.vim	/^let s:fg_pdef = s:fg_violet$/;"	v
+s:fg_phead	colors/solarized.vim	/^let s:fg_phead = s:fg_orange$/;"	v
+s:fg_ptable	colors/solarized.vim	/^let s:fg_ptable = s:fg_blue$/;"	v
+s:get_color	bundle/goyo.vim/autoload/goyo.vim	/^function! s:get_color(group, attr)$/;"	f
+s:goyo_off	bundle/goyo.vim/autoload/goyo.vim	/^function! s:goyo_off()$/;"	f
+s:goyo_on	bundle/goyo.vim/autoload/goyo.vim	/^function! s:goyo_on(dim)$/;"	f
+s:green	colors/solarized.vim	/^    let s:green       = "#5f8700"$/;"	v
+s:green	colors/solarized.vim	/^    let s:green       = "#719e07" "experimental$/;"	v
+s:green	colors/solarized.vim	/^    let s:green       = "2"$/;"	v
+s:green	colors/solarized.vim	/^    let s:green       = "64"$/;"	v
+s:green	colors/solarized.vim	/^    let s:green       = "DarkGreen"     " 2$/;"	v
+s:hide_linenr	bundle/goyo.vim/autoload/goyo.vim	/^function! s:hide_linenr()$/;"	f
+s:hide_statusline	bundle/goyo.vim/autoload/goyo.vim	/^function! s:hide_statusline()$/;"	f
+s:i	colors/solarized.vim	/^    let s:i           = ""$/;"	v
+s:i	colors/solarized.vim	/^    let s:i           = ",italic"$/;"	v
+s:init_pad	bundle/goyo.vim/autoload/goyo.vim	/^function! s:init_pad(command)$/;"	f
+s:lazycat_list	colors/solarized.vim	/^let s:lazycat_list=[$/;"	v
+s:magenta	colors/solarized.vim	/^    let s:magenta     = "#af005f"$/;"	v
+s:magenta	colors/solarized.vim	/^    let s:magenta     = "#d33682"$/;"	v
+s:magenta	colors/solarized.vim	/^    let s:magenta     = "125"$/;"	v
+s:magenta	colors/solarized.vim	/^    let s:magenta     = "5"$/;"	v
+s:magenta	colors/solarized.vim	/^    let s:magenta     = "DarkMagenta"   " 5$/;"	v
+s:maps_nop	bundle/goyo.vim/autoload/goyo.vim	/^function! s:maps_nop()$/;"	f
+s:maps_resize	bundle/goyo.vim/autoload/goyo.vim	/^function! s:maps_resize()$/;"	f
+s:n	colors/solarized.vim	/^    let s:n               = "NONE"$/;"	v
+s:none	colors/solarized.vim	/^    let s:none            = "NONE"$/;"	v
+s:nvim_true_color	colors/solarized.vim	/^    let s:nvim_true_color = 0$/;"	v
+s:nvim_true_color	colors/solarized.vim	/^    let s:nvim_true_color = 1$/;"	v
+s:ob	colors/solarized.vim	/^    let s:ob              = ""$/;"	v
+s:options_list	colors/solarized.vim	/^let s:options_list=[$/;"	v
+s:orange	colors/solarized.vim	/^    let s:orange      = "#cb4b16"$/;"	v
+s:orange	colors/solarized.vim	/^    let s:orange      = "#d75f00"$/;"	v
+s:orange	colors/solarized.vim	/^    let s:orange      = "166"$/;"	v
+s:orange	colors/solarized.vim	/^    let s:orange      = "9"$/;"	v
+s:orange	colors/solarized.vim	/^    let s:orange      = "LightRed"      " 1*$/;"	v
+s:ou	colors/solarized.vim	/^    let s:ou              = ""$/;"	v
+s:ou	colors/solarized.vim	/^    let s:ou          = ",underline"$/;"	v
+s:parse_arg	bundle/goyo.vim/autoload/goyo.vim	/^function! s:parse_arg(arg)$/;"	f
+s:r	colors/solarized.vim	/^    let s:r               = ",reverse"$/;"	v
+s:red	colors/solarized.vim	/^    let s:red         = "#af0000"$/;"	v
+s:red	colors/solarized.vim	/^    let s:red         = "#dc322f"$/;"	v
+s:red	colors/solarized.vim	/^    let s:red         = "1"$/;"	v
+s:red	colors/solarized.vim	/^    let s:red         = "124"$/;"	v
+s:red	colors/solarized.vim	/^    let s:red         = "DarkRed"       " 1$/;"	v
+s:relsz	bundle/goyo.vim/autoload/goyo.vim	/^function! s:relsz(expr, limit)$/;"	f
+s:resize_pads	bundle/goyo.vim/autoload/goyo.vim	/^function! s:resize_pads()$/;"	f
+s:s	colors/solarized.vim	/^    let s:s               = ",standout"$/;"	v
+s:set_color	bundle/goyo.vim/autoload/goyo.vim	/^function! s:set_color(group, attr, color)$/;"	f
+s:setup_pad	bundle/goyo.vim/autoload/goyo.vim	/^function! s:setup_pad(bufnr, vert, size, repel)$/;"	f
+s:solarized_termtrans_default	colors/solarized.vim	/^    let s:solarized_termtrans_default = 0$/;"	v
+s:solarized_termtrans_default	colors/solarized.vim	/^    let s:solarized_termtrans_default = 1$/;"	v
+s:sp_back	colors/solarized.vim	/^    let s:sp_back      = ""$/;"	v
+s:sp_base0	colors/solarized.vim	/^    let s:sp_base0     = ""$/;"	v
+s:sp_base00	colors/solarized.vim	/^    let s:sp_base00    = ""$/;"	v
+s:sp_base01	colors/solarized.vim	/^    let s:sp_base01    = ""$/;"	v
+s:sp_base02	colors/solarized.vim	/^    let s:sp_base02    = ""$/;"	v
+s:sp_base03	colors/solarized.vim	/^    let s:sp_base03    = ""$/;"	v
+s:sp_base1	colors/solarized.vim	/^    let s:sp_base1     = ""$/;"	v
+s:sp_base2	colors/solarized.vim	/^    let s:sp_base2     = ""$/;"	v
+s:sp_base3	colors/solarized.vim	/^    let s:sp_base3     = ""$/;"	v
+s:sp_blue	colors/solarized.vim	/^    let s:sp_blue      = ""$/;"	v
+s:sp_cyan	colors/solarized.vim	/^    let s:sp_cyan      = ""$/;"	v
+s:sp_green	colors/solarized.vim	/^    let s:sp_green     = ""$/;"	v
+s:sp_magenta	colors/solarized.vim	/^    let s:sp_magenta   = ""$/;"	v
+s:sp_none	colors/solarized.vim	/^    let s:sp_none      = ""$/;"	v
+s:sp_orange	colors/solarized.vim	/^    let s:sp_orange    = ""$/;"	v
+s:sp_red	colors/solarized.vim	/^    let s:sp_red       = ""$/;"	v
+s:sp_violet	colors/solarized.vim	/^    let s:sp_violet    = ""$/;"	v
+s:sp_yellow	colors/solarized.vim	/^    let s:sp_yellow    = ""$/;"	v
+s:t_none	colors/solarized.vim	/^    let s:t_none          = "NONE"$/;"	v
+s:temp00	colors/solarized.vim	/^    let s:temp00      = s:base00$/;"	v
+s:temp01	colors/solarized.vim	/^    let s:temp01      = s:base01$/;"	v
+s:temp02	colors/solarized.vim	/^    let s:temp02      = s:base02$/;"	v
+s:temp03	colors/solarized.vim	/^    let s:temp03      = s:base03$/;"	v
+s:terminal_italic	colors/solarized.vim	/^            let s:terminal_italic=1$/;"	v
+s:terminal_italic	colors/solarized.vim	/^    let s:terminal_italic=0 " terminals will be guilty until proven compatible$/;"	v
+s:terminal_italic	colors/solarized.vim	/^    let s:terminal_italic=1 " TODO: could refactor to not require this at all$/;"	v
+s:terms_italic	colors/solarized.vim	/^let s:terms_italic=[$/;"	v
+s:terms_noitalic	colors/solarized.vim	/^let s:terms_noitalic=[$/;"	v
+s:tranquilize	bundle/goyo.vim/autoload/goyo.vim	/^function! s:tranquilize()$/;"	f
+s:u	colors/solarized.vim	/^    let s:u           = ""$/;"	v
+s:u	colors/solarized.vim	/^    let s:u           = ",underline"$/;"	v
+s:valuerange4	bundle/Colorizer/autoload/Colorizer.vim	/^let s:valuerange4 = [ 0x00, 0x8B, 0xCD, 0xFF ]$/;"	v
+s:valuerange6	bundle/Colorizer/autoload/Colorizer.vim	/^let s:valuerange6 = [ 0x00, 0x5F, 0x87, 0xAF, 0xD7, 0xFF ]$/;"	v
+s:violet	colors/solarized.vim	/^    let s:violet      = "#5f5faf"$/;"	v
+s:violet	colors/solarized.vim	/^    let s:violet      = "#6c71c4"$/;"	v
+s:violet	colors/solarized.vim	/^    let s:violet      = "13"$/;"	v
+s:violet	colors/solarized.vim	/^    let s:violet      = "61"$/;"	v
+s:violet	colors/solarized.vim	/^    let s:violet      = "LightMagenta"  " 5*$/;"	v
+s:vmode	colors/solarized.vim	/^    let s:vmode       = "cterm"$/;"	v
+s:vmode	colors/solarized.vim	/^    let s:vmode       = "gui"$/;"	v
+s:w3c_color_names	bundle/Colorizer/autoload/Colorizer.vim	/^let s:w3c_color_names = {$/;"	v
+s:x11_color_names	bundle/Colorizer/autoload/Colorizer.vim	/^let s:x11_color_names = {$/;"	v
+s:xterm_16colors	bundle/Colorizer/autoload/Colorizer.vim	/^let s:xterm_16colors = {$/;"	v
+s:xterm_8colors	bundle/Colorizer/autoload/Colorizer.vim	/^let s:xterm_8colors = {$/;"	v
+s:yellow	colors/solarized.vim	/^    let s:yellow      = "#af8700"$/;"	v
+s:yellow	colors/solarized.vim	/^    let s:yellow      = "#b58900"$/;"	v
+s:yellow	colors/solarized.vim	/^    let s:yellow      = "136"$/;"	v
+s:yellow	colors/solarized.vim	/^    let s:yellow      = "3"$/;"	v
+s:yellow	colors/solarized.vim	/^    let s:yellow      = "DarkYellow"    " 3$/;"	v
+tex_preview_always_autosave	bundle/vim-live-latex-preview/ftplugin/tex/live-latex-preview.vim	/^    let tex_preview_always_autosave = 0$/;"	v
+undo	bundle/Colorizer/Makefile	/^undo:$/;"	t
+uninstall	bundle/Colorizer/Makefile	/^uninstall:$/;"	t
+version	bundle/Colorizer/Makefile	/^version:$/;"	t
+vimball	bundle/Colorizer/Makefile	/^vimball: $(PLUGIN).vmb$/;"	t
+x	init.vim	/^noremap x "_x$/;"	m
+z	init.vim	/^noremap z za$/;"	m
+ú	init.vim	/^nnoremap ú \/$/;"	m
+ů	init.vim	/^noremap ů :$/;"	m
