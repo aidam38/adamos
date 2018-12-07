@@ -16,3 +16,4 @@ text/x-fortran=nvim.desktop;
 image/gif=sxiv.desktop;
 image/jpeg=sxiv.desktop;
 audio/mpeg=mpv.desktop;
+application/postscript=org.pwmt.zathura-ps.desktop;

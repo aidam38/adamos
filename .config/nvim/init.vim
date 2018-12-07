@@ -44,7 +44,8 @@ map <space> <leader>
 noremap U <C-r> 
 nnoremap <ESC> :noh<CR>:<CR>
 nnoremap ú /
-map <C-S> <CR>:wq!<CR>
+map <C-s> <CR>:wq!<CR>
+map <C-q> <CR>:q!<CR>
 
 " Copy and paste maps
 noremap <C-r> :reg<CR>
@@ -87,14 +88,21 @@ map <leader>f :Goyo<CR>:set linebreak<CR>
 nnoremap <leader>c :w! \| :!compile <c-r>%<CR><CR>
 
 " Filetype specific maps
+
 " TeX
+" Basic
 autocmd VimLeave *.tex !texclear %
 autocmd filetype tex nnoremap <leader>l :w<CR>:!latexmk --pdf %<CR>
 autocmd filetype tex nnoremap <leader>, :w<CR>:silent !pdflatex %<CR>
 autocmd filetype tex nnoremap <leader>k :w<CR>:silent !zathura %:r.pdf & <CR>
+" Snippets
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
 autocmd filetype tex nnoremap <leader>e ea}<ESC>bi\{<ESC>i
-autocmd filetype tex inoremap <C-f> \frac{}{<++>}<ESC>6hi
+autocmd filetype tex inoremap §f \frac{}{<++>}<ESC>6hi
+autocmd filetype tex inoremap §eq \begin{equation*}<ESC>o\end{equation*}<ESC>O
+autocmd filetype tex inoremap §al \begin{align*}<ESC>o\end{align*}<ESC>O
+autocmd filetype tex inoremap §en \begin{enumerate}[label=\arabic*.]<ESC>o\end{enumerate}<ESC>O\item
+autocmd filetype tex inoremap §it \begin{itemize}<ESC>o\end{itemize}<ESC>O
 
 " C++
 autocmd filetype cpp nnoremap <leader>r :w<CR>:!g++ % -o torun && ./torun < 
