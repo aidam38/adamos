@@ -18,3 +18,4 @@ audio/mpeg=mpv.desktop;
 application/postscript=org.pwmt.zathura-ps.desktop;
 application/x-shellscript=nvim.desktop;
 video/mp4=mpv.desktop;
+video/x-msvideo=mpv.desktop;

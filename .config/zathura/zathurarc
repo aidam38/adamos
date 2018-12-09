@@ -1,5 +1,12 @@
+unmap d
+unmap s
+set page-padding 5 
 map J navigate next 
 map K navigate previous 
+map d navigate next
+map s navigate previous
 map D toggle_page_mode
 map r reload
 map R rotate
+map w adjust_window width
+map f adjust_window best-fit

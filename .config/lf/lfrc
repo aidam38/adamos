@@ -99,7 +99,7 @@ map <c-d> delete
 map Z push zh
 map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
-map <esc> clear
+map <esc> unselect
 map <f-5> reload
 map i !stat $f
 map I !du -sh $f
