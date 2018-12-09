@@ -94,6 +94,7 @@ nnoremap <leader>c :w! \| :!compile <c-r>%<CR><CR>
 autocmd VimLeave *.tex !texclear %
 autocmd filetype tex nnoremap <leader>l :w<CR>:!latexmk --pdf %<CR>
 autocmd filetype tex nnoremap <leader>, :w<CR>:silent !pdflatex %<CR>
+autocmd filetype tex nnoremap <leader>? :w<CR>:!sudo -A texliveonfly %<CR>
 autocmd filetype tex nnoremap <leader>k :w<CR>:silent !zathura %:r.pdf & <CR>
 " Snippets
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
@@ -102,7 +103,11 @@ autocmd filetype tex inoremap §f \frac{}{<++>}<ESC>6hi
 autocmd filetype tex inoremap §eq \begin{equation*}<ESC>o\end{equation*}<ESC>O
 autocmd filetype tex inoremap §al \begin{align*}<ESC>o\end{align*}<ESC>O
 autocmd filetype tex inoremap §en \begin{enumerate}[label=\arabic*.]<ESC>o\end{enumerate}<ESC>O\item
-autocmd filetype tex inoremap §it \begin{itemize}<ESC>o\end{itemize}<ESC>O
+autocmd filetype tex inoremap §bu \begin{itemize}<ESC>o\end{itemize}<ESC>O
+autocmd filetype tex inoremap §us \usepackage{}<ESC>i
+inoremap §D \documentclass[a4paper, 12pt]{article}<CR>\usepackage[margin=1in]{geometry}<CR><CR>\begin{document}<CR>\end{document}<ESC>O
+autocmd filetype tex inoremap §i \item 
+
 
 " C++
 autocmd filetype cpp nnoremap <leader>r :w<CR>:!g++ % -o torun && ./torun < 

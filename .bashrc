@@ -43,7 +43,7 @@ alias gpom='git pull origin master'
 alias lp='lp -o fit-to-page'
 alias lpdupl='lp -o fit-to-page -o sides=two-sided-long-edge'
 alias lpdups='lp -o fit-to-page -o sides=two-sided-short-edge'
-alias drive='cd ~/drive && grive -s School Skaut Karate Temp Random'
+unalias drive
 
 # directories aliases
 alias gst='cd /home/adam/builds/st'
