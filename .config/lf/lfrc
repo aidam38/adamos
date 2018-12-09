@@ -102,6 +102,7 @@ map T :set sortby natural; set reverse!
 map <esc> clear
 map <f-5> reload
 map i !stat $f
+map I !du -sh $f
 map x $$f
 map X !$f
 
@@ -136,7 +137,7 @@ map gsk cd /home/adam/drive/School
 map gsa cd /home/adam/drive/Skaut
 map gan cd /home/adam/drive/School/Anki
 map gsot cd /home/adam/drive/School/SOC/asteroidy_tex
-map gsof cd /home/adam/soc
+map gsof cd /home/adam/soc/swift_eunomia
 map gM cd /home/adam/drive/School/Matika
 map gmi cd /home/adam/drive/School/Matika/iKS
 map gmk cd /home/adam/drive/School/Matika/Krouzek/2018-2019/

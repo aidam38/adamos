@@ -18,5 +18,5 @@ fi
 mnt=$(echo -e $mnt | dmenu)
 
 notify-send "Mounting $device to $mnt"
-sudo mount $device $mnt
+sudo -u $USER mount $device $mnt
 

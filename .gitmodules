@@ -4,3 +4,6 @@
 [submodule ".config/nvim/bundle/Colorizer"]
 	path = .config/nvim/bundle/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git
+[submodule ".config/nvim/bundle/goyo.vim"]
+	path = .config/nvim/bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
