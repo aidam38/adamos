@@ -17,8 +17,9 @@ xrdb
 xmodmap
 xev
 setxkbmap
-NetworkManager
 font-hack-ttf
+rsync
+NetworkManager
 compton
 neovim
 lf
@@ -51,3 +52,4 @@ cmatrix
 dwm https://github.com/aidam38/dwm.git
 st https://github.com/aidam38/st.git 
 dmenu git://git.suckless.org/dmenu
+sxiv https://github.com/muennich/sxiv.git

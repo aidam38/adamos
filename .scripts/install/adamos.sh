@@ -6,49 +6,28 @@ echo "Cloning dotfiles from github. (probably already done)"
 cd /home/$USER
 sudo -u $USER git clone --depth 1 https://github.com/aidam38/$USERos_void /home/$USER &>/dev/null
 
-
 # ----------
 echo "Creating some basic directories in the /home/$USER folder"
 cd /home/$USER
 sudo -u $USER mkdir builds downloads
 
-
 # ----------
 echo "Synchronizing the package system and installing basic programs"
 cd /home/$USER
 xbps-install -Suv &>/dev/null
-while IFS=, read -r -u ';' program; do
-	echo "(xbps) Installing " $program
-	xbps-install -Sy $program &>/dev/null
+while IFS=, read -r line; do
+	program=($line)
+	if [ -z "${program[1]}" ]; then 
+		echo "(xbps) Installing $program"
+		xbps-install -Sy $program &>/dev/null
+	elif [ -n "${program[1]}" ]; then
+		cd /home/$USER/builds
+		echo "(git) Installing ${program[0]} from ${program[1]}"
+		sudo -u $USER git clone ${program[1]}
+		cd ${program[0]}
+		sudo make clean install
+	fi
 done < /home/$USER/.scripts/install/programs;
-
-# Installing dwm, st and dmenu from git repositories (some programs are my own forks)
-
-echo "Installing Dynamic Window Manager (dwm) from https://github.com/aidam38/dwm.git"
-sudo -u $USER git clone https://github.com/aidam38/dwm.git
-cd dwm
-sudo make clean install
-
-cd ..
-
-echo "Installing Simple Terminal (st) from https://github.com/aidam38/st.git"
-sudo -u $USER git clone https://github.com/aidam38/st.git
-cd st
-sudo make clean install
-
-cd ..
-
-echo "Installing dmenu from git.suckless.org/dmenu"
-sudo -u $USER git clone git://git.suckless.org/dmenu
-cd dmenu
-sudo make clean install
-
-cd ..
-
-echo "Installing suckless pomodoro timer (spt) from https://github.com/pickfire/spt.git"
-sudo -u $USER git clone https://github.com/pickfire/spt.git
-cd spt
-sudo make clean install
 
 # ----------
 echo "Linking user configs of bash, lf and vim to system-wide configs, so when run as root, you get the same keybinds and stuff."
