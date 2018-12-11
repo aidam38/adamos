@@ -7,13 +7,13 @@ echo $list
 device=$(echo -e $list | dmenu)
 mntpos=""
 if [ -z "$(mount | grep usb1)"]; then
-	mnt="$mnt/mnt/usb1"
+	mnt="$mnt/home/mnt/usb1"
 fi
 if [ -z "$(mount | grep usb2)"]; then
-	mnt="$mnt\n/mnt/usb2"
+	mnt="$mnt\n/home/mnt/usb2"
 fi
 if [ -z "$(mount | grep usb3)"]; then
-	mnt="$mnt\n/mnt/usb3"
+	mnt="$mnt\n/home/mnt/usb3"
 fi
 mnt=$(echo -e $mnt | dmenu)
 

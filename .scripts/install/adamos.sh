@@ -34,7 +34,7 @@ done < /home/adam/.scripts/install/programs;
 echo "Linking user configs of bash, lf and vim to system-wide configs, so when run as root, you get the same keybinds and stuff."
 rm -f /root/.bashrc
 sudo ln -sf /home/adam/.bashrc /root/.bashrc
-sudo ln -sf /home/adam/.config/nvim/init.vim /usr/share/nvim sysinit.vim
+sudo ln -sf /home/adam/.config/nvim/init.vim /usr/share/nvim/sysinit.vim
 sudo ln -sf /home/adam/.config/nvim/autoload/pathogen.vim /usr/share/nvim/autoload
 sudo ln -sf /home/adam/.config/lf /etc
 

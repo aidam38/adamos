@@ -26,6 +26,7 @@ lf
 perl-File-MimeInfo
 qutebrowser
 feh
+maim
 imlib2-devel
 libexif-devel
 giflib-devel
@@ -39,13 +40,15 @@ pulseaudio
 pamixer
 mpv
 spotify
-grive2
+drive
+cups
 dunst
 spt
 ImageMagick
 gimp
 inkscape
 geogebra
+libreoffice
 anki
 sl
 neofetch

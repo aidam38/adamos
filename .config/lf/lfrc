@@ -5,6 +5,8 @@ set ifs "\n"
 set scrolloff 10
 set drawbox on
 set info size
+set findlen 0
+set noanchorfind
 set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\033[38;5;15m\] \[\033[38;5;155;1m\]%w" 
 
 # responsive columns
@@ -46,6 +48,24 @@ cmd delete ${{
     printf "delete?[y/n]"
     read ans
     [ $ans = "y" ] && rm -rf $fx
+}}
+
+cmd paste &{{
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    if [ $mode = 'copy' ]; then
+	rsync -avh --ignore-existing --progress $list . \
+	| stdbuf -i0 -o0 -e0 tr '\r' '\n' \
+	| while read line; do
+		echo "$line"
+		lf -remote "send $id echo $line"
+	done
+    elif [ $mode = 'move' ]; then
+        mv -n $list .
+    fi
+    lf -remote 'send load'
+    lf -remote 'send clear'
 }}
 
 # extract the current file with the right command
@@ -133,15 +153,15 @@ map gu3 cd /mnt/usb3
 map gb cd /home/adam/builds
 map gdo cd /home/adam/downloads
 map gdr cd /home/adam/drive
-map gsk cd /home/adam/drive/School
-map gsa cd /home/adam/drive/Skaut
-map gan cd /home/adam/drive/School/Anki
-map gsot cd /home/adam/drive/School/SOC/asteroidy_tex
+map gsk cd /home/adam/drive/skola
+map gsa cd /home/adam/drive/skaut
+map gan cd /home/adam/drive/skola/anki
+map gsot cd /home/adam/soc/asteroidy_tex
 map gsof cd /home/adam/soc/swift_eunomia
-map gM cd /home/adam/drive/School/Matika
-map gmi cd /home/adam/drive/School/Matika/iKS
-map gmk cd /home/adam/drive/School/Matika/Krouzek/2018-2019/
-map gmo cd /home/adam/drive/School/Matika/MO
-map gmp cd /home/adam/drive/School/Matika/PraSe
-map gms cd /home/adam/drive/School/Matika/Sady
+map gM cd /home/adam/drive/skola/matika
+map gmi cd /home/adam/drive/skola/matika/iKS
+map gmk cd /home/adam/drive/skola/matika/krouzek/2018-2019/
+map gmo cd /home/adam/drive/skola/matika/MO
+map gmp cd /home/adam/drive/skola/matika/prase
+map gms cd /home/adam/drive/skola/matika/sady
 map gsc cd /home/adam/scripts
