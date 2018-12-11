@@ -15,7 +15,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 export VISUAL="nvim"
 export EDITOR="nvim"
 export OPENER="mimeopen"
-export PATH="/home/adam/bin:/home/adam/.scripts:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
+export PATH="/home/adam/bin:/home/adam/bin:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
 
 eval $(dircolors -b /home/adam/.dircolors)
 

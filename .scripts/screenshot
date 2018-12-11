@@ -1,3 +1,0 @@
-#!/bin/bash
-
-maim -s scr.jpg & xclip -selection clipboard -t image/jpg x.jpg

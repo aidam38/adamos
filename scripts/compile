@@ -2,5 +2,6 @@
 # A script for automatic compiling of stuff from vim
 
 case "$1" in
+	*tex) pdflatex $1 && asy $(echo $1 | sed 's/.tex/-*.asy/g') && pdflatex $1 && biber $(echo $1 | sed 's/.tex//g') && pdflatex $1 ;;
 	*) ./$1
 esac

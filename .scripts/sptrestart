@@ -1,5 +1,0 @@
-#!/bin/bash
-killall dunst &>/dev/null
-killall spt &>/dev/null
-dunst &
-spt

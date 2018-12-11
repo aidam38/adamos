@@ -90,6 +90,7 @@ map <leader>f :Goyo<CR>:set linebreak<CR>
 
 " Compiler
 nnoremap <leader>c :w!<CR>:!compile <c-r>%<CR>
+nnoremap <leader>C :w!<CR>:!st -e "compile <c-r>%<CR>"
 
 " Filetype specific maps
 
