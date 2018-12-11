@@ -30,6 +30,7 @@ maim
 imlib2-devel
 libexif-devel
 giflib-devel
+libOSMesa
 zathura
 zathura-pdf-mupdf
 zathura-ps
@@ -50,6 +51,9 @@ inkscape
 geogebra
 bc
 libreoffice
+gcc
+gcc-fortran
+libgfortran
 anki
 sl
 neofetch

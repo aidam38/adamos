@@ -21,3 +21,4 @@ video/x-msvideo=mpv.desktop;
 text/x-tex=nvim.desktop;
 image/jpeg=sxiv-usercreated-1.desktop;
 application/x-tar=tar-usercreated-1.desktop;
+application/x-compressed-tar=gzip-usercreated-1.desktop;
