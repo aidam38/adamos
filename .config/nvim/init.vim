@@ -8,8 +8,6 @@ set clipboard=unnamed
 set number relativenumber
 set cursorline
 
-set rtp+=~/.fzf
-
 " Persistent undo
 set undodir=/home/adam/.config/nvim/undodir
 set undofile
@@ -28,6 +26,16 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 execute pathogen#infect()
 syntax on
 filetype plugin on
+
+" Tex-conceal
+set conceallevel=2
+let g:tex_conceal="abdgm"
+
+" Goyo - focus
+map <leader>f :Goyo<CR>:set linebreak<CR>
+
+" Fuzzy finder
+set rtp+=~/.fzf
 
 " Colorscheme settings
 let g:solarized_termtrans = 1
@@ -84,9 +92,6 @@ nnoremap <C-i> <C-a>
 " Placeholder replacement
 inoremap <C-space> <Esc>i<Esc>/<++><Enter>"_c4l
 map <C-space> <Esc>/<++><Enter>"_c4l
-
-" Goyo - focus
-map <leader>f :Goyo<CR>:set linebreak<CR>
 
 " Compiler
 nnoremap <leader>c :w!<CR>:!compile <c-r>%<CR>
