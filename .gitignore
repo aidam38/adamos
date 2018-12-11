@@ -8,7 +8,7 @@
 !.config/qutebrowser/*
 !.config/zathura/*
 !.config/mimeapps.list
-!.scripts/*
+!bin/*
 !scripts/
 !.wallpapers/*
 !.bash_profile
