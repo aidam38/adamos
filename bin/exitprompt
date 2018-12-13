@@ -1,6 +1,6 @@
 #/bin/bash
 
-choice=$(echo "Poweroff\nReboot" | dmenu -i) 
+choice=$(echo "Shutdown\nReboot" | dmenu -i) 
 notify-send $choice
 if [ "$choice" = "Shutdown" ]; then
 	sudo poweroff now

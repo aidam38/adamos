@@ -7,6 +7,7 @@ set drawbox on
 set info size
 set findlen 0
 set noanchorfind
+set period 1
 set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\033[38;5;15m\] \[\033[38;5;155;1m\]%w" 
 
 # responsive columns
@@ -146,10 +147,13 @@ map glf cd /home/adam/.config/lf
 map clf :cd /home/adam/.config/lf; $$EDITOR lfrc
 map gr cd /
 map gh cd /home/adam
+map gc cd /home/adam/.config
 map ge cd /etc
 map gu1 cd /mnt/usb1
 map gu2 cd /mnt/usb2
 map gu3 cd /mnt/usb3
+map gi cd /home/adam/.install
+map ci :cd /home/adam/.install; $$EDITOR programs
 map gb cd /home/adam/builds
 map gdo cd /home/adam/downloads
 map gdr cd /home/adam/drive

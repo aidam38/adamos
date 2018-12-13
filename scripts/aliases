@@ -6,10 +6,12 @@ b /home/adam .bashrc
 lf /home/adam/.config/lf lfrc
 r /
 h /home/adam
+c /home/adam/.config
 e /etc
 u1 /mnt/usb1
 u2 /mnt/usb2
 u3 /mnt/usb3
+i /home/adam/.install programs
 b /home/adam/builds
 do /home/adam/downloads
 dr /home/adam/drive

@@ -1,12 +1,13 @@
 void-repo-nonfree
 base-devel
-make
 xorg-minimal
 xinit
 xorg-fonts
 libX11-devel
 libXft-devel
 libXinerama-devel
+libfreeglut
+glu
 numlockx
 xprop
 xsel
@@ -17,16 +18,24 @@ xrdb
 xmodmap
 xev
 setxkbmap
-font-hack-ttf
-rsync
-NetworkManager
 compton
+font-hack-ttf
+gcc
+gcc-fortran
+libgfortran
+make
 neovim
 lf
 perl-File-MimeInfo
 qutebrowser
+rsync
+NetworkManager
+ffmpeg
 feh
 maim
+ImageMagick
+gimp
+inkscape
 imlib2-devel
 libexif-devel
 giflib-devel
@@ -34,7 +43,6 @@ libOSMesa
 zathura
 zathura-pdf-mupdf
 zathura-ps
-mupdf
 texlive
 gnuplot
 pulseaudio
@@ -45,20 +53,15 @@ drive
 cups
 dunst
 spt
-ImageMagick
-gimp
-inkscape
 geogebra
 bc
 libreoffice
-gcc
-gcc-fortran
-libgfortran
 anki
+redshift
 sl
 neofetch
 cmatrix
 dwm https://github.com/aidam38/dwm.git
 st https://github.com/aidam38/st.git 
-dmenu git://git.suckless.org/dmenu
+dmenu https://github.com/aidam38/dmenu
 sxiv https://github.com/muennich/sxiv.git
