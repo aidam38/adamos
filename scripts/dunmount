@@ -7,7 +7,7 @@ device=$(echo -e $list | dmenu)
 
 if [[ -n $device ]]; then 
 	notify-send "Unmounting $device" 
-	sudo -u $USER unmount $device
+	sudo -u $USER umount $device
 else
 	notify-send "Not unmounting anything."
 fi

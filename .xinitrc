@@ -7,7 +7,7 @@ setxkbmap -layout cz,us -option grp:alt_caps_toggle -option caps:swapescape -opt
 numlockx &
 pulseaudio --start &
 dunst &
-redshift &
+redshift -l 49.1781233:16.5544039 &
 
 while true;
 do
