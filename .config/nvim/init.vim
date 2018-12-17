@@ -123,6 +123,7 @@ autocmd filetype tex inoremap §B \mathbf{}<ESC>i
 autocmd filetype tex inoremap §k \textit{}<ESC>i
 autocmd filetype tex inoremap §c \textsc{}<ESC>i
 autocmd filetype tex inoremap §uv \enquote{}<ESC>i
+autocmd filetype tex vnoremap §la yslabel("$<ESC>pa$", <ESC>pa, );<ESC>hi
 
 
 " C++
