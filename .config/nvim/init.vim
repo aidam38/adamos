@@ -84,7 +84,7 @@ noremap L g$
 "noremap <C-z> zd
 
 " Marking maps
-noremap <leader>g `
+noremap , `
 
 " Increment number
 nnoremap <C-i> <C-a>
@@ -107,18 +107,22 @@ autocmd filetype tex nnoremap <leader>. :w<CR>:!pdflatex %<CR>:!asy %:r-*.asy<CR
 autocmd filetype tex nnoremap <leader>k :w<CR>:silent !zathura %:r.pdf & <CR>
 " Snippets
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
-autocmd filetype tex inoremap §f \frac{}{<++>}<ESC>6hi
+autocmd filetype tex inoremap §fr \frac{}{<++>}<ESC>6hi
+autocmd filetype tex inoremap §sq \sqrt{}<ESC>i
 autocmd filetype tex inoremap §eq \begin{equation*}<ESC>o\end{equation*}<ESC>O
 autocmd filetype tex inoremap §al \begin{align*}<ESC>o\end{align*}<ESC>O
 autocmd filetype tex inoremap §en \begin{enumerate}[label=\arabic*.]<ESC>o\end{enumerate}<ESC>O\item
 autocmd filetype tex inoremap §bu \begin{itemize}<ESC>o\end{itemize}<ESC>O
+autocmd filetype tex inoremap §fi \begin{figure}<ESC>o\end{figure}<ESC>O
 autocmd filetype tex inoremap §us \usepackage{}<ESC>i
+autocmd filetype tex inoremap §in \includegraphics[width=0.8\textwidth]{}<ESC>i
 inoremap §D \documentclass[a4paper, 12pt]{article}<CR>\usepackage[margin=1in]{geometry}<CR><CR>\begin{document}<CR>\end{document}<ESC>O
-autocmd filetype tex inoremap §i \item 
+autocmd filetype tex inoremap §it \item 
 autocmd filetype tex inoremap §b \textbf{}<ESC>i
 autocmd filetype tex inoremap §B \mathbf{}<ESC>i
 autocmd filetype tex inoremap §k \textit{}<ESC>i
 autocmd filetype tex inoremap §c \textsc{}<ESC>i
+autocmd filetype tex inoremap §uv \enquote{}<ESC>i
 
 
 " C++

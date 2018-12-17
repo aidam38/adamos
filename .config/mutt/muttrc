@@ -1,0 +1,22 @@
+# Configure Internet Message Access Protocol for reading mail
+# Username and password for your Gmail or G Suite account
+set imap_user = "krivka.adam@gmail.com"
+set imap_pass = "tlzurgiiomupyeah"
+# Specifies the default location of your mailboxes
+set folder = "imaps://imap.gmail.com:993"
+
+# Configure Simple Mail Transfer Protocol for sending mail
+set smtp_url = "smtp://krivka.adam@gmail.com@smtp.gmail.com:587"
+set smtp_pass = "tlzurgiiomupyeah"
+
+# Location of inbox
+set spoolfile = "+INBOX"
+# Location of drafts
+set postponed = "+[GMail]/Drafts"
+
+# Activate caching, as it can greatly improve speed
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+
+# Disable saving outgoing mail since Gmail saves them by default.
+set record = ""

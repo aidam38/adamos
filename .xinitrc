@@ -11,7 +11,11 @@ redshift &
 
 while true;
 do
-	xsetroot -name "$(pamixer --get-volume)% | $(date "+%a %d. %m. | %T")"
+	if [[ $(pamixer --get-mute) == "true" ]]; then
+		xsetroot -name "-1% | $(date "+%a %d. %m. | %T")"
+	else
+		xsetroot -name "$(pamixer --get-volume)% | $(date "+%a %d. %m. | %T")"
+	fi
 	sleep 1
 done &
 exec dwm

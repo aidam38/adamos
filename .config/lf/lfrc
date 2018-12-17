@@ -1,13 +1,14 @@
 # interpreter for shell commands (needs to be POSIX compatible)
-set shell sh
+set shell bash
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
 set drawbox on
+set dircounts
 set info size
-set findlen 0
 set noanchorfind
 set period 1
+set previewer ~/.config/lf/prev.sh
 set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\033[38;5;15m\] \[\033[38;5;155;1m\]%w" 
 
 # responsive columns
@@ -146,6 +147,8 @@ map cb :cd /home/adam; $$EDITOR .bashrc
 map glf cd /home/adam/.config/lf
 map clf :cd /home/adam/.config/lf; $$EDITOR lfrc
 map gr cd /
+map gse cd /var/service
+map gsv cd /etc/sv/services
 map gh cd /home/adam
 map gc cd /home/adam/.config
 map ge cd /etc
@@ -161,6 +164,7 @@ map gsk cd /home/adam/drive/skola
 map gsa cd /home/adam/drive/skaut
 map gan cd /home/adam/drive/skola/anki
 map gsot cd /home/adam/soc/asteroidy_tex
+map csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
 map gsof cd /home/adam/soc/swift_eunomia
 map gM cd /home/adam/drive/skola/matika
 map gmi cd /home/adam/drive/skola/matika/iKS

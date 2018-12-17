@@ -1,5 +1,7 @@
 unmap d
 unmap s
+unmap f
+unmap [fullscreen] f 
 set page-padding 5 
 map J navigate next 
 map K navigate previous 
@@ -8,5 +10,9 @@ map s navigate previous
 map D toggle_page_mode
 map r reload
 map R rotate
+map a adjust_window best-fit
+map [fullscreen] a adjust_window best-fit
 map w adjust_window width
-map f adjust_window best-fit
+map [fullscreen] w adjust_window width
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen

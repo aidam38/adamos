@@ -5,6 +5,8 @@ q /home/adam/.config/qutebrowser config.py
 b /home/adam .bashrc
 lf /home/adam/.config/lf lfrc
 r /
+se /var/service
+sv /etc/sv/services
 h /home/adam
 c /home/adam/.config
 e /etc
@@ -18,7 +20,7 @@ dr /home/adam/drive
 sk /home/adam/drive/skola
 sa /home/adam/drive/skaut
 an /home/adam/drive/skola/anki
-sot /home/adam/soc/asteroidy_tex
+sot /home/adam/soc/asteroidy_tex asteroidy.tex
 sof /home/adam/soc/swift_eunomia
 M /home/adam/drive/skola/matika
 mi /home/adam/drive/skola/matika/iKS

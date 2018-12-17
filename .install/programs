@@ -36,6 +36,7 @@ maim
 ImageMagick
 gimp
 inkscape
+highlight
 imlib2-devel
 libexif-devel
 giflib-devel
@@ -43,6 +44,10 @@ libOSMesa
 zathura
 zathura-pdf-mupdf
 zathura-ps
+neomutt
+offlineimap
+msmtp
+newsboat
 texlive
 gnuplot
 pulseaudio
