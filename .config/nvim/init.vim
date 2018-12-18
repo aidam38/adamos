@@ -105,6 +105,7 @@ autocmd VimLeave *.tex !texclear %
 autocmd filetype tex nnoremap <leader>, :w<CR>:!pdflatex %<CR>
 autocmd filetype tex nnoremap <leader>. :w<CR>:!pdflatex %<CR>:!asy %:r-*.asy<CR>:!pdflatex %<CR>
 autocmd filetype tex nnoremap <leader>k :w<CR>:silent !zathura %:r.pdf & <CR>
+autocmd filetype tex nnoremap <leader>w :w<CR>:!pdftotext %:r.pdf - \| wc -m <CR>
 " Snippets
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
 autocmd filetype tex inoremap §fr \frac{}{<++>}<ESC>6hi
@@ -128,6 +129,9 @@ autocmd filetype tex vnoremap §la yslabel("$<ESC>pa$", <ESC>pa, );<ESC>hi
 
 " C++
 autocmd filetype cpp nnoremap <leader>r :w<CR>:!g++ % -o torun && ./torun < 
+
+" Gnuplot
+autocmd filetype gnuplot nnoremap <leader>k :w<CR>:silent !zathura %:r.eps & <CR>
 
 " Under construction
 autocmd filetype tex noremap C <ESC>zozcV:'<,'>folddoc s/^/%/<CR>zo:noh<CR>

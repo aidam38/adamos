@@ -6,6 +6,7 @@ set scrolloff 10
 set drawbox on
 set dircounts
 set info size
+set findlen 2
 set noanchorfind
 set period 1
 set previewer ~/.config/lf/prev.sh
@@ -147,8 +148,6 @@ map cb :cd /home/adam; $$EDITOR .bashrc
 map glf cd /home/adam/.config/lf
 map clf :cd /home/adam/.config/lf; $$EDITOR lfrc
 map gr cd /
-map gse cd /var/service
-map gsv cd /etc/sv/services
 map gh cd /home/adam
 map gc cd /home/adam/.config
 map ge cd /etc
@@ -164,7 +163,6 @@ map gsk cd /home/adam/drive/skola
 map gsa cd /home/adam/drive/skaut
 map gan cd /home/adam/drive/skola/anki
 map gsot cd /home/adam/soc/asteroidy_tex
-map csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
 map gsof cd /home/adam/soc/swift_eunomia
 map gM cd /home/adam/drive/skola/matika
 map gmi cd /home/adam/drive/skola/matika/iKS

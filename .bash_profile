@@ -1,5 +1,7 @@
 # ~/.bash_profile
 
+# clear
+
 echo "Enter the things, you want to do in this session:"
 list=""
 read next
@@ -12,4 +14,4 @@ convert -font Hack-Regular -pointsize 30 -draw "gravity northeast fill white tex
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-exec startx
+exec xinit

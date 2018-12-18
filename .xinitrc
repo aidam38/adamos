@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 compton -CG --no-fading-openclose --no-fading-destroyed-argb --focus-exclude "x = 0 && y = 0 && override_redirect = true" &
 feh --bg-scale /home/adam/.wallpapers/bg1.jpg &
@@ -9,13 +9,8 @@ pulseaudio --start &
 dunst &
 redshift -l 49.1781233:16.5544039 &
 
-while true;
-do
-	if [[ $(pamixer --get-mute) == "true" ]]; then
-		xsetroot -name "-1% | $(date "+%a %d. %m. | %T")"
-	else
-		xsetroot -name "$(pamixer --get-volume)% | $(date "+%a %d. %m. | %T")"
-	fi
-	sleep 1
+while true; do
+[[ $(pamixer --get-mute) == "true" ]] && xsetroot -name " M  | $(date "+%a %d. %m. | %T")" || xsetroot -name "$(pamixer --get-volume)% | $(date "+%a %d. %m. | %T")"
+sleep 1
 done &
 exec dwm
