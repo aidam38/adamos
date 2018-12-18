@@ -1,13 +1,13 @@
 # Configure Internet Message Access Protocol for reading mail
 # Username and password for your Gmail or G Suite account
 set imap_user = "krivka.adam@gmail.com"
-set imap_pass = "tlzurgiiomupyeah"
+set imap_pass = "mewfvgycbihbywkm"
 # Specifies the default location of your mailboxes
 set folder = "imaps://imap.gmail.com:993"
 
 # Configure Simple Mail Transfer Protocol for sending mail
 set smtp_url = "smtp://krivka.adam@gmail.com@smtp.gmail.com:587"
-set smtp_pass = "tlzurgiiomupyeah"
+set smtp_pass = "dpexzyczjuxpodhm"
 
 # Location of inbox
 set spoolfile = "+INBOX"

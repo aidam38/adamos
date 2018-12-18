@@ -19,3 +19,5 @@ scripts/
 README.md
 .gitmodules
 .gitignore
+.offlineimaprc
+.msmtprc
