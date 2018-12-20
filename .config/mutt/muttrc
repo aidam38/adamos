@@ -1,22 +1,46 @@
-# Configure Internet Message Access Protocol for reading mail
-# Username and password for your Gmail or G Suite account
+# Gmail configuration
 set imap_user = "krivka.adam@gmail.com"
 set imap_pass = "mewfvgycbihbywkm"
-# Specifies the default location of your mailboxes
 set folder = "imaps://imap.gmail.com:993"
-
-# Configure Simple Mail Transfer Protocol for sending mail
-set smtp_url = "smtp://krivka.adam@gmail.com@smtp.gmail.com:587"
-set smtp_pass = "dpexzyczjuxpodhm"
-
-# Location of inbox
+set smtp_url = "smtp://krivka.adam@smtp.gmail.com:587"
+set smtp_pass = "mewfvgycbihbywkm"
 set spoolfile = "+INBOX"
-# Location of drafts
 set postponed = "+[GMail]/Drafts"
-
-# Activate caching, as it can greatly improve speed
 set header_cache = "~/.mutt/cache/headers"
 set message_cachedir = "~/.mutt/cache/bodies"
-
-# Disable saving outgoing mail since Gmail saves them by default.
 set record = ""
+
+# Basic settings
+set sort = "reverse-date"
+set editor = "$EDITOR"
+
+# Formatting
+set date_format = "%d/%m/%y %I:%M"
+set index_format = "%D | %-15.15F | %s (%-4.4c)"
+
+# Coloring
+color index_author red default '.*'
+color index_subject cyan default '.*' 
+color index_date green default
+
+# Bindings
+bind index,pager i noop
+bind index,pager g noop
+bind index \Cf noop
+bind editor <space> noop
+bind index G last-entry
+bind index gg first-entry
+bind pager j next-line
+bind pager k previous-line
+macro pager J jjjjjjjjjj
+macro pager K kkkkkkkkkk
+bind pager gg top
+bind pager G bottom
+bind index d half-down
+bind index s half-up
+bind index D delete-message
+bind index U undelete-message
+bind index f search
+set markers = no
+set mark_old = no
+set mime_forward = yes

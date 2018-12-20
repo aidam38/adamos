@@ -71,6 +71,28 @@ cmd paste &{{
     lf -remote 'send clear'
 }}
 
+cmd symlink &{{
+    load=$(lf -remote 'load')
+    list=$(echo "$load" | sed '1d')
+    echo -e "$list" | while read line; do
+    	echo "$line"
+        ln -s $line . && lf -remote "send $id echo Symlinked $lineto current directory." || lf -remote "send $id echo Failed to symlink file $line"
+    done
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+
+cmd hardlink &{{
+    load=$(lf -remote 'load')
+    list=$(echo "$load" | sed '1d')
+    echo -e "$list" | while read line; do
+    	echo "$line"
+        ln $line . && lf -remote "send $id echo Symlinked $lineto current directory." || lf -remote "send $id echo Failed to symlink file $line"
+    done
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
@@ -112,6 +134,9 @@ map K push kkkkkkkkkk
 map <enter> open
 map o $mimeopen --ask $f
 map O $mimeopen --ask-default $f
+map p paste
+map S symlink
+map H hardlink
 map e $$SHELL
 map E &st
 map r push :rename<space>
@@ -147,7 +172,11 @@ map gb cd /home/adam
 map cb :cd /home/adam; $$EDITOR .bashrc
 map glf cd /home/adam/.config/lf
 map clf :cd /home/adam/.config/lf; $$EDITOR lfrc
+map gmu cd /home/adam/.config/mutt
+map cmu :cd /home/adam/.config/mutt; $$EDITOR muttrc
 map gr cd /
+map gse cd /var/service
+map gsv cd /etc/sv/services
 map gh cd /home/adam
 map gc cd /home/adam/.config
 map ge cd /etc
@@ -163,6 +192,7 @@ map gsk cd /home/adam/drive/skola
 map gsa cd /home/adam/drive/skaut
 map gan cd /home/adam/drive/skola/anki
 map gsot cd /home/adam/soc/asteroidy_tex
+map csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
 map gsof cd /home/adam/soc/swift_eunomia
 map gM cd /home/adam/drive/skola/matika
 map gmi cd /home/adam/drive/skola/matika/iKS

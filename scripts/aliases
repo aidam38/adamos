@@ -4,6 +4,7 @@ v /home/adam/.config/nvim init.vim
 q /home/adam/.config/qutebrowser config.py
 b /home/adam .bashrc
 lf /home/adam/.config/lf lfrc
+mu /home/adam/.config/mutt muttrc
 r /
 se /var/service
 sv /etc/sv/services
