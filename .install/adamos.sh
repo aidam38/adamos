@@ -5,7 +5,7 @@
 # ----------
 echo "Cloning dotfiles from github. (probably already done)"
 cd /home/adam
-sudo -u adam git clone --depth 1 https://github.com/aidam38/adamos_void /home/adam &>/dev/null
+sudo -u adam git clone --depth 1 https://github.com/aidam38/adamos /home/adam &>/dev/null
 
 # ----------
 echo "Creating some basic directories in the /home/adam folder"
@@ -28,7 +28,7 @@ while IFS=, read -r line; do
 		cd ${program[0]}
 		sudo make clean install
 	fi
-done < /home/adam/.scripts/install/programs;
+done < /home/adam/.install/programs;
 
 # ----------
 echo "Linking user configs of bash, lf and vim to system-wide configs, so when run as root, you get the same keybinds and stuff."
@@ -45,16 +45,16 @@ rm -f agetty-tty3 & rm -f agetty-tty4 & rm -f agetty-tty5 & rm -f agetty-tty6 &>
 
 # ----------
 echo "Allowing user to run reboot, poweroff and shutdown without password."
-cp -f /home/adam/.scripts/install/sudoers /etc/sudoers
+cp -f /home/adam/.install/sudoers /etc/sudoers
 
 # ----------
 echo "Disabling grub os prober and changing the splash screen."
-cp -f /home/adam/.scripts/install/grub /etc/default/grub
+cp -f /home/adam/.install/grub /etc/default/grub
 update-grub &>/dev/null
 
 # ----------
 echo "Setting up automatic login."
-cp -R /home/adam/.scripts/install/agetty-autologin-tty1 /etc/sv/ &>/dev/null
+cp -R /home/adam/.install/agetty-autologin-tty1 /etc/sv/ &>/dev/null
 ln -s /etc/sv/agetty-autologin-tty1 /var/service 
 rm /var/service/agetty-tty1 &>/dev/null
 

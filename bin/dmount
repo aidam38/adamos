@@ -8,7 +8,7 @@ if [[ -z $list ]]; then
 	exit
 fi
 
-device=$(echo -e $list | dmenu)
+device=$(echo $list | sed 's/\s/\n/g' | dmenu)
 
 if [ -z "$(mount | grep usb1)"]; then
 	mnt="$mnt/home/mnt/usb1"
