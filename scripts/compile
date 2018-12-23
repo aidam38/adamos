@@ -3,5 +3,7 @@
 
 case "$1" in
 	*tex) latexmk -pdf $1 ;;
+	*c) gcc $1 -lm -o $(echo $1 | sed 's/..$//') ;;
 	*) ./$1
 esac
+
