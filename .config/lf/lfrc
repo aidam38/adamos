@@ -33,8 +33,15 @@ set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\03
 cmd open ${{
     case $(file --mime-type $f -L -b) in
         text/*) $EDITOR $fx;;
-        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+        *) for f in $fx; do $OPENER $(echo "$f" | sed 's/ /\ /g') > /dev/null 2> /dev/null & done;;
     esac
+}}
+
+cmd fzf ${{
+	selection=$(fzf | sed 's/ /\\ /g' | sed 's/\(.*\)\//\1:/')
+	notify-send "fzfing"
+	lf -remote "send $id cd $(echo "$selection" | awk -F ":" '{print $1}')"
+	lf -remote "send $id select $(echo "$selection" | awk -F ":" '{print $2}')"
 }}
 
 # rename current file without overwrite
@@ -69,6 +76,17 @@ cmd paste &{{
     fi
     lf -remote 'send load'
     lf -remote 'send clear'
+}}
+
+cmd makecopy &{{
+    echo -e "$fx" | while read item; do
+	rsync -avh --progress $item $(echo "$item" | sed 's/\(.*\)\./\1_\./') \
+	| stdbuf -i0 -o0 -e0 tr '\r' '\n' \
+	| while read line; do
+		echo "$line"
+		lf -remote "send $id echo $line"
+	done
+    done 
 }}
 
 cmd symlink &{{
@@ -134,12 +152,15 @@ map K push kkkkkkkkkk
 map <enter> open
 map o $mimeopen --ask $f
 map O $mimeopen --ask-default $f
+map f $lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
+map F fzf
 map p paste
 map S symlink
 map H hardlink
 map e $$SHELL
 map E &st
-map r push :rename<space>
+map r $lf -remote "send $id push :rename<space>'$(basename $f | sed 's/ /<space>/g')'<left>"
+map R push :rename<space>
 map md push :$mkdir<space>
 map mv push :$nvim<space>
 map D trash
@@ -147,12 +168,18 @@ map <c-d> delete
 map Z push zh
 map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
-map <esc> unselect
-map <f-5> reload
+map <esc> unselect; clear
+map <f-5> source /home/adam/.config/lf/lfrc; echo "Config loaded."
 map i !stat $f
 map I !du -sh $f
 map x $$f
 map X !$f
+map Y makecopy
+
+# command line bindings
+map <c-w> cmd-delete-unix-word 
+map <c-h> cmd-left
+map <c-l> cmd-right
 
 # unmapping stuff
 map c

@@ -2,7 +2,7 @@
 set imap_user = "krivka.adam@gmail.com"
 set imap_pass = "mewfvgycbihbywkm"
 set folder = "imaps://imap.gmail.com:993"
-set smtp_url = "smtp://krivka.adam@smtp.gmail.com:587"
+set smtp_url = "smtps://krivka.adam@smtp.gmail.com:465"
 set smtp_pass = "mewfvgycbihbywkm"
 set spoolfile = "+INBOX"
 set postponed = "+[GMail]/Drafts"
@@ -32,8 +32,8 @@ bind index G last-entry
 bind index gg first-entry
 bind pager j next-line
 bind pager k previous-line
-macro pager J jjjjjjjjjj
-macro pager K kkkkkkkkkk
+macro index J jjjjjjjjjj
+macro index K kkkkkkkkkk
 bind pager gg top
 bind pager G bottom
 bind index d half-down
@@ -41,6 +41,3 @@ bind index s half-up
 bind index D delete-message
 bind index U undelete-message
 bind index f search
-set markers = no
-set mark_old = no
-set mime_forward = yes
