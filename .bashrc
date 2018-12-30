@@ -15,19 +15,22 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 export VISUAL="nvim"
 export EDITOR="nvim"
 export OPENER="mimeopen"
-export PATH="/home/adam/bin:/home/adam/bin:/home/adam/scripts:/home/adam/.config/nvim/bundle/vim-live-latex-preview/bin:$PATH"
+export PATH="/home/adam/bin:/home/adam/scripts:/home/adam/.fzf/bin:$PATH"
 
 eval $(dircolors -b /home/adam/.dircolors)
 
 export PS1=' \[$(tput sgr0)\]\[\033[38;5;166m\]\u\[$(tput sgr0)\]\[\033[38;5;244m\]@\[$(tput sgr0)\]\[\033[38;5;217m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[\033[38;5;155m\]\W\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;244m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='fd --absolute-path --no-ignore --type file --color=always --follow --hidden --exclude .git --exclude .trash "" /home/adam'
+export FZF_DEFAULT_OPTS="--ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # program aliases
 alias v='nvim'
-alias sv='sudo nvim'
+alias suv='sudo nvim'
 alias r='lf'
 alias sr='sudo lf'
+alias f='fzf'
 alias ls='ls --color=auto'
 alias i='sudo xbps-install'
 alias s='sudo xbps-query -Rs'

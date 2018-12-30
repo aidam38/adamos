@@ -70,7 +70,7 @@ settings:
         <Escape>: leave-mode
         <Return>: follow-hint
       insert:
-        <Ctrl+e>: open-editor nvim
+        <Ctrl+e>: open-editor
         <Escape>: leave-mode
         <Shift+Ins>: insert-text {primary}
       normal:
@@ -92,7 +92,16 @@ settings:
         '-': zoom-out
         .: tab-move +
         /: set-cmd-text /
+        '0': tab-focus -1
         '1': tab-focus 1
+        '2': tab-focus 2
+        '3': tab-focus 3
+        '4': tab-focus 4
+        '5': tab-focus 5
+        '6': tab-focus 6
+        '7': tab-focus 7
+        '8': tab-focus 8
+        '9': tab-focus 9
         ':': 'set-cmd-text :'
         ;I: hint images tab
         ;O: hint links fill :open -t -r {hint-url}
@@ -136,6 +145,7 @@ settings:
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+f>: scroll-page 0 1
         <Ctrl+h>: home
+        <Ctrl+i>: enter-mode passthrough
         <Ctrl+j>: back
         <Ctrl+k>: forward
         <Ctrl+n>: open -w
@@ -152,30 +162,23 @@ settings:
         <F1>: enter-mode passthrough
         <F5>: reload
         <Forward>: forward
-        <Meta++>: tab-focus 1
         <Meta+1>: tab-focus 1
-        <Meta+Tab>: tab-focus last
+        <Meta+h>: tab-give
         <Meta+m>: tab-mute
-        <Meta+á>: tab-focus 7
         <Meta+é>: tab-focus -1
-        <Meta+í>: tab-focus 8
-        <Meta+Č>: tab-focus 4
-        <Meta+Ě>: tab-focus 2
-        <Meta+Ř>: tab-focus 5
-        <Meta+Š>: tab-focus 3
-        <Meta+Ž>: tab-focus 6
         <Return>: follow-selected
+        <Shift+Tab>: tab-focus last
         <Ů>: 'set-cmd-text :'
         '=': zoom
         '?': set-cmd-text ?
         '@': run-macro
         B: set-cmd-text -s :quickmark-load -t
         D: null
-        Dc: download-clear
+        Dc: download-cancel
         Dd: set-cmd-text -s :download
-        Do: download-open rifle
+        Do: download-open mimeopen
         Ds: download-cancel
-        F: hint all tab
+        F: hint all tab-fg
         G: scroll-to-perc
         H: tab-prev
         I: enter-mode passthrough
@@ -193,6 +196,7 @@ settings:
         Sq: open qute://bookmarks
         Ss: open qute://settings
         T: tab-focus
+        W: tab-close -o
         X: tab-close -o
         ZQ: quit
         ZZ: quit --save
@@ -263,6 +267,7 @@ settings:
         tsu: config-cycle -p -t -u {url} content.javascript.enabled ;; reload
         u: undo
         v: enter-mode caret
+        w: tab-close
         wB: set-cmd-text -s :bookmark-load -w
         wO: set-cmd-text :open -w {url:pretty}
         wP: open -w -- {primary}
@@ -273,7 +278,6 @@ settings:
         wl: forward -w
         wo: set-cmd-text -s :open -w
         wp: open -w -- {clipboard}
-        x: tab-close
         xO: set-cmd-text :open -b -r {url:pretty}
         xo: set-cmd-text -s :open -b
         yD: yank domain -s
@@ -281,6 +285,7 @@ settings:
         yT: yank title -s
         yY: yank -s
         yd: yank domain
+        yf: hint links yank
         yp: yank pretty-url
         yt: yank title
         yy: yank

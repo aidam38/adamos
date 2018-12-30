@@ -1,18 +1,35 @@
+set first-page-column 1:2
+set page-padding 5 
 unmap d
+unmap [fullscreen] d
+unmap [fullscreen] D
 unmap s
+unmap [fullscreen] s
 unmap f
 unmap [fullscreen] f 
-set page-padding 5 
-map J navigate next 
-map K navigate previous 
+unmap i 
+unmap [fullscreen] i 
+map J navigate next
+map [fullscreen] J navigate next
+map K navigate previous
+map [fullscreen] K navigate previous
 map d navigate next
+map [fullscreen] d navigate next
 map s navigate previous
+map [fullscreen] s navigate previous
+map i recolor
+map [fullscreen] i recolor
 map D toggle_page_mode
+map [fullscreen] D toggle_page_mode
 map r reload
+map [fullscreen] r reload
 map R rotate
+map [fullscreen] R rotate
 map a adjust_window best-fit
 map [fullscreen] a adjust_window best-fit
 map w adjust_window width
 map [fullscreen] w adjust_window width
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
+map b toggle_statusbar
+map [fullscreen] b toggle_statusbar

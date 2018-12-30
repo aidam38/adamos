@@ -1,20 +1,15 @@
 
 [Default Applications]
-text/html=chromium.desktop
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
-text/plain=nvim.desktop;
 video/x-matroska=mpv.desktop;
 image/svg+xml=inkscape.desktop;
 image/x-eps=org.pwmt.zathura-ps.desktop;
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 text/x-fortran=nvim.desktop;
-image/gif=sxiv.desktop;
 audio/mpeg=mpv.desktop;
 application/postscript=org.pwmt.zathura-ps.desktop;
-application/x-shellscript=nvim.desktop;
 video/mp4=mpv.desktop;
 video/x-msvideo=mpv.desktop;
 text/x-tex=nvim.desktop;
@@ -23,3 +18,8 @@ application/x-tar=tar-usercreated-1.desktop;
 application/x-compressed-tar=gzip-usercreated-1.desktop;
 application/x-audacity-project=audacity.desktop;
 image/png=rifle_sxiv-usercreated-1.desktop;
+application/x-shellscript=nvim-usercreated-1.desktop;
+text/plain=nvim-usercreated-2.desktop;
+image/gif=sxiv.desktop;
+text/html=qutebrowser-usercreated-1.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;

@@ -258,3 +258,6 @@ picture pathticks(path g, int n=1, real r=.5, real spacing=6, real s=8, pen p=cu
 	} 
 	return pict;
 }
+
+// My own additions
+marker mark1 = marker(scale(circlescale*2)*unitcircle, Fill);
