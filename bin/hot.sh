@@ -1,3 +1,3 @@
 #!/bin/bash
 
-st vim ~/soc/asteroidy_tex/asteroidy.tex &
+cd ~/soc/asteroidy_tex && st vim ~/soc/asteroidy_tex/asteroidy.tex &
