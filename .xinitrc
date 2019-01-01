@@ -9,7 +9,11 @@ dunst &
 redshift -l 49.1781233:16.5544039 &
 
 while true; do
-[[ $(pamixer --get-mute) == "true" ]] && xsetroot -name " M  | $(date "+%a %d. %m. | %T")" || xsetroot -name " $(pamixer --get-volume)% | $(date "+%a %d. %m. | %T")"
+	if [[ $(pamixer --get-mute) == "true" ]]; then
+		xsetroot -name " M  | $(date "+%a %d. %m. | %T")" 
+	else 
+		xsetroot -name " $(pamixer --get-volume)% | $(date "+%a %d. %m. | %T")"
+	fi
 sleep 1
 done &
 exec dwm

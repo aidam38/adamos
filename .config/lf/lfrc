@@ -160,6 +160,7 @@ map e $$SHELL
 map E &st
 map r $lf -remote "send $id push :rename<space>'$(basename $f | sed 's/ /<space>/g')'<left>"
 map R push :rename<space>
+map <c-r> !bulkrename.sh "$fx"
 map md push :$mkdir<space>
 map mv push :$nvim<space>
 map D trash
@@ -179,6 +180,7 @@ map Y makecopy
 map <c-w> cmd-delete-unix-word 
 map <c-h> cmd-left
 map <c-l> cmd-right
+map <c-b> cmd-word-back
 
 # unmapping stuff
 map c
