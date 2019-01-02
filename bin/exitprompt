@@ -1,8 +1,10 @@
 #/bin/bash
 
-choice=$(echo "Shutdown\nReboot" | dmenu -i) 
+choice=$(echo "Shutdown\nZzz\nReboot" | dmenu -i) 
 if [ "$choice" = "Shutdown" ]; then
 	sudo poweroff now
+if [ "$choice" = "Zzz" ]; then
+	sudo zzz now
 elif [ "$choice" = "Reboot" ]; then
 	sudo reboot now
 fi

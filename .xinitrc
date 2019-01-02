@@ -7,6 +7,7 @@ setxkbmap -layout cz,us -option grp:alt_caps_toggle -option caps:swapescape -opt
 numlockx &
 dunst &
 redshift -l 49.1781233:16.5544039 &
+clipmenud &
 
 while true; do
 	if [[ $(pamixer --get-mute) == "true" ]]; then
