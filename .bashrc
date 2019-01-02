@@ -21,7 +21,8 @@ eval $(dircolors -b /home/adam/.dircolors)
 
 export PS1=' \[$(tput sgr0)\]\[\033[38;5;166m\]\u\[$(tput sgr0)\]\[\033[38;5;244m\]@\[$(tput sgr0)\]\[\033[38;5;217m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[\033[38;5;155m\]\W\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;244m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
 
-export FZF_DEFAULT_COMMAND='fd --absolute-path --no-ignore --type file --color=always --follow --hidden --exclude .git --exclude .trash "" /home/adam'
+export FZF_DEFAULT_COMMAND='fd --absolute-path --no-ignore-vcs --type file --color=always --follow  --exclude .trash --search-path /home/adam --search-path /home/adam/.config'
+#export FZF_DEFAULT_COMMAND='fd --absolute-path --color=always --follow'
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -42,7 +43,8 @@ alias mke='sudo make clean install'
 alias !!='sudo !!'
 alias tr='transmission-remote'
 alias scan='scanimage >'
-alias gpom='git pull origin master'
+alias gplom='git pull origin master'
+alias gpsom='git push origin master'
 alias lp='lp -o fit-to-page'
 alias lpdupl='lp -o fit-to-page -o sides=two-sided-long-edge'
 alias lpdups='lp -o fit-to-page -o sides=two-sided-short-edge'

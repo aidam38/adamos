@@ -151,8 +151,8 @@ map K push kkkkkkkkkk
 map <enter> open
 map o $mimeopen --ask $f
 map O $mimeopen --ask-default $f
-map f $lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
-map F fzf
+map f fzf
+map F $lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
 map p paste
 map S symlink
 map H hardlink

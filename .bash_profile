@@ -1,6 +1,6 @@
 # ~/.bash_profile
 
-# clear
+clear
 
 echo "Enter the things, you want to do in this session:"
 list=""

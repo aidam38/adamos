@@ -117,7 +117,8 @@ autocmd filetype tex inoremap §bu \begin{itemize}<ESC>o\end{itemize}<ESC>O
 autocmd filetype tex inoremap §fi \begin{figure}<ESC>o\end{figure}<ESC>O
 autocmd filetype tex inoremap §us \usepackage{}<ESC>i
 autocmd filetype tex inoremap §in \includegraphics[width=0.8\textwidth]{}<ESC>i
-inoremap §D \documentclass[a4paper, 12pt]{article}<CR>\usepackage[margin=1in]{geometry}<CR><CR>\begin{document}<CR>\end{document}<ESC>O
+inoremap §D \documentclass[a4paper, 12pt]{article}<CR>\usepackage[czech]{babel}<CR>\usepackage[utf8]{inputenc}<CR>\usepackage[margin=1in]{geometry}<CR><CR>\begin{document}<CR>\end{document}<ESC>O
+
 autocmd filetype tex inoremap §it \item 
 autocmd filetype tex inoremap §b \textbf{}<ESC>i
 autocmd filetype tex inoremap §B \mathbf{}<ESC>i
