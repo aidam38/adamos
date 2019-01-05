@@ -24,3 +24,4 @@ text/html=qutebrowser-usercreated-1.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 image/jpeg=rifle_sxiv-usercreated-2.desktop;
 application/zip=unzip-usercreated-1.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;

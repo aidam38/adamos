@@ -7,6 +7,12 @@ set encoding=utf-8
 set clipboard=unnamed
 set number relativenumber
 set cursorline
+set list lcs=tab:\|\ 
+
+" Pathogen plugin manager
+execute pathogen#infect()
+syntax on
+filetype plugin on
 
 " Persistent undo
 set undodir=/home/adam/.config/nvim/undodir
@@ -21,11 +27,6 @@ set wildmode=longest,list,full
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Pathogen plugin manager
-execute pathogen#infect()
-syntax on
-filetype plugin on
 
 " Tex-conceal
 set conceallevel=2

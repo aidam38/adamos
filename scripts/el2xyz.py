@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/env python
 # Convert from orbital elements to xyz position
 """http://ccar.colorado.edu/asen5070/handouts/kep2cart_2002.doc"""
 __author__ = "Adam Krivka"
