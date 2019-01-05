@@ -39,7 +39,7 @@ def el2xyz(path):
             x = r*(cos(capom)*cos(omega+f)-sin(capom)*sin(omega+f)*cos(inc))
             y = r*(sin(capom)*cos(omega+f)+cos(capom)*sin(omega+f)*cos(inc))
             z = r*sin(inc)*sin(omega+f)
-            print (str(x) + " " + str(y) + " " + str(z))
+            print (str(elms[1]) + " " + str(x) + " " + str(y) + " " + str(z))
         line = binout.readline()
 
 def main():
