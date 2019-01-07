@@ -18,6 +18,9 @@ filetype plugin on
 set undodir=/home/adam/.config/nvim/undodir
 set undofile
 
+" Spelling 
+set spelllang=cs,en
+
 " Better search
 set hlsearch
 set incsearch
@@ -45,11 +48,17 @@ set background=dark
 colorscheme base16-classic-dark
 
 " Fold settings
-set foldmethod=marker
-set foldmarker=\\begin,\\end
-set viewoptions-=options
 autocmd BufWinLeave * mkview
 autocmd BufWinEnter * silent! loadview
+
+" vimtex settings
+set foldmethod=manual
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
+let g:vimtex_compiler_progname = 'nvr'
+
 
 " Some basic maps
 noremap ů :
@@ -78,6 +87,12 @@ noremap J 10gj
 noremap K 10gk
 noremap H g0
 noremap L g$
+
+" Shortcutting split navigation, saving a keypress:
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Folding maps
 "noremap z za
