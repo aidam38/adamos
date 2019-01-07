@@ -46,7 +46,7 @@ colorscheme base16-classic-dark
 
 " Fold settings
 set foldmethod=marker
-set foldmarker=\begin,\end
+set foldmarker=\\begin,\\end
 set viewoptions-=options
 autocmd BufWinLeave * mkview
 autocmd BufWinEnter * silent! loadview
