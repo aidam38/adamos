@@ -142,6 +142,8 @@ cmd zip ${{
     rm -rf $1
 }}
 
+
+
 # my bindings
 # basic
 map ů read

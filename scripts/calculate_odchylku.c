@@ -5,8 +5,9 @@ double rozdilOdchylek(double n1, double n2);
 double mrizkovaKonstanta(double delta, double lambda1, double lambda2);
 
 int main() {
+	//			      n_v    n_r
 	double delta = rozdilOdchylek(1.46, 1.42);
-	printf("Rozdíl odchylek: %f\n", 180/(2*M_PI)*delta);
+	printf("Rozdíl odchylek: %f\n", 180/(M_PI)*delta);
 	printf("Mřížková konstanta: %f", mrizkovaKonstanta(delta, 400*pow(10,0), 700*pow(10,0)));
 	return 0;
 }

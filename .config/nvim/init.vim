@@ -9,15 +9,6 @@ set number relativenumber
 set cursorline
 set list lcs=tab:\|\ 
 
-" Pathogen plugin manager
-execute pathogen#infect()
-syntax on
-filetype plugin on
-
-" Persistent undo
-set undodir=/home/adam/.config/nvim/undodir
-set undofile
-
 " Spelling 
 set spelllang=cs,en
 
@@ -27,19 +18,31 @@ set incsearch
 
 " Autocompletion
 set wildmode=longest,list,full
+set wildmenu
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Persistent undo
+set undodir=/home/adam/.config/nvim/undodir
+set undofile
+
+" Folding settings
+set foldmethod=marker
+set foldmarker=\\begin,\\end
+
+" Fold saving across sessions
+autocmd BufWinLeave * mkview
+"autocmd BufWinEnter * silent! loadview
+
+" Pathogen plugin manager
+execute pathogen#infect()
+syntax on
+filetype plugin on
+
 " Tex-conceal
 set conceallevel=2
 let g:tex_conceal="abdgm"
-
-" Goyo - focus
-map <leader>f :Goyo<CR>:set linebreak<CR>
-
-" Fuzzy finder
-set rtp+=~/.fzf
 
 " Colorscheme settings
 let g:solarized_termtrans = 1
@@ -47,19 +50,10 @@ let g:solarized_termcolors = 256
 set background=dark
 colorscheme base16-classic-dark
 
-" Fold settings
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent! loadview
+" Fuzzy finder
+set rtp+=~/.fzf
 
-" vimtex settings
-set foldmethod=manual
-
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_fold_enabled = 1
-let g:vimtex_fold_manual = 1
-let g:vimtex_compiler_progname = 'nvr'
-
-
+" --------------------------------
 " Some basic maps
 noremap ů :
 map <space> <leader>
@@ -68,6 +62,7 @@ nnoremap <ESC> :noh<CR>:<CR>
 nnoremap ú /
 map <C-s> <CR>:wq!<CR>
 map <C-q> <CR>:q!<CR>
+map <C-e> :silent !st lf %:p:h<CR>
 
 " Copy and paste maps
 noremap <C-r> :reg<CR>
@@ -88,6 +83,12 @@ noremap K 10gk
 noremap H g0
 noremap L g$
 
+" nowrap! map
+noremap <leader>z :set nowrap!<cr>
+
+" spelling maps
+noremap = ]s
+
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -95,12 +96,15 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Folding maps
-"noremap z za
+noremap zz za
 "noremap Z zf
 "noremap <C-z> zd
 
 " Marking maps
 noremap , `
+
+" Goyo - focus
+map <leader>f :Goyo<CR>:set linebreak<CR>
 
 " Increment number
 nnoremap <C-i> <C-a>
@@ -124,7 +128,7 @@ autocmd filetype tex nnoremap <leader>k :w<CR>:silent !zathura %:r.pdf & <CR>
 autocmd filetype tex nnoremap <leader>w :w<CR>:!analysepdf.sh %:r.pdf<CR>
 " Snippets
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
-autocmd filetype tex inoremap §fr \frac{}{<++>}<ESC>6hi
+autocmd filetype tex inoremap §fr \frac{}{<++>}<++><ESC>10hi
 autocmd filetype tex inoremap §sq \sqrt{}<ESC>i
 autocmd filetype tex inoremap §eq \begin{equation*}<ESC>o\end{equation*}<ESC>O
 autocmd filetype tex inoremap §al \begin{align*}<ESC>o\end{align*}<ESC>O
@@ -142,6 +146,14 @@ autocmd filetype tex inoremap §k \textit{}<ESC>i
 autocmd filetype tex inoremap §c \textsc{}<ESC>i
 autocmd filetype tex inoremap §uv \enquote{}<ESC>i
 autocmd filetype tex vnoremap §la yslabel("$<ESC>pa$", <ESC>pa, );<ESC>hi
+
+function! MakeEnv(...)
+if a:0>=1
+call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
+endif
+call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}')
+endfunction
+"inoremap <space><space>e <esc>:call MakeEnv()<CR><esc>O
 
 
 " C
