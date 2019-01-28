@@ -110,6 +110,20 @@ cmd hardlink &{{
     lf -remote 'send clear'
 }}
 
+cmd makearticle ${{
+	read name
+	mkdir "$name"
+	cd "$name"
+	cp /home/adam/scripts/example_article/example_article.tex ./"$name".tex
+}}
+
+cmd makebeamer ${{
+	read name
+	mkdir "$name"
+	cd "$name"
+	cp /home/adam/scripts/example_beamer/example_beamer.tex ./"$name".tex
+}}
+
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
@@ -165,6 +179,8 @@ map R push :rename<space>
 map <c-r> !bulkrename.sh "$fx"
 map md push :$mkdir<space>
 map mv push :$nvim<space>
+map ma makearticle
+map mb makebeamer
 map D trash
 map <c-d> delete
 map Z push zh
@@ -205,6 +221,8 @@ map glf cd /home/adam/.config/lf
 map clf :cd /home/adam/.config/lf; $$EDITOR lfrc
 map gmu cd /home/adam/.config/mutt
 map cmu :cd /home/adam/.config/mutt; $$EDITOR muttrc
+map gal cd /home/adam/scripts
+map cal :cd /home/adam/scripts; $$EDITOR aliases
 map gr cd /
 map gse cd /var/service
 map gsv cd /etc/sv/services
@@ -220,7 +238,7 @@ map gb cd /home/adam/builds
 map gdo cd /home/adam/downloads
 map gdr cd /home/adam/drive
 map gsk cd /home/adam/drive/skola
-map gsa cd /home/adam/drive/skaut
+map gsa cd /home/adam/drive/ostatni/skaut
 map gan cd /home/adam/drive/skola/anki
 map gsot cd /home/adam/soc/asteroidy_tex
 map csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
@@ -231,4 +249,7 @@ map gmk cd /home/adam/drive/skola/matika/krouzek/2018-2019/
 map gmo cd /home/adam/drive/skola/matika/MO
 map gmp cd /home/adam/drive/skola/matika/prase
 map gms cd /home/adam/drive/skola/matika/sady
+map gol cd /home/adam/drive/skola/olympiady
+map gfo cd /home/adam/drive/skola/olympiady/FO/2018-2019
+map gao cd /home/adam/drive/skola/olympiady/AO/2018-2019
 map gsc cd /home/adam/scripts

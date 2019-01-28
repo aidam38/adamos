@@ -2,6 +2,7 @@
 " init.vim (.vimrc) of Adam Krivka
 " --------------------------------
 
+let g:calendar_google_calendar = 1
 " Fundamentals
 set encoding=utf-8
 set clipboard=unnamed
@@ -63,6 +64,7 @@ nnoremap ú /
 map <C-s> <CR>:wq!<CR>
 map <C-q> <CR>:q!<CR>
 map <C-e> :silent !st lf %:p:h<CR>
+map - ;
 
 " Copy and paste maps
 noremap <C-r> :reg<CR>
@@ -114,8 +116,8 @@ inoremap <C-space> <Esc>i<Esc>/<++><Enter>"_c4l
 map <C-space> <Esc>/<++><Enter>"_c4l
 
 " Compiler
-nnoremap <leader>c :w!<CR>:!compile <c-r>%<CR>
-nnoremap <leader>C :w!<CR>:!st -e "compile <c-r>%<CR>"
+nnoremap <leader>c :w!<CR>:silent !compile <c-r>%<CR>
+nnoremap <leader>C :w!<CR>:!compile <c-r>%<CR>
 
 " Filetype specific maps
 
@@ -129,7 +131,7 @@ autocmd filetype tex nnoremap <leader>w :w<CR>:!analysepdf.sh %:r.pdf<CR>
 " Snippets
 autocmd filetype tex inoremap <C-e> }<ESC>yBi\end{<ESC>O\begin{<ESC>pa}
 autocmd filetype tex inoremap §fr \frac{}{<++>}<++><ESC>10hi
-autocmd filetype tex inoremap §sq \sqrt{}<ESC>i
+autocmd filetype tex inoremap §sq \sqrt{}<++><ESC>4hi
 autocmd filetype tex inoremap §eq \begin{equation*}<ESC>o\end{equation*}<ESC>O
 autocmd filetype tex inoremap §al \begin{align*}<ESC>o\end{align*}<ESC>O
 autocmd filetype tex inoremap §en \begin{enumerate}[label=\arabic*.]<ESC>o\end{enumerate}<ESC>O\item
@@ -137,6 +139,7 @@ autocmd filetype tex inoremap §bu \begin{itemize}<ESC>o\end{itemize}<ESC>O
 autocmd filetype tex inoremap §fi \begin{figure}<ESC>o\end{figure}<ESC>O
 autocmd filetype tex inoremap §us \usepackage{}<ESC>i
 autocmd filetype tex inoremap §in \includegraphics[width=0.8\textwidth]{}<ESC>i
+autocmd filetype tex inoremap §<space> \{<++>}<++><esc>F\a
 inoremap §D \documentclass[a4paper, 12pt]{article}<CR>\usepackage[czech]{babel}<CR>\usepackage[utf8]{inputenc}<CR>\usepackage[margin=1in]{geometry}<CR><CR>\begin{document}<CR>\end{document}<ESC>O
 
 autocmd filetype tex inoremap §it \item 

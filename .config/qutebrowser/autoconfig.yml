@@ -181,7 +181,6 @@ settings:
         F: hint all tab-fg
         G: scroll-to-perc
         H: tab-prev
-        I: enter-mode passthrough
         J: scroll-page 0 0.5
         K: scroll-page 0 -0.5
         L: tab-next
@@ -241,7 +240,7 @@ settings:
         o: set-cmd-text -s :open
         pP: open -- {primary}
         pp: open -- {clipboard}
-        q: record-macro
+        q: hint images download
         r: reload
         s: scroll-page 0 -0.5
         sf: save

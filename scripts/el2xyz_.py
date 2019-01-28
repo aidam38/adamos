@@ -21,7 +21,7 @@ def kepler(M, e):
 def el2xyz(path):
     """Conversion from orbital elements to xyz positions (from text file bin.out by program follow2)"""
     binout = open(path, 'r')
-    for line in binout.readlines():
+    for line in binout.readlines()
         l = line.split()
         id = int(l[0])
         if id > 0:

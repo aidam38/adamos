@@ -5,6 +5,7 @@ q /home/adam/.config/qutebrowser config.py
 b /home/adam .bashrc
 lf /home/adam/.config/lf lfrc
 mu /home/adam/.config/mutt muttrc
+al /home/adam/scripts aliases
 r /
 se /var/service
 sv /etc/sv/services
@@ -19,7 +20,7 @@ b /home/adam/builds
 do /home/adam/downloads
 dr /home/adam/drive
 sk /home/adam/drive/skola
-sa /home/adam/drive/skaut
+sa /home/adam/drive/ostatni/skaut
 an /home/adam/drive/skola/anki
 sot /home/adam/soc/asteroidy_tex asteroidy.tex
 sof /home/adam/soc/swift_eunomia
@@ -29,4 +30,7 @@ mk /home/adam/drive/skola/matika/krouzek/2018-2019/
 mo /home/adam/drive/skola/matika/MO
 mp /home/adam/drive/skola/matika/prase
 ms /home/adam/drive/skola/matika/sady
+ol /home/adam/drive/skola/olympiady
+fo /home/adam/drive/skola/olympiady/FO/2018-2019
+ao /home/adam/drive/skola/olympiady/AO/2018-2019
 sc /home/adam/scripts
