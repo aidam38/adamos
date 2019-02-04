@@ -8,7 +8,7 @@
 .config/zathura/*
 .config/mimeapps.list
 .install/*
-bin/*
+.bin/*
 scripts/
 .wallpapers/*
 .bash_profile

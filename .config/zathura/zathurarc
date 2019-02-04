@@ -1,5 +1,6 @@
 set first-page-column 1:2
 set page-padding 5 
+set guioptions ""
 unmap d
 unmap [fullscreen] d
 unmap [fullscreen] D

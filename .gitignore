@@ -11,8 +11,8 @@
 !.config/mimeapps.list
 !.install
 !.install/**
-!bin
-!bin/**
+!.bin
+!.bin/**
 !scripts
 !scripts/**
 !.wallpapers/*
