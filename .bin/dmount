@@ -27,4 +27,3 @@ if [[ -n $device ]] && [[ -n $mnt ]]; then
 else
 	notify-send "Not mounting anything."
 fi
-

@@ -3,7 +3,7 @@
 
 list=$(lsblk --list -p -n -o NAME,TYPE,MOUNTPOINT | awk '$2=="part"&&!/sda/{print $1 " " $3}' | tac)
 
-device=$(echo -e $list | dmenu)
+device=$(echo $list | sed 's/\s/\n/g' | dmenu)
 
 if [[ -n $device ]]; then 
 	notify-send "Unmounting $device" 
