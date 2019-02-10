@@ -25,3 +25,4 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoff
 image/jpeg=rifle_sxiv-usercreated-2.desktop;
 text/plain=scim-usercreated-1.desktop;
 image/png=rifle_sxiv-usercreated-3.desktop;
+text/x-log=nvim.desktop;
