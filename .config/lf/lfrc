@@ -238,7 +238,7 @@ map gb cd /home/adam/builds
 map gdo cd /home/adam/downloads
 map gdr cd /home/adam/drive
 map gsk cd /home/adam/drive/skola
-map gsa cd /home/adam/drive/ostatni/skaut
+map gsa cd /home/adam/drive/ostatni/skaut/2018-2019
 map gan cd /home/adam/drive/skola/anki
 map gsot cd /home/adam/soc/asteroidy_tex
 map csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
@@ -247,7 +247,7 @@ map gM cd /home/adam/drive/skola/matika
 map gmi cd /home/adam/drive/skola/matika/iKS
 map gmk cd /home/adam/drive/skola/matika/krouzek/2018-2019/
 map gmo cd /home/adam/drive/skola/matika/MO
-map gmp cd /home/adam/drive/skola/matika/prase
+map gmp cd /home/adam/drive/skola/matika/prase/2018-2019
 map gms cd /home/adam/drive/skola/matika/sady
 map gol cd /home/adam/drive/skola/olympiady
 map gfo cd /home/adam/drive/skola/olympiady/FO/2018-2019
