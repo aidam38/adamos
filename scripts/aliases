@@ -3,6 +3,7 @@ dwm /home/adam/builds/dwm config.h
 v /home/adam/.config/nvim init.vim
 q /home/adam/.config/qutebrowser config.py
 b /home/adam .bashrc
+x /home/adam .xinitrc
 lf /home/adam/.config/lf lfrc
 mu /home/adam/.config/mutt muttrc
 al /home/adam/scripts aliases
@@ -34,3 +35,4 @@ ol /home/adam/drive/skola/olympiady
 fo /home/adam/drive/skola/olympiady/FO/2018-2019
 ao /home/adam/drive/skola/olympiady/AO/2018-2019
 sc /home/adam/scripts
+ů /home/adam/soc

@@ -1,4 +1,6 @@
 #!/bin/python
+# -*- coding: utf-8 -*-
+
 import operator
 from pprint import pprint
 import locale
@@ -12,7 +14,6 @@ bigline = ""
 for line in log.readlines():
     if len(line.split(" > ")) > 1:
         l = line.split(" > ")[1].decode("UTF-8").lower() 
-        print l.encode("UTF-8")
         for m in modkeys:
             modkeys_dict[m] += l.count(m)
             l = l.replace(m,"")
@@ -29,7 +30,7 @@ i = 0
 char_dat = open("char.dat", "w")
 for c in sorted(char_dict.items(), key=operator.itemgetter(1)):
     i += 1
-    char_dat.write((str(i) + " " + str(c[0]) + " " + str(c[1]) + "\n").decode("UTF-8"))
+    char_dat.write((str(i) + " " + c[0] + " " + str(c[1]) + "\n").encode("utf-8"))
 
 i = 0
 modkeys_dat = open("mod.dat", "w")

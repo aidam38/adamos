@@ -34,3 +34,4 @@ map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 map b toggle_statusbar
 map [fullscreen] b toggle_statusbar
+set continuous-hist-save 

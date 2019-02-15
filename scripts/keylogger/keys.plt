@@ -10,5 +10,6 @@ set style fill solid
 
 set out "mod.png"
 plot "<sed 's/<//' mod.dat | sed 's/>//'" using 1:3:xtic(2) not with boxes
+
 set out "char.png"
 plot "char.dat" using 1:3:xtic(2) not with boxes

@@ -135,12 +135,6 @@
 " environment.
 
 " Terminals that support italics
-if (has('nvim') && $NVIM_TUI_ENABLE_TRUE_COLOR)
-    let s:nvim_true_color = 1
-else
-    let s:nvim_true_color = 0
-endif
-
 let s:terms_italic=[
             \"rxvt",
             \"gnome-terminal"
@@ -151,7 +145,7 @@ let s:terms_noitalic=[
             \"iTerm.app",
             \"Apple_Terminal"
             \]
-if (has("gui_running") || s:nvim_true_color == 1)
+if has("gui_running")
     let s:terminal_italic=1 " TODO: could refactor to not require this at all
 else
     let s:terminal_italic=0 " terminals will be guilty until proven compatible
@@ -246,7 +240,7 @@ let colors_name = "solarized"
 " leave the hex values out entirely in that case and include only cterm colors)
 " We also check to see if user has set solarized (force use of the
 " neutral gray monotone palette component)
-if ((has("gui_running") || s:nvim_true_color == 1) && g:solarized_degrade == 0)
+if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
     let s:base03      = "#002b36"
     let s:base02      = "#073642"
@@ -265,7 +259,7 @@ if ((has("gui_running") || s:nvim_true_color == 1) && g:solarized_degrade == 0)
     let s:cyan        = "#2aa198"
     "let s:green       = "#859900" "original
     let s:green       = "#719e07" "experimental
-elseif ((has("gui_running") || s:nvim_true_color == 1) && g:solarized_degrade == 1)
+elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
     " while in gui mode via "let g:solarized_degrade=1", though this is not
     " recommened and is for testing only.
@@ -374,7 +368,7 @@ endif
 "}}}
 " Background value based on termtrans setting "{{{
 " ---------------------------------------------------------------------
-if (has("gui_running") || s:nvim_true_color == 1 || g:solarized_termtrans == 0)
+if (has("gui_running") || g:solarized_termtrans == 0)
     let s:back        = s:base03
 else
     let s:back        = "NONE"
@@ -496,7 +490,7 @@ exe "let s:fmt_revb     = ' ".s:vmode."=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
 exe "let s:fmt_revbb    = ' ".s:vmode."=NONE".s:r.s:bb.   " term=NONE".s:r.s:bb."'"
 exe "let s:fmt_revbbu   = ' ".s:vmode."=NONE".s:r.s:bb.s:u." term=NONE".s:r.s:bb.s:u."'"
 
-if (has("gui_running") || s:nvim_true_color == 1)
+if has("gui_running")
     exe "let s:sp_none      = ' guisp=".s:none   ."'"
     exe "let s:sp_back      = ' guisp=".s:back   ."'"
     exe "let s:sp_base03    = ' guisp=".s:base03 ."'"
@@ -626,7 +620,7 @@ exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
-if ( has("gui_running") || s:nvim_true_color == 1 || &t_Co > 8 )
+if ( has("gui_running") || &t_Co > 8 )
     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
 else
     exe "hi! VertSplit"  .s:fmt_revbb  .s:fg_base00 .s:bg_base02
@@ -648,7 +642,7 @@ exe "hi! DiffChange"     .s:fmt_undr   .s:fg_yellow .s:bg_none   .s:sp_yellow
 exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_none
 exe "hi! DiffText"       .s:fmt_undr   .s:fg_blue   .s:bg_none   .s:sp_blue
 else " normal
-    if (has("gui_running") || s:nvim_true_color == 1)
+    if has("gui_running")
 exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_base02 .s:sp_green
 exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_base02 .s:sp_yellow
 exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_base02

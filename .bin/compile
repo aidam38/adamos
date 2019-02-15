@@ -2,7 +2,7 @@
 # A script for automatic compiling of stuff from vim
 
 case "$1" in
-	*tex) latexmk -pdf $1 ;;
+	*tex) latexmk --shell-escape -pdf $1 ;;
 	*c) gcc $1 -lm -o $(echo $1 | sed 's/..$//') ;;
 	*) ./$1
 esac

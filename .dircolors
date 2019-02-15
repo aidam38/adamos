@@ -35,7 +35,7 @@
 BLK                   38;5;68
 CAPABILITY            38;5;17
 CHR                   38;5;113;1
-DIR                   38;1;30
+DIR                   38;1;35
 DOOR                  38;5;127
 EXEC                  38;5;208;1
 FILE                  0

@@ -763,7 +763,7 @@ c.downloads.open_dispatcher = None
 #Valid values:
 #  - top
 #  - bottom
-c.downloads.position = 'top'
+c.downloads.position = 'bottom'
 
 #Duration (in milliseconds) to wait before removing finished downloads.
 #If set to -1, downloads are never removed.
@@ -1458,8 +1458,8 @@ config.bind('k', 'scroll up')
 config.bind('l', 'scroll right')
 config.bind('J', 'scroll-page 0 0.5')
 config.bind('K', 'scroll-page 0 -0.5')
-config.bind('d', 'scroll-page 0 0.5') # deprecated
-config.bind('s', 'scroll-page 0 -0.5') # deprecated
+# config.bind('d', 'scroll-page 0 0.5') # deprecated
+# config.bind('s', 'scroll-page 0 -0.5') # deprecated
 config.bind('H', 'tab-prev')
 config.bind('L', 'tab-next')
 config.bind('<Ctrl-J>', 'back')
@@ -1492,9 +1492,10 @@ config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
 config.bind('yf', 'hint links yank')
 config.bind('<Escape>', 'download-clear ;; clear-keychain ;; search ;; fullscreen --leave')
-config.bind('Do', 'download-open mimeopen') 
-config.bind('Dd', 'set-cmd-text -s :download') 
-config.bind('Dc', 'download-cancel')
+config.bind('d<enter>', 'download-open mimeopen') 
+config.bind('dr', 'download-open st lf') 
+config.bind('dd', 'set-cmd-text -s :download') 
+config.bind('dc', 'download-cancel')
 config.bind('t', 'open -t')
 config.bind('<Alt-W>', 'quit --save')
 

@@ -26,6 +26,8 @@ export FZF_DEFAULT_COMMAND='fd --absolute-path --no-ignore-vcs --type file --col
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+export GOPATH="/home/adam/.go"
+
 # program aliases
 alias v='nvim'
 alias suv='sudo nvim'
@@ -62,6 +64,8 @@ alias gq='cd /home/adam/.config/qutebrowser'
 alias cq='cd /home/adam/.config/qutebrowser && v config.py'
 alias gb='cd /home/adam'
 alias cb='cd /home/adam && v .bashrc'
+alias gx='cd /home/adam'
+alias cx='cd /home/adam && v .xinitrc'
 alias glf='cd /home/adam/.config/lf'
 alias clf='cd /home/adam/.config/lf && v lfrc'
 alias gmu='cd /home/adam/.config/mutt'
@@ -89,7 +93,7 @@ alias gsot='cd /home/adam/soc/asteroidy_tex'
 alias csot='cd /home/adam/soc/asteroidy_tex && v asteroidy.tex'
 alias gsof='cd /home/adam/soc/swift_eunomia'
 alias gM='cd /home/adam/drive/skola/matika'
-alias gmi='cd /home/adam/drive/skola/matika/iKS'
+alias gmi='cd /home/adam/drive/skola/matika/iKS/2018-2019'
 alias gmk='cd /home/adam/drive/skola/matika/krouzek/2018-2019/'
 alias gmo='cd /home/adam/drive/skola/matika/MO'
 alias gmp='cd /home/adam/drive/skola/matika/prase/2018-2019'
@@ -98,3 +102,4 @@ alias gol='cd /home/adam/drive/skola/olympiady'
 alias gfo='cd /home/adam/drive/skola/olympiady/FO/2018-2019'
 alias gao='cd /home/adam/drive/skola/olympiady/AO/2018-2019'
 alias gsc='cd /home/adam/scripts'
+alias gů='cd /home/adam/soc'

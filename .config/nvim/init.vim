@@ -8,7 +8,14 @@ set encoding=utf-8
 set clipboard=unnamed
 set number relativenumber
 set cursorline
-set list lcs=tab:\|\ 
+set path +=**
+
+" Tabs
+" set list lcs=tab:\|\ 
+set fillchars+=vert:\| 
+set fillchars+=fold:―
+set listchars=tab:│\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set list
 
 " Spelling 
 set spelllang=cs,en
@@ -39,17 +46,20 @@ autocmd BufWinLeave * mkview
 " Pathogen plugin manager
 execute pathogen#infect()
 syntax on
-filetype plugin on
+filetype plugin indent on
 
 " Tex-conceal
 set conceallevel=2
 let g:tex_conceal="abdgm"
 
 " Colorscheme settings
-let g:solarized_termtrans = 1
-let g:solarized_termcolors = 256
 set background=dark
-colorscheme base16-classic-dark
+" let g:solarized_termtrans = 1
+" let g:solarized_termcolors = 256
+" colorscheme solarized
+let base16colorspace=256  " Access colors present in 256 colorspace
+set termguicolors
+colorscheme base16-solarized-dark
 
 " Fuzzy finder
 set rtp+=~/.fzf
@@ -61,8 +71,8 @@ map <space> <leader>
 noremap U <C-r> 
 nnoremap <ESC> :noh<CR>:<CR>
 nnoremap ú /
-map <C-s> <CR>:wq!<CR>
-map <C-q> <CR>:q!<CR>
+map <leader>s <CR>:wq!<CR>
+map <leader>q <CR>:q!<CR>
 map <C-e> :silent !st lf %:p:h<CR>
 map - ;
 
@@ -82,8 +92,8 @@ noremap j gj
 noremap k gk
 noremap J 10gj
 noremap K 10gk
-noremap H g0
-noremap L g$
+" noremap H g0
+" noremap L g$
 
 " nowrap! map
 noremap <leader>z :set nowrap!<cr>
@@ -91,11 +101,18 @@ noremap <leader>z :set nowrap!<cr>
 " spelling maps
 noremap = ]s
 
+" Buffers
+nnoremap H :w<CR>:bprev<CR>
+nnoremap L :w<CR>:bnext<CR>
+
+" Reload config
+nnoremap R :so /home/adam/.config/nvim/init.vim<CR>
+
 " Shortcutting split navigation, saving a keypress:
-map <C-h> <C-w>h
+" map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
-map <C-l> <C-w>l
+" map <C-l> <C-w>l
 
 " Folding maps
 noremap zz za
@@ -104,6 +121,9 @@ noremap zz za
 
 " Marking maps
 noremap , `
+
+" ctags
+nnoremap ; <c-]>
 
 " Goyo - focus
 map <leader>f :Goyo<CR>:set linebreak<CR>
@@ -118,6 +138,11 @@ map <C-space> <Esc>/<++><Enter>"_c4l
 " Compiler
 nnoremap <leader>c :w!<CR>:silent !compile <c-r>%<CR>
 nnoremap <leader>C :w!<CR>:!compile <c-r>%<CR>
+
+" Commenting
+
+nmap # gcc
+vmap # gc
 
 " Filetype specific maps
 
@@ -148,6 +173,7 @@ autocmd filetype tex inoremap §B \mathbf{}<ESC>i
 autocmd filetype tex inoremap §k \textit{}<ESC>i
 autocmd filetype tex inoremap §c \textsc{}<ESC>i
 autocmd filetype tex inoremap §uv \enquote{}<ESC>i
+autocmd filetype tex inoremap §jd \,{\rm }<ESC>i
 autocmd filetype tex vnoremap §la yslabel("$<ESC>pa$", <ESC>pa, );<ESC>hi
 
 function! MakeEnv(...)
