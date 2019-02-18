@@ -173,16 +173,33 @@ autocmd filetype tex inoremap §B \mathbf{}<ESC>i
 autocmd filetype tex inoremap §k \textit{}<ESC>i
 autocmd filetype tex inoremap §c \textsc{}<ESC>i
 autocmd filetype tex inoremap §uv \enquote{}<ESC>i
-autocmd filetype tex inoremap §jd \,{\rm }<ESC>i
+autocmd filetype tex inoremap §jd \,{\rm }<++><ESC>4hi
+autocmd filetype tex inoremap §rm {\rm }<++><ESC>4hi
 autocmd filetype tex vnoremap §la yslabel("$<ESC>pa$", <ESC>pa, );<ESC>hi
 
-function! MakeEnv(...)
-if a:0>=1
-call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
-endif
-call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}')
-endfunction
-"inoremap <space><space>e <esc>:call MakeEnv()<CR><esc>O
+fun! DuplicateAndSurround(phrase,prefix_first,suffix_first,prefix_second,suffix_second,...)
+	let name = ''
+	if a:0==0
+	  let line = getline('.')
+	  call inputsave()
+	  let name = input(a:phrase)
+	  call inputrestore()
+	else
+	  let name=get(a:,1,0)
+	endif
+	let lineone=a:prefix_first .name.a:suffix_first
+	let linetwo=a:prefix_second.name.a:suffix_second
+	put =lineone
+	put =linetwo
+endfun!
+
+fun! MakeEnv(...)
+	if a:0>=1
+	call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
+	endif
+	call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}')
+endfun!
+inoremap <space><space>e <esc>:call MakeEnv()<CR><esc>O
 
 
 " C

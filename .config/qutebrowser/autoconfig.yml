@@ -175,8 +175,6 @@ settings:
         B: set-cmd-text -s :quickmark-load -t
         D: null
         Dc: download-cancel
-        Dd: set-cmd-text -s :download
-        Do: download-open mimeopen
         Ds: download-cancel
         F: hint all tab-fg
         G: scroll-to-perc
@@ -205,10 +203,12 @@ settings:
         b: set-cmd-text -s :quickmark-load
         cd: download-clear
         co: tab-only
-        d: scroll-page 0 0.5
+        d<Enter>: download-open mimeopen
+        d<Space>: download-open mimeopen
         dc: download-cancel
         dd: set-cmd-text -s :download
         do: download-open rifle
+        dr: download-open st lf
         f: hint
         g$: tab-focus -1
         g0: tab-focus 1
@@ -240,9 +240,8 @@ settings:
         o: set-cmd-text -s :open
         pP: open -- {primary}
         pp: open -- {clipboard}
-        q: hint images download
+        q: record-macro
         r: reload
-        s: scroll-page 0 -0.5
         sf: save
         sk: set-cmd-text -s :bind
         sl: set-cmd-text -s :set -t

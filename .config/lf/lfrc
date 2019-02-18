@@ -142,8 +142,9 @@ cmd extract ${{
 cmd tar ${{
     set -f
     mkdir $1
-    cp -r $fx $1
-    tar czf $1.tar.gz $1
+    rsync -avh --progress $fx $1
+    # cp -r $fx $1
+    tar czfv $1.tar.gz $1
     rm -rf $1
 }}
 
@@ -151,8 +152,9 @@ cmd tar ${{
 cmd zip ${{
     set -f
     mkdir $1
-    cp -r $fx $1
-    zip -r $1.zip $1
+    rsync -avh --progress $fx $1
+    # cp -r $fx $1
+    zip -rv $1.zip $1
     rm -rf $1
 }}
 
@@ -167,6 +169,7 @@ map K push kkkkkkkkkk
 map <enter> open
 map o $mimeopen --ask $f
 map O $mimeopen --ask-default $f
+map <a-w> q
 map f fzf
 map F $lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
 map p paste
@@ -267,4 +270,4 @@ map gol cd /home/adam/drive/skola/olympiady
 map gfo cd /home/adam/drive/skola/olympiady/FO/2018-2019
 map gao cd /home/adam/drive/skola/olympiady/AO/2018-2019
 map gsc cd /home/adam/scripts
-map gů cd /home/adam/soc
+map gů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2
