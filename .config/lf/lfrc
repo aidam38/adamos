@@ -228,6 +228,8 @@ map gdwm cd /home/adam/builds/dwm
 map cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
 map gv cd /home/adam/.config/nvim
 map cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
+map gk cd /home/adam/.config/kak
+map ck :cd /home/adam/.config/kak; $$EDITOR kakrc
 map gq cd /home/adam/.config/qutebrowser
 map cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
 map gb cd /home/adam

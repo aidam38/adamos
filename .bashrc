@@ -12,8 +12,10 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # global environment variables and colors
-export VISUAL="nvim"
-export EDITOR="nvim"
+export VISUAL="kak"
+export EDITOR="kak"
+# export VISUAL="nvim"
+# export EDITOR="nvim"
 export OPENER="mimeopen"
 export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:$PATH"
 
@@ -60,6 +62,8 @@ alias gdwm='cd /home/adam/builds/dwm'
 alias cdwm='cd /home/adam/builds/dwm && v config.h'
 alias gv='cd /home/adam/.config/nvim'
 alias cv='cd /home/adam/.config/nvim && v init.vim'
+alias gk='cd /home/adam/.config/kak'
+alias ck='cd /home/adam/.config/kak && v kakrc'
 alias gq='cd /home/adam/.config/qutebrowser'
 alias cq='cd /home/adam/.config/qutebrowser && v config.py'
 alias gb='cd /home/adam'

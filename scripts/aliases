@@ -1,6 +1,7 @@
 st /home/adam/builds/st config.h
 dwm /home/adam/builds/dwm config.h
 v /home/adam/.config/nvim init.vim
+k /home/adam/.config/kak kakrc
 q /home/adam/.config/qutebrowser config.py
 b /home/adam .bashrc
 x /home/adam .xinitrc
