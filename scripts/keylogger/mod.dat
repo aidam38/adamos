@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:50659d46acbb53669e34421d822da78e0b31406cd2daeeeab1cd2301b5566878
-size 258
+1 <end> 3
+2 <home> 3
+3 <rctrl> 4
+4 <del> 23
+5 <up> 80
+6 <down> 91
+7 <cpslk> 99
+8 <left> 333
+9 <altgr> 494
+10 <rshft> 509
+11 <lctrl> 728
+12 <right> 753
+13 <tab> 1682
+14 <esc> 2217
+15 <bcksp> 2305
+16 <lalt> 2672
+17 <enter> 3001
+18 <lshft> 5370
+19 <space> 6150

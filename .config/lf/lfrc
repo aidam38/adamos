@@ -60,7 +60,25 @@ cmd delete ${{
     [ $ans = "y" ] && rm -rf $fx
 }}
 
-cmd paste &{{
+cmd paste ${{
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    if [ $mode = 'copy' ]; then
+	rsync -avh --ignore-existing --progress $list . \
+	| stdbuf -i0 -o0 -e0 tr '\r' '\n' \
+	| while read line; do
+		echo "$line"
+		lf -remote "send $id echo $line"
+	done
+    elif [ $mode = 'move' ]; then
+        mv -n $list .
+    fi
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+
+cmd paste-root &{{
     load=$(lf -remote 'load')
     mode=$(echo "$load" | sed -n '1p')
     list=$(echo "$load" | sed '1d')
@@ -181,7 +199,7 @@ map r $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/
 map R push :rename<space>
 map <c-r> !bulkrename.sh "$fx"
 map md push :$mkdir<space>
-map mv push :$nvim<space>
+map mv push :$$EDITOR<space>
 map ma makearticle
 map mb makebeamer
 map D trash

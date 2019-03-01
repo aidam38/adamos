@@ -27,12 +27,18 @@ for l in bashrc_in.readlines():
 for a in aliases.readlines():
     if(len(a.split()) < 3):
         lfrc += 'map g' + a.split()[0] + ' cd ' + a.split()[1] + '\n'
-        bashrc += 'alias g' + a.split()[0] + '=\'cd ' + a.split()[1] + '\'' + '\n'
+        bashrc += 'alias g' + a.split()[0] + \
+            '=\'cd ' + a.split()[1] + '\'' + '\n'
     else:
         lfrc += 'map g' + a.split()[0] + ' cd ' + a.split()[1] + '\n'
-        lfrc += 'map c' + a.split()[0] + ' :cd ' + a.split()[1] + '; $$EDITOR ' + a.split()[2] + '\n'
-        bashrc += 'alias g' + a.split()[0] + '=\'cd ' + a.split()[1] + '\'' + '\n'
-        bashrc += 'alias c' + a.split()[0] + '=\'cd ' + a.split()[1] + ' && ' + 'v ' + a.split()[2] + '\'' + '\n'
+        lfrc += 'map c' + \
+            a.split()[0] + ' :cd ' + a.split()[1] + \
+            '; $$EDITOR ' + a.split()[2] + '\n'
+        bashrc += 'alias g' + a.split()[0] + \
+            '=\'cd ' + a.split()[1] + '\'' + '\n'
+        bashrc += 'alias c' + \
+            a.split()[0] + '=\'cd ' + a.split()[1] + \
+            ' && ' + '$EDITOR ' + a.split()[2] + '\'' + '\n'
 
 print(lfrc)
 print(bashrc)

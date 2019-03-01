@@ -521,7 +521,7 @@ c.content.frame_flattening = False
 #  - true
 #  - false
 #  - ask
-c.content.geolocation = 'ask'
+c.content.geolocation = True
 
 #Value to send in the `Accept-Language` header. Note that the value
 #read from JavaScript is always the global value.
@@ -661,7 +661,7 @@ c.content.pdfjs = False
 #  - true
 #  - false
 #  - ask
-c.content.persistent_storage = 'ask'
+c.content.persistent_storage = True
 
 #Enable plugins in Web pages.
 #Type: Bool
@@ -695,7 +695,7 @@ c.content.proxy_dns_requests = True
 #  - true
 #  - false
 #  - ask
-c.content.register_protocol_handler = 'ask'
+c.content.register_protocol_handler = True
 
 #Validate SSL handshakes.
 #Type: BoolAsk
@@ -703,7 +703,7 @@ c.content.register_protocol_handler = 'ask'
 #  - true
 #  - false
 #  - ask
-c.content.ssl_strict = 'ask'
+c.content.ssl_strict = True
 
 #List of user stylesheet filenames to use.
 #Type: List of File, or File
@@ -1491,8 +1491,8 @@ config.bind(',', 'tab-move -')
 config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
 config.bind('yf', 'hint links yank')
-config.bind('<Escape>', 'download-clear ;; clear-keychain ;; search ;; fullscreen --leave')
-config.bind('d<enter>', 'download-open mimeopen') 
+config.bind('d<Escape>', 'download-clear ;; clear-keychain ;; search ;; fullscreen --leave')
+config.bind('d<space>', 'download-open mimeo') 
 config.bind('dr', 'download-open st lf') 
 config.bind('dd', 'set-cmd-text -s :download') 
 config.bind('dc', 'download-cancel')

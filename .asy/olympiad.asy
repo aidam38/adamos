@@ -261,3 +261,11 @@ picture pathticks(path g, int n=1, real r=.5, real spacing=6, real s=8, pen p=cu
 
 // My own additions
 marker mark1 = marker(scale(circlescale*2)*unitcircle, Fill);
+
+void drawpoints(pair S=origin ... pair[] body){
+	draw(currentpicture, S, marker=mark1);
+	for(int i=0; i<body.length; ++i){
+		draw(currentpicture, body[i], marker=mark1);
+	}
+}
+

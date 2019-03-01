@@ -157,7 +157,6 @@ settings:
         <Ctrl+v>: null
         <Ctrl+w>: tab-close
         <Ctrl+x>: navigate decrement
-        <Escape>: download-clear ;; clear-keychain ;; search ;; fullscreen --leave
         <F11>: fullscreen
         <F1>: enter-mode passthrough
         <F5>: reload
@@ -204,7 +203,8 @@ settings:
         cd: download-clear
         co: tab-only
         d<Enter>: download-open mimeopen
-        d<Space>: download-open mimeopen
+        d<Escape>: download-clear ;; clear-keychain ;; search ;; fullscreen --leave
+        d<Space>: download-open mimeo
         dc: download-cancel
         dd: set-cmd-text -s :download
         do: download-open rifle

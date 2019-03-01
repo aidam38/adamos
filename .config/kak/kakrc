@@ -1,6 +1,45 @@
+# key bindings
+map global normal ů :
+map global normal '#' :comment-line<ret>
+map global normal ú /
+map global normal <space> ,
+map global user <space> <space>
+map global normal R ":source ~/.config/kak/kakrc<ret>"
+map global user k ':terminal zathura $(basename %val{buffile} .tex).pdf'
+map global insert <a-space> "<esc>/<lt>\+\+<gt><ret>c"
+
+# Clipboard managment
+hook global NormalKey y|d|c %{ nop %sh{
+      printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+}}
+map global user p '<a-!>xsel --output --clipboard<ret>'
+map global user P '!xsel --output --clipboard<ret>'
+
+# Filetype specific
+# Latex
+map global user e 'i\begin{}<esc>xypjxsbegin<ret>cend<esc>kJ<a-x>s\{<ret>a'
+map global user c ':w<ret>:terminal compile %val{buffile}<ret>'
+map global user u 'i\usepackage{}<esc>hi'
+
+# hook global WinSetOption filetype=latex %{
+	# map window normal <c-c> %{: w<ret>: nop %sh{compile %val{buffile} } }
+	# map global user k %{nop %sh{zathura "$(%val{buffile}).pdf"} }
+# }
+
+eval %sh{kak-lsp --kakoune -s $kak_session}
+lsp-enable
+
+set global tabstop 4
+set global indentwidth 0
+
+map global user C ':exec ":nop %sh{ cd /home/adam/builds/manim && python3 -m manim $kak_buffile  -pl }"<left><left><left><left><left><left><left>'
+map global user l ':lf<ret>'
+
 # Plugins
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
+# tagbar
+plug "https://github.com/andreyorst/tagbar.kak"
 # kakoune-lf
 plug "https://github.com/TeddyDD/kakoune-lf"
 declare-option -docstring %{shell command run to spawn a new terminal
@@ -28,66 +67,33 @@ A shell command is appended to the one set in this option at runtime} \
 
 
 # snippets
-plug "https://github.com/occivink/kakoune-snippets"
-set global snippets 	usepackage 	"us" 	"exec i\usepackage{}<esc>hi"\
-			section 	"sec"	"exec i\section{}<esc>hi"\
-			frac		"fr"	"exec i\frac{}{}<esc>hhhi"\
-			uv		"uv"	"exec i\uv{}<esc>hi"\
-			env		"env"	"exec i\begin{}<ret>\end{}<esc>K<a-x>s\}<ret>i"
+plug "https://github.com/occivink/kakoune-snippets" config %{
+	set-option global snippets_auto_expand false
+	set global snippets 	usepackage 	"us" 	"exec i\usepackage{}<esc>hi"\
+							section 	"sec"	"exec i\section{}<esc>hi"\
+							frac		"fr"	"exec i<\>frac{}{}<esc>hhhi"\
+							uv			"uv"	"exec i\uv{}<esc>hi"\
+							env			"env"	"exec i\begin{}<ret>\end{}<esc>K<a-x>s{<backspace>\}<ret>i"
+	map global insert <a-i> '<esc>b:snippets-expand-trigger<ret>'
+}
 
-map global user <ret> ":snippets-expand-trigger<ret>"
-# plug "https://github.com/alexherbo2/snippets.kak.git"
-# hook global WinCreate .* %{
-#       snippets-enable
-# }
-# set-option global snippets -> →
-#
-# hook global WinSetOption filetype=kak %{
-#       set-option -add buffer snippets \
-#          us '\usepackage{}<esc>hi'
-# }
-
+# powerline
 plug "https://github.com/andreyorst/powerline.kak"
 
+# buffers
 plug "https://github.com/Delapouite/kakoune-buffers"
 map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
 map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
 
+# surround
+plug "https://github.com/h-youhei/kakoune-surround"
+
+# find
+plug "https://github.com/occivink/kakoune-find"
+
 # Options
 add-highlighter global/ number-lines
 add-highlighter global/ wrap
+add-highlighter global/ show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
 
-plug "https://github.com/h-youhei/kakoune-surround"
 
-# Key bindings
-map global normal ů :
-map global normal '#' :comment-line<ret>
-map global normal ú /
-map global normal <space> ,
-map global user <space> <space>
-map global normal R ":source ~/.config/kak/kakrc<ret>"
-map global user c "echo %sh{ compile %val{buffile}}"
-map global normal <a-o> <a-i>
-
-# Clipboard managment
-hook global NormalKey y|d|c %{ nop %sh{
-      printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
-}}
-map global user p '<a-!>xsel --output --clipboard<ret>'
-map global user P '!xsel --output --clipboard<ret>'
-
-# Filetype specific
-# Latex
-map global user e 'i\begin{}<ret>\end{}<esc>Ks\{<ret>a'
-map global user c ':w<ret>$compile ${kak_buffile}<ret>'
-map global user u 'i\usepackage{}<esc>hi'
-
-# hook global WinSetOption filetype=latex %{
-	# map window normal <c-c> %{: w<ret>: nop %sh{compile %val{buffile} } }
-	# map global user k %{nop %sh{zathura "$(%val{buffile}).pdf"} }
-# }
-
-eval %sh{kak-lsp --kakoune -s $kak_session}
-lsp-enable
-
-map global user C ':exec ":nop %sh{ cd /home/adam/builds/manim && python3 -m manim $kak_buffile  -pl }"<left><left><left><left><left><left><left>'
