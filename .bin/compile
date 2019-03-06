@@ -4,6 +4,7 @@
 case "$1" in
 	*tex) latexmk --shell-escape -pdf $1 || read ;;
 	*md) pandoc -o "$(basename $1 .md).pdf" $1 ;;
+	*plt) gnuplot $1 || read;;
 	*asy) asy $1 || read -n 1 -s -r -p "Press any key to continue" ;;
 	*c) gcc $1 -lm -o $(echo $1 | sed 's/..$//') ;;
 	*) ./$1

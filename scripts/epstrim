@@ -1,0 +1,3 @@
+#!/bin/bash
+
+epstopdf "$1" && pdfcrop.pl $(echo "$1" | sed "s|.eps$|.pdf|")

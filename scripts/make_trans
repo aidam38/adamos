@@ -1,0 +1,1 @@
+for img in $(ls); do if [[ $img == *"jpg"* ]] || [[ $img == *"png"* ]]; then  	convert -transparent white "$img" $(echo "$img" | sed "s/.\(jpg\|png\)$/_trans.\1/"); fi; done;
