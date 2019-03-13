@@ -1,7 +1,5 @@
 # Adam Křivka (aidam38) kakrc
-# 
-# initialization of plug.kak
-source "%val{config}/plugins/plug.kak/rc/plug.kak"
+ 
 
 # basic key bindings
 map global normal ů :
@@ -38,54 +36,136 @@ hook global WinSetOption filetype=latex %{
 }
 
 
-# options
-set global tabstop 4
-set global indentwidth 0
 
-# tagbar
-# plugg "https://github.com/andreyorst/tagbar.kak"
+# Plugins
+# initialization of plug.kak
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+# kak-crosshairs
+# plug "https://github.com/andreyorst/kak-crosshairs"
 
 # kakoune-lf
 plug "https://github.com/TeddyDD/kakoune-lf"
 map global user l ':lf<ret>'
 declare-option -docstring %{shell command run to spawn a new terminal} str termcmd 'st -e bash -c'
 
-# snippets
+# kakoune-snippets
 plug "https://github.com/occivink/kakoune-snippets" config %{
+	set-option global snippets_directories "%opt{plug_install_dir}/kakoune-snippet-collection/snippets"
 	set-option global snippets_auto_expand false
-	map global insert <a-i> '<esc>b:snippets-expand-trigger<ret>'
-	set global snippets 	usepackage 	"us" 	"exec i\usepackage{}<esc>hi"\
-							section 	"sec"	"exec i\section{}<esc>hi"\
-							frac		"fr"	"exec i\frac{}{}<esc>hhhi"\
-							uv			"uv"	"exec i\uv{}<esc>hi"\
-							in			"in" 	"exec i\includegraphics[0.<lt>++<gt>\textwidth]{<lt>++<gt>}<esc><a-b>"
+	map global insert '§' "z<a-;>: snippets-expand-or-jump 'tab'<ret>"
+	map global normal '§' ": snippets-select-next-placeholders<ret>"
+
+	hook global InsertCompletionShow .* %{
+		try %{
+			execute-keys -draft 'h<a-K>\h<ret>'
+			map window insert '<ret>' "z<a-;>: snippets-expand-or-jump 'ret'<ret>"
+		}
+	}
+
+	hook global InsertCompletionHide .* %{
+		unmap window insert '<ret>' "z<a-;>: snippets-expand-or-jump 'ret'<ret>"
+	}
+
+	define-command snippets-expand-or-jump -params 1 %{
+	execute-keys <backspace>
+	try %{
+		snippets-expand-trigger %{
+		set-register / "%opt{snippets_triggers_regex}\z"
+		execute-keys 'hGhs<ret>'
+	}
+	} catch %{
+		snippets-select-next-placeholders
+	} catch %sh{
+		case $1 in
+		ret|tab)
+			printf "%s\n" "execute-keys -with-hooks <$1>" ;;
+		*)
+			printf "%s\n" "execute-keys -with-hooks $1" ;;
+		esac
+		}
+	}
 }
 
+# snippet collection
+plug "andreyorst/kakoune-snippet-collection"
+
 # powerline
-plug "https://github.com/andreyorst/powerline.kak"
+plug "https://github.com/andreyorst/powerline.kak" %{
+	hook -once global WinCreate .* %{
+		powerline-format bufname filetype mode_info line_column position
+	}
+}
 
 # buffers
-plug "https://github.com/Delapouite/kakoune-buffers"
-map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
-map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
-map global user <tab> '<space>ba'
+plug "https://github.com/Delapouite/kakoune-buffers" %{
+	hook global WinDisplay .* info-buffers
+	# Suggested mappings
+	map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
+	map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
+	# Suggested aliases
+
+	alias global bd delete-buffer
+	alias global bf buffer-first
+	alias global bl buffer-last
+	alias global bo buffer-only
+	alias global bo! buffer-only-force
+}
+
+# fzf
+plug "https://github.com/andreyorst/fzf.kak" %{
+	map -docstring 'fzf mode' global user 'f' ': fzf-mode<ret>'
+	set-option global fzf_preview_width '65%'
+	evaluate-commands %sh{
+		if [ -n "$(command -v fd)" ]; then
+			echo "set-option global fzf_file_command %{fd . --color=always --no-ignore --type f --follow --hidden --exclude .git --exclude .svn}"
+		else
+			echo "set-option global fzf_file_command %{find . \( -path '*/.svn*' -o -path '*/.git*' \) -prune -o -type f -follow -print}"
+		fi
+		[ -n "$(command -v bat)" ] && echo "set-option global fzf_highlighter bat"
+		[ -n "$(command -v rg)" ] && echo "set-option global fzf_sk_grep_command %{$kak_opt_grepcmd}"
+	}
+}
+
 
 # surround
-plug "https://github.com/h-youhei/kakoune-surround"
-# TODO
+plug "https://github.com/h-youhei/kakoune-surround" %{
+	declare-user-mode surround
+	map global user 's' ':enter-user-mode surround<ret>'
+	map global surround s ':surround<ret>' -docstring 'surround'
+	map global surround c ':change-surround<ret>' -docstring 'change'
+	map global surround d ':delete-surround<ret>' -docstring 'delete'
+	map global surround t ':select-surrounding-tag<ret>' -docstring 'select tag'
+}
 
 # find
 plug "https://github.com/occivink/kakoune-find"
 # TODO
 
+# tagbar.kak
+plug "https://github.com/andreyorst/tagbar.kak"
+
 # kak-lsp
-eval %sh{kak-lsp --kakoune -s $kak_session}
-lsp-enable
+hook global KakBegin .* %{
+	eval %sh{kak-lsp --kakoune -s $kak_session}
+	lsp-enable
+}
+
+# options
+set-option global scrolloff 4,4
+
+set global tabstop 4
+set global indentwidth 0
 
 # highlighters
-add-highlighter global/ number-lines
-add-highlighter global/ wrap -indent
-add-highlighter global/ show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
+hook global WinCreate .* %{
+	add-highlighter window/numbers          number-lines -relative -hlcursor
+	add-highlighter window/matching         show-matching
+	add-highlighter window/wrap             wrap -word -indent -marker '↪'
+	add-highlighter window/show-whitespaces show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
+	add-highlighter window/operators        regex (\+|-|\*|&|=|\\|\?|%|\|-|!|\||->|\.|,|<|>|:|\^|/|~) 0:operator
+	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:delimiters
+}
 # ----------
 
 def suspend-and-resume \
