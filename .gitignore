@@ -16,7 +16,8 @@
 !.bin/**
 !scripts
 !scripts/**
-!.wallpapers/*
+!.wallpapers
+!.wallpapers/**
 !.bash_profile
 !.bashrc
 !.dircolors
