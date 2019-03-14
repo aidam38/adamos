@@ -45,9 +45,10 @@ source "%val{config}/plugins/plug.kak/rc/plug.kak"
 # plug "https://github.com/andreyorst/kak-crosshairs"
 
 # kakoune-lf
-plug "https://github.com/TeddyDD/kakoune-lf"
-map global user l ':lf<ret>'
-declare-option -docstring %{shell command run to spawn a new terminal} str termcmd 'st -e bash -c'
+plug "https://github.com/TeddyDD/kakoune-lf" config %{
+    map global user l ':lf<ret>'
+    declare-option -docstring %{shell command run to spawn a new terminal} str termcmd 'st -e bash -c'
+}
 
 # kakoune-snippets
 plug "https://github.com/occivink/kakoune-snippets" config %{
@@ -55,6 +56,8 @@ plug "https://github.com/occivink/kakoune-snippets" config %{
 	set-option global snippets_auto_expand false
 	map global insert '§' "z<a-;>: snippets-expand-or-jump 'tab'<ret>"
 	map global normal '§' ": snippets-select-next-placeholders<ret>"
+	alias global as snippets-add-snippet
+	alias global sr snippets-directory-reload
 
 	hook global InsertCompletionShow .* %{
 		try %{

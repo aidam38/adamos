@@ -179,11 +179,14 @@ cmd zip ${{
 
 
 # my bindings
+
 # basic
 map ů read
 map ú search
-map J push jjjjjjjjjj
-map K push kkkkkkkkkk
+map J push <space>
+map K push <space>kk
+map gj push G
+map gk push gg
 map <enter> open
 map o $mimeopen --ask $f
 map O $mimeopen --ask-default $f
@@ -191,30 +194,31 @@ map <a-w> q
 map f fzf
 map F $lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
 map p paste
+map P paste-root
 map Ls symlink
 map Lh hardlink
 map e $$SHELL
 map E &st
-map r $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')<left>"
+map r $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
 map R push :rename<space>
 map <c-r> !bulkrename.sh "$fx"
 map md push :$mkdir<space>
 map mv push :$$EDITOR<space>
 map ma makearticle
 map mb makebeamer
+map mx $lf -remote "send $id push :\$chmod<space>755<space>$f<left><left>"
 map D trash
 map <c-d> delete
 map Z push zh
 map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
-map <esc> unselect; clear
+map <esc> clear; unselect
 map <f-5> source /home/adam/.config/lf/lfrc; echo "Config loaded."
 map i !stat $f ; du -sh $f ; mimetype $f 
 # map i !stat $f
 map I !du -sh $f
 map x $$f
 map X !$f
-map P $lf -remote "send $id push :\$chmod<space>755<space>$f<left><left>"
 map Y makecopy
 map Ce extract
 map Ct push :tar<space>
@@ -227,8 +231,8 @@ cmap <enter> cmd-enter
 cmap <c-j> cmd-history-next
 cmap <c-k> cmd-history-prev
 cmap <bs> cmd-delete-back
-cmap <c-h> cmd-left
-cmap <c-l> cmd-right
+cmap <c-b> cmd-left
+cmap <c-n> cmd-right
 cmap <c-d> cmd-delete-unix-word
 cmap <c-c> cmd-interrupt
 cmap <c-w> cmd-word
@@ -246,7 +250,7 @@ map gdwm cd /home/adam/builds/dwm
 map cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
 map gv cd /home/adam/.config/nvim
 map cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
-map gk cd /home/adam/.config/kak
+map Gk cd /home/adam/.config/kak
 map ck :cd /home/adam/.config/kak; $$EDITOR kakrc
 map gq cd /home/adam/.config/qutebrowser
 map cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
