@@ -1,5 +1,4 @@
 # Adam Křivka (aidam38) kakrc
- 
 
 # basic key bindings
 map global normal ů :
@@ -45,9 +44,10 @@ source "%val{config}/plugins/plug.kak/rc/plug.kak"
 # plug "https://github.com/andreyorst/kak-crosshairs"
 
 # kakoune-lf
-plug "https://github.com/TeddyDD/kakoune-lf"
-map global user l ':lf<ret>'
-declare-option -docstring %{shell command run to spawn a new terminal} str termcmd 'st -e bash -c'
+plug "https://github.com/TeddyDD/kakoune-lf" config %{
+	map global user l ':lf<ret>'
+	declare-option -docstring %{shell command run to spawn a new terminal} str termcmd 'st -e bash -c'
+}
 
 # kakoune-snippets
 plug "https://github.com/occivink/kakoune-snippets" config %{
@@ -91,14 +91,14 @@ plug "https://github.com/occivink/kakoune-snippets" config %{
 plug "andreyorst/kakoune-snippet-collection"
 
 # powerline
-plug "https://github.com/andreyorst/powerline.kak" %{
+plug "https://github.com/andreyorst/powerline.kak" config %{
 	hook -once global WinCreate .* %{
 		powerline-format bufname filetype mode_info line_column position
 	}
 }
 
 # buffers
-plug "https://github.com/Delapouite/kakoune-buffers" %{
+plug "https://github.com/Delapouite/kakoune-buffers" config %{
 	hook global WinDisplay .* info-buffers
 	# Suggested mappings
 	map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
@@ -113,7 +113,7 @@ plug "https://github.com/Delapouite/kakoune-buffers" %{
 }
 
 # fzf
-plug "https://github.com/andreyorst/fzf.kak" %{
+plug "https://github.com/andreyorst/fzf.kak" config %{
 	map -docstring 'fzf mode' global user 'f' ': fzf-mode<ret>'
 	set-option global fzf_preview_width '65%'
 	evaluate-commands %sh{
@@ -129,7 +129,7 @@ plug "https://github.com/andreyorst/fzf.kak" %{
 
 
 # surround
-plug "https://github.com/h-youhei/kakoune-surround" %{
+plug "https://github.com/h-youhei/kakoune-surround" config %{
 	declare-user-mode surround
 	map global user 's' ':enter-user-mode surround<ret>'
 	map global surround s ':surround<ret>' -docstring 'surround'
@@ -151,8 +151,16 @@ hook global KakBegin .* %{
 	lsp-enable
 }
 
+# kakoune-phantom-selection
+plug "https://github.com/occivink/kakoune-phantom-selection" config %{
+	map global user n     ": phantom-sel-add-selection<ret>"
+	map global user N     ": phantom-sel-select-all; phantom-sel-clear<ret>"
+	map global user <a-n> ": phantom-sel-iterate-next<ret>"
+	map global user <a-N> ": phantom-sel-iterate-prev<ret>"
+}
+
 # options
-set-option global scrolloff 4,4
+set-option global scrolloff 7,7
 
 set global tabstop 4
 set global indentwidth 0
