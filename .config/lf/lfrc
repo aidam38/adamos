@@ -2,7 +2,7 @@
 set shell bash
 set shellopts '-eu'
 set ifs "\n"
-set scrolloff 10
+set scrolloff 7
 set drawbox on
 set dircounts
 set color256
@@ -38,10 +38,11 @@ cmd open ${{
     esac
 }}
 
-cmd fzf ${{
-	selection=$(fzf | sed 's/ /\\ /g' | sed 's/\(.*\)\//\1:/')
-	lf -remote "send $id cd $(echo "$selection" | awk -F ":" '{print $1}')"
-	lf -remote "send $id select $(echo "$selection" | awk -F ":" '{print $2}')"
+cmd fzy ${{
+	lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzy)"
+	# selection=$(fzf | sed 's/ /\\ /g' | sed 's/\(.*\)\//\1:/')
+	# lf -remote "send $id cd $(echo "$selection" | awk -F ":" '{print $1}')"
+	# lf -remote "send $id select $(echo "$selection" | awk -F ":" '{print $2}')"
 }}
 
 # rename current file without overwrite
@@ -83,7 +84,7 @@ cmd paste-root &{{
     mode=$(echo "$load" | sed -n '1p')
     list=$(echo "$load" | sed '1d')
     if [ $mode = 'copy' ]; then
-	rsync -avh --ignore-existing --progress $list . \
+	sudo rsync -avh --ignore-existing --progress $list . \
 	| stdbuf -i0 -o0 -e0 tr '\r' '\n' \
 	| while read line; do
 		echo "$line"
@@ -183,24 +184,24 @@ cmd zip ${{
 # basic
 map ů read
 map ú search
-map J push <space>
+map J push <space>k
 map K push <space>kk
 map gj push G
 map gk push gg
 map <enter> open
-map o $mimeopen --ask $f
-map O $mimeopen --ask-default $f
+map e $$EDITOR $f
+map o fzy
+map O fzf-new
 map <a-w> q
-map f fzf
-map F $lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
+map f $$SHELL
+map F $st -e lf $f &
+#$lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
 map p paste
 map P paste-root
 map Ls symlink
 map Lh hardlink
-map e $$SHELL
-map E &st
-map r $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
-map R push :rename<space>
+map a $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
+map C push :rename<space>
 map <c-r> !bulkrename.sh "$fx"
 map md push :$mkdir<space>
 map mv push :$$EDITOR<space>
@@ -220,9 +221,9 @@ map I !du -sh $f
 map x $$f
 map X !$f
 map Y makecopy
-map Ce extract
-map Ct push :tar<space>
-map Cz push :zip<space>
+map Ee extract
+map Et push :tar<space>
+map Ez push :zip<space>
 
 # command line bindings
 cmap <esc> cmd-escape
@@ -250,7 +251,7 @@ map gdwm cd /home/adam/builds/dwm
 map cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
 map gv cd /home/adam/.config/nvim
 map cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
-map Gk cd /home/adam/.config/kak
+map gk cd /home/adam/.config/kak
 map ck :cd /home/adam/.config/kak; $$EDITOR kakrc
 map gq cd /home/adam/.config/qutebrowser
 map cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py

@@ -4,6 +4,7 @@
 !.config/dunst/*
 !.config/lf/*
 !.config/kak/*
+!.config/kak/**
 !.config/newsboat/*
 !.config/nvim/*
 !.config/mutt/*

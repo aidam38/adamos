@@ -1,0 +1,12 @@
+#!/bin/bash
+# wc - word count wrapper
+
+# echo $(</dev/stdin)
+input=${1:-$(</dev/stdin)}
+# input=$(cat infile)
+# echo $input > infile
+file="$(echo $input | awk '{print $1}' | sed "s/@.*$/'/g" | sed "s/'//g")"
+cat $file
+echo "$(echo $input | awk '{print $2}')"
+# words=?
+# chars=?

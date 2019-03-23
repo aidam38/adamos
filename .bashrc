@@ -14,8 +14,10 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 # global environment variables and colors
 export VISUAL="kak"
 export EDITOR="kak"
-export PAGER="kak-pager"
-export MANPAGER="kak-man-pager"
+# export PAGER="kak-pager"
+# export MANPAGER="kak-man-pager"
+export PAGER="less"
+export MANPAGER="less"
 export OPENER="mimeopen"
 export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:$PATH"
 

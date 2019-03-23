@@ -13,3 +13,6 @@
 [submodule ".config/nvim/bundle/vim-surround"]
 	path = .config/nvim/bundle/vim-surround
 	url = /home/adam/.config/nvim/bundle/vim-surround/
+[submodule "/home/adam/.config/kak/plugins/kakoune-snippet-collection"]
+	path = /home/adam/.config/kak/plugins/kakoune-snippet-collection
+	url = https://github.com/aidam38/kakoune-snippet-collection
