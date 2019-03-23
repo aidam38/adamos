@@ -175,6 +175,8 @@ hook global WinCreate .* %{
 	add-highlighter window/show-whitespaces show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
 	add-highlighter window/operators        regex (\+|-|\*|&|=|\\|\?|%|\|-|!|\||->|\.|,|<|>|:|\^|/|~) 0:operator
 	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:delimiters
+	face global PrimaryCursorEol red,red
+	face global SecondaryCursorEol red,red
 }
 # ----------
 
