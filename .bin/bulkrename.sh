@@ -1,8 +1,9 @@
 #!/bin/bash
+# Adam Krivka (aidam38)
 
 srclist=$1
 echo -e "$srclist" > bulktmp
-nvim bulktmp
+$EDITOR bulktmp
 trglist="$(cat bulktmp)"
 
 srcn=$(echo "$srclist" | wc -l) &>/dev/null

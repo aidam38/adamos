@@ -1,18 +1,3 @@
-[submodule ".config/nvim/bundle/Colorizer"]
-	path = .config/nvim/bundle/Colorizer
-	url = https://github.com/chrisbra/Colorizer.git
-[submodule ".config/nvim/bundle/goyo.vim"]
-	path = .config/nvim/bundle/goyo.vim
-	url = /home/adam/.config/nvim/bundle/goyo.vim/
-[submodule ".config/nvim/bundle/vim-commentary"]
-	path = .config/nvim/bundle/vim-commentary
-	url = /home/adam/.config/nvim/bundle/vim-commentary
-[submodule ".config/nvim/bundle/tex-conceal.vim"]
-	path = .config/nvim/bundle/tex-conceal.vim
-	url = /home/adam/.config/nvim/bundle/tex-conceal.vim
-[submodule ".config/nvim/bundle/vim-surround"]
-	path = .config/nvim/bundle/vim-surround
-	url = /home/adam/.config/nvim/bundle/vim-surround/
 [submodule "/home/adam/.config/kak/plugins/kakoune-snippet-collection"]
 	path = /home/adam/.config/kak/plugins/kakoune-snippet-collection
 	url = https://github.com/aidam38/kakoune-snippet-collection

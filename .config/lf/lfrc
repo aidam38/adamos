@@ -201,7 +201,7 @@ map P paste-root
 map Ls symlink
 map Lh hardlink
 map a $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
-map C push :rename<space>
+map c push :rename<space>
 map <c-r> !bulkrename.sh "$fx"
 map md push :$mkdir<space>
 map mv push :$$EDITOR<space>
@@ -240,31 +240,30 @@ cmap <c-w> cmd-word
 cmap <c-b> cmd-word-back
 
 # unmapping stuff
-map c
 map w
 map m
 
 # directories aliases
 map gst cd /home/adam/builds/st
-map cst :cd /home/adam/builds/st; $$EDITOR config.h
+map Cst :cd /home/adam/builds/st; $$EDITOR config.h
 map gdwm cd /home/adam/builds/dwm
-map cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
+map Cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
 map gv cd /home/adam/.config/nvim
-map cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
-map gk cd /home/adam/.config/kak
-map ck :cd /home/adam/.config/kak; $$EDITOR kakrc
+map Cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
+map gK cd /home/adam/.config/kak
+map Ck :cd /home/adam/.config/kak; $$EDITOR kakrc
 map gq cd /home/adam/.config/qutebrowser
-map cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
+map Cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
 map gb cd /home/adam
-map cb :cd /home/adam; $$EDITOR .bashrc
+map Cb :cd /home/adam; $$EDITOR .bashrc
 map gx cd /home/adam
-map cx :cd /home/adam; $$EDITOR .xinitrc
+map Cx :cd /home/adam; $$EDITOR .xinitrc
 map glf cd /home/adam/.config/lf
-map clf :cd /home/adam/.config/lf; $$EDITOR lfrc
+map Clf :cd /home/adam/.config/lf; $$EDITOR lfrc
 map gmu cd /home/adam/.config/mutt
-map cmu :cd /home/adam/.config/mutt; $$EDITOR muttrc
+map Cmu :cd /home/adam/.config/mutt; $$EDITOR muttrc
 map gal cd /home/adam/scripts
-map cal :cd /home/adam/scripts; $$EDITOR aliases
+map Cal :cd /home/adam/scripts; $$EDITOR aliases
 map gr cd /
 map gse cd /var/service
 map gsv cd /etc/sv/services
@@ -275,7 +274,7 @@ map gu1 cd /mnt/usb1
 map gu2 cd /mnt/usb2
 map gu3 cd /mnt/usb3
 map gi cd /home/adam/.install
-map ci :cd /home/adam/.install; $$EDITOR programs
+map Ci :cd /home/adam/.install; $$EDITOR programs
 map gb cd /home/adam/builds
 map gdo cd /home/adam/downloads
 map gdr cd /home/adam/drive
@@ -283,7 +282,7 @@ map gsk cd /home/adam/drive/skola
 map gsa cd /home/adam/drive/ostatni/skaut/2018-2019
 map gan cd /home/adam/drive/skola/anki
 map gsot cd /home/adam/soc/asteroidy_tex
-map csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
+map Csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
 map gsof cd /home/adam/soc/swift_eunomia
 map gM cd /home/adam/drive/skola/matika
 map gmi cd /home/adam/drive/skola/matika/iKS/2018-2019
