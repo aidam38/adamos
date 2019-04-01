@@ -19,7 +19,7 @@ export EDITOR="kak"
 export PAGER="less"
 export MANPAGER="less"
 export OPENER="mimeopen"
-export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:$PATH"
+export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:$PATH"
 
 eval $(dircolors -b /home/adam/.dircolors)
 
@@ -64,8 +64,8 @@ alias gdwm='cd /home/adam/builds/dwm'
 alias cdwm='cd /home/adam/builds/dwm && $EDITOR config.h'
 alias gv='cd /home/adam/.config/nvim'
 alias cv='cd /home/adam/.config/nvim && $EDITOR init.vim'
-alias gk='cd /home/adam/.config/kak'
-alias ck='cd /home/adam/.config/kak && $EDITOR kakrc'
+alias gK='cd /home/adam/.config/kak'
+alias cK='cd /home/adam/.config/kak && $EDITOR kakrc'
 alias gq='cd /home/adam/.config/qutebrowser'
 alias cq='cd /home/adam/.config/qutebrowser && $EDITOR config.py'
 alias gb='cd /home/adam'
@@ -93,7 +93,9 @@ alias gb='cd /home/adam/builds'
 alias gdo='cd /home/adam/downloads'
 alias gdr='cd /home/adam/drive'
 alias gsk='cd /home/adam/drive/skola'
-alias gsa='cd /home/adam/drive/ostatni/skaut/2018-2019'
+alias gsa='cd /home/adam/drive/skaut/2018-2019'
+alias gpr='cd /home/adam/drive/prihlasky'
+alias gka='cd /home/adam/drive/karate'
 alias gan='cd /home/adam/drive/skola/anki'
 alias gsot='cd /home/adam/soc/asteroidy_tex'
 alias csot='cd /home/adam/soc/asteroidy_tex && $EDITOR asteroidy.tex'
@@ -107,5 +109,6 @@ alias gms='cd /home/adam/drive/skola/matika/sady'
 alias gol='cd /home/adam/drive/skola/olympiady'
 alias gfo='cd /home/adam/drive/skola/olympiady/FO/2018-2019'
 alias gao='cd /home/adam/drive/skola/olympiady/AO/2018-2019'
+alias gdb='cd /home/adam/.bin'
 alias gsc='cd /home/adam/scripts'
 alias gů='cd /home/adam/soc/swift_eunomia/eunomia_data/chi2'

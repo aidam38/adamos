@@ -251,7 +251,7 @@ map Cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
 map gv cd /home/adam/.config/nvim
 map Cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
 map gK cd /home/adam/.config/kak
-map Ck :cd /home/adam/.config/kak; $$EDITOR kakrc
+map CK :cd /home/adam/.config/kak; $$EDITOR kakrc
 map gq cd /home/adam/.config/qutebrowser
 map Cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
 map gb cd /home/adam
@@ -279,7 +279,9 @@ map gb cd /home/adam/builds
 map gdo cd /home/adam/downloads
 map gdr cd /home/adam/drive
 map gsk cd /home/adam/drive/skola
-map gsa cd /home/adam/drive/ostatni/skaut/2018-2019
+map gsa cd /home/adam/drive/skaut/2018-2019
+map gpr cd /home/adam/drive/prihlasky
+map gka cd /home/adam/drive/karate
 map gan cd /home/adam/drive/skola/anki
 map gsot cd /home/adam/soc/asteroidy_tex
 map Csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
@@ -293,5 +295,6 @@ map gms cd /home/adam/drive/skola/matika/sady
 map gol cd /home/adam/drive/skola/olympiady
 map gfo cd /home/adam/drive/skola/olympiady/FO/2018-2019
 map gao cd /home/adam/drive/skola/olympiady/AO/2018-2019
+map gdb cd /home/adam/.bin
 map gsc cd /home/adam/scripts
 map gů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2

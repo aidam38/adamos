@@ -318,7 +318,7 @@ c.colors.statusbar.url.success.https.fg = 'lime'
 #Type: QssColor
 c.colors.statusbar.url.warn.fg = 'yellow'
 
-#Background color of the tab bar.
+#Backgroun1 color of the tab bar.
 #Type: QtColor
 c.colors.tabs.bar.bg = '#555555'
 
@@ -1450,7 +1450,7 @@ config.bind('7', 'tab-focus 7')
 config.bind('8', 'tab-focus 8')
 config.bind('9', 'tab-focus 9')
 config.bind('0', 'tab-focus -1')
-config.bind('<Mod4-H>', 'tab-give')
+config.bind('<Mod1-H>', 'tab-give')
 config.bind('<Shift-Tab>', 'tab-focus last')
 config.bind('h', 'scroll left')
 config.bind('j', 'scroll down')

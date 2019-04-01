@@ -31,7 +31,7 @@ for a in aliases.readlines():
             '=\'cd ' + a.split()[1] + '\'' + '\n'
     else:
         lfrc += 'map g' + a.split()[0] + ' cd ' + a.split()[1] + '\n'
-        lfrc += 'map c' + \
+        lfrc += 'map C' + \
             a.split()[0] + ' :cd ' + a.split()[1] + \
             '; $$EDITOR ' + a.split()[2] + '\n'
         bashrc += 'alias g' + a.split()[0] + \
