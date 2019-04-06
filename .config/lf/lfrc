@@ -111,10 +111,9 @@ cmd makecopy &{{
 cmd symlink &{{
     load=$(lf -remote 'load')
     list=$(echo "$load" | sed '1d')
-    echo -e "$list" | while read line; do
-    	echo "$line"
-        ln -s $line . && lf -remote "send $id echo Symlinked $lineto current directory." || lf -remote "send $id echo Failed to symlink file $line"
-    done
+    while read -r line; do
+        ln -s $line . && lf -remote "send $id echo Symlinked $line to current directory." || lf -remote "send $id echo Failed to symlink file $line"
+    done <<< "$list"
     lf -remote 'send load'
     lf -remote 'send clear'
 }}
@@ -122,10 +121,9 @@ cmd symlink &{{
 cmd hardlink &{{
     load=$(lf -remote 'load')
     list=$(echo "$load" | sed '1d')
-    echo -e "$list" | while read line; do
-    	echo "$line"
+	while read line; do
         ln $line . && lf -remote "send $id echo Hardlinked $lineto current directory." || lf -remote "send $id echo Failed to hardlink file $line"
-    done
+    done <<< "$list"
     lf -remote 'send load'
     lf -remote 'send clear'
 }}
@@ -192,9 +190,11 @@ map <enter> open
 map e $$EDITOR $f
 map o fzy
 map O fzf-new
+map '§' $mimeopen --ask $f
+map '!' $mimeopen --ask-default $f
 map <a-w> q
 map f $$SHELL
-map F $st -e lf $f &
+map F $st -e lf $f & \disown
 #$lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
 map p paste
 map P paste-root

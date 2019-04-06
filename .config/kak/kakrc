@@ -2,7 +2,7 @@
 
 # basic key bindings
 map global normal ů :
-map global normal ú /
+map global normal ú ':exec /(?i)<ret>'
 map global normal <space> ,
 map global normal <minus> ';'
 map global user <minus> <space> -docstring "Keep only the main selection"
@@ -12,6 +12,8 @@ map global normal <c-r> ":source ~/.config/kak/kakrc<ret>"
 map global normal <a-space> "/<lt>\+\+<gt><ret>c"
 map global insert <a-space> "<esc>/<lt>\+\+<gt><ret>c"
 map global normal <a-v> v
+map global normal <c-j> ':exec vj<ret>'
+map global normal <c-k> ':exec vk<ret>'
 
 # clipboard managment
 hook global NormalKey y|d|c %{ nop %sh{
@@ -28,14 +30,17 @@ map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Comp
 # filetype specific
 # TeX
 hook global BufSetOption filetype=latex %{ 
-	map global user c ':w<ret>: nop %sh{ { latexmk -pdf -nobibtex $kak_buffile } <gt> /dev/null 2<gt>&1 <lt> /dev/null & }<ret>' -docstring "Quick compile"
+	# map global user c ':w<ret>: nop %sh{ { latexmk -pdf -nobibtex $kak_buffile } <gt> /dev/null 2<gt>&1 <lt> /dev/null & }<ret>' -docstring "Quick compile"
 	# map global user C ':w<ret>: nop %sh{ { compile $kak_buffile } <gt> /dev/null 2<gt>&1 <lt> /dev/null & }<ret>' -docstring "Compile using the compile script asynchronously"
-map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Compile using the compile script"
+	map global user c ':w<ret>: terminal latexmk -pdf -nobibtex $kak_buffile <gt> /dev/null 2<gt>&1 <lt> /dev/null & <ret>' -docstring "Quick compile"
+	map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Compile using the compile script"
 	# map global buffers L ':edit! -scroll -fifo %sh{echo "${kak_buffile%.tex}.log"} *compile*<ret>' 
 	map global buffers L ':edit! -scroll -fifo "tmp" "*compile*"<ret>' 
 	map global user k ':terminal zathura %sh{ echo $kak_buffile | sed "s|\..\{1,4\}$|.pdf|" }<ret>' -docstring "Preview pdf in the current folder" #{
 	map global user f 'a}<a-;>i\textbf{<esc><esc><esc>' #}{
 	map global user i 'a}<a-;>i\textit{<esc><esc><esc>' #}
+	map global user e '<a-:>a<ret>\end{!asdf!}<esc><a-;>O\begin{!asdf!}<esc>gh/!asdf!<ret>Nc'
+
 
 	hook global BufClose .* %{
 		nop %sh{texclear $kak_buffile}
@@ -47,6 +52,11 @@ map global user 'w' %{"wz:echo %sh{echo "Words: $(echo $kak_selection | wc -w), 
 # Plugins
 # initialization of plug.kak
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+# kakoune-extra
+plug "lenormf/kakoune-extra" load %{
+	grepmenu.kak
+}
 
 # kak-crosshairs
 # plug "andreyorst/kak-crosshairs"
@@ -163,9 +173,6 @@ plug "h-youhei/kakoune-surround" config %{
 plug "occivink/kakoune-find"
 # TODO
 
-# tagbar.kak
-plug "andreyorst/tagbar.kak"
-
 # kak-lsp
 hook global KakBegin .* %{
 	eval %sh{kak-lsp --kakoune -s $kak_session}
@@ -193,6 +200,7 @@ plug "occivink/kakoune-phantom-selection" config %{
 # kakoune-sudo-write
 plug "occivink/kakoune-sudo-write"
 
+plug "kakoune-goyo"
 
 
 
@@ -204,14 +212,14 @@ set global indentwidth 0
 
 # highlighters
 hook global WinCreate .* %{
-	add-highlighter window/numbers          number-lines -relative -hlcursor
+	add-highlighter window/numbers          number-lines -relative -hlcursor # -separator " ▏"
 	add-highlighter window/matching         show-matching
 	add-highlighter window/wrap             wrap -word -indent -marker '↪'
 	add-highlighter window/show-whitespaces show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
 	add-highlighter window/operators        regex (\+|-|\*|&|=|\\|\?|%|\|-|!|\||->|\.|,|<|>|:|\^|/|~) 0:operator
 	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:delimiters
 	face global PrimaryCursorEol red,red
-	face global SecondaryCursorEol red,red
+	face global SecondaryCursorEol orange,orange
 }
 
 # ----------

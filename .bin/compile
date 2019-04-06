@@ -9,4 +9,3 @@ case "$1" in
 	*c) gcc $1 -lm -o $(echo $1 | sed 's/..$//') ;;
 	*) ./$1
 esac
-bash
