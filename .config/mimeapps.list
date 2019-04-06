@@ -29,4 +29,5 @@ application/octet-stream=nvim-usercreated-5.desktop;
 text/x-tex=nvim-usercreated-3.desktop;
 image/png=rifle_sxiv-usercreated-4.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
-text/plain=kak-usercreated-4.desktop;
+text/markdown=kak-usercreated-2.desktop;
+text/plain=gnuplot-usercreated-2.desktop;

@@ -19,7 +19,7 @@ export EDITOR="kak"
 export PAGER="less"
 export MANPAGER="less"
 export OPENER="mimeopen"
-export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:$PATH"
+export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:/home/adam/.go/bin/:$PATH"
 
 eval $(dircolors -b /home/adam/.dircolors)
 
@@ -52,6 +52,7 @@ alias tr='transmission-remote'
 alias scan='scanimage >'
 alias gplom='git pull origin master'
 alias gpsom='git push origin master'
+alias gcl='git clone'
 alias lp='lp -o fit-to-page'
 alias lpdupl='lp -o fit-to-page -o sides=two-sided-long-edge'
 alias lpdups='lp -o fit-to-page -o sides=two-sided-short-edge'
