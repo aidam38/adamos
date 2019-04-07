@@ -12,6 +12,7 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # global environment variables and colors
+export TERMINAL="st"
 export VISUAL="kak"
 export EDITOR="kak"
 # export PAGER="kak-pager"
@@ -35,9 +36,9 @@ export GOPATH="/home/adam/.go"
 # program aliases
 alias v='nvim'
 alias suv='sudo nvim'
-alias r='lf'
+alias f='lf'
 alias sr='sudo lf'
-alias f='fzf'
+# alias f='fzf'
 alias ls='ls --color=auto'
 alias z='zathura'
 alias i='sudo xbps-install'

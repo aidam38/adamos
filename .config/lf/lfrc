@@ -39,7 +39,7 @@ cmd open ${{
 }}
 
 cmd fzy ${{
-	lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzy)"
+	lf -remote "send $id select '$(fd --no-ignore --color=always --hidden --follow | fzy)'"
 	# selection=$(fzf | sed 's/ /\\ /g' | sed 's/\(.*\)\//\1:/')
 	# lf -remote "send $id cd $(echo "$selection" | awk -F ":" '{print $1}')"
 	# lf -remote "send $id select $(echo "$selection" | awk -F ":" '{print $2}')"
@@ -186,7 +186,7 @@ map J push <space>k
 map K push <space>kk
 map gj push G
 map gk push gg
-map <enter> open
+map <enter> $rifle $f 
 map e $$EDITOR $f
 map o fzy
 map O fzf-new
