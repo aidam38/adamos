@@ -756,7 +756,7 @@ c.downloads.location.suggestion = 'path'
 #handler is used. Any `{}` in the string will be expanded to the
 #filename, else the filename will be appended.
 #Type: String
-c.downloads.open_dispatcher = None
+c.downloads.open_dispatcher = "rifle"
 
 #Where to show the downloaded files.
 #Type: VerticalPosition
@@ -979,6 +979,12 @@ c.input.insert_mode.auto_load = False
 #Switch to insert mode when clicking flash and other plugins.
 #Type: Bool
 c.input.insert_mode.plugins = False
+
+for urlpattern in (
+        '*://google.(ca\|com)/maps/',
+        '*://translate.google.(ca\|com)',
+        '*://facebook.(ca\|com)'):
+    config.set('input.insert_mode.leave_on_load', False, urlpattern)
 
 #Include hyperlinks in the keyboard focus chain when tabbing.
 #Type: Bool
@@ -1492,7 +1498,7 @@ config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
 config.bind('yf', 'hint links yank')
 config.bind('d<Escape>', 'download-clear ;; clear-keychain ;; search ;; fullscreen --leave')
-config.bind('d<space>', 'download-open mimeo') 
+config.bind('d<space>', 'download-open') 
 config.bind('dr', 'download-open st lf') 
 config.bind('dd', 'set-cmd-text -s :download') 
 config.bind('dc', 'download-cancel')

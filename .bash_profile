@@ -12,7 +12,8 @@
 #done
 #convert -font Hack-Regular -pointsize 30 -draw "gravity northeast fill white text 20,50 '$(echo -e $list)'" /home/adam/.wallpapers/bgsrc.* /home/adam/.wallpapers/bg.png
 
-set $BROWSER=qutebrowser
+xmodmap ~/.Xmodmap
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 exec xinit

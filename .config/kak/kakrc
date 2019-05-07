@@ -14,7 +14,8 @@ map global insert <a-space> "<esc>/<lt>\+\+<gt><ret>c"
 map global normal <a-v> v
 map global normal <c-j> ':exec vj<ret>'
 map global normal <c-k> ':exec vk<ret>'
-map global user q ':wq<ret>'
+map global user q ':wq<ret>' -docstring "Save and quit."
+map global user Q ':wq<ret>' -docstring "Quit."
 
 # clipboard managment
 hook global NormalKey y|d|c %{ nop %sh{
@@ -31,8 +32,6 @@ map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Comp
 # filetype specific
 # TeX
 hook global BufSetOption filetype=latex %{ 
-	# map global user c ':w<ret>: nop %sh{ { latexmk -pdf -nobibtex $kak_buffile } <gt> /dev/null 2<gt>&1 <lt> /dev/null & }<ret>' -docstring "Quick compile"
-	# map global user C ':w<ret>: nop %sh{ { compile $kak_buffile } <gt> /dev/null 2<gt>&1 <lt> /dev/null & }<ret>' -docstring "Compile using the compile script asynchronously"
 	map global user c ':w<ret>: terminal latexmk -pdf -nobibtex $kak_buffile <gt> /dev/null 2<gt>&1 <lt> /dev/null & <ret>' -docstring "Quick compile"
 	map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Compile using the compile script"
 	# map global buffers L ':edit! -scroll -fifo %sh{echo "${kak_buffile%.tex}.log"} *compile*<ret>' 
@@ -83,6 +82,7 @@ plug "occivink/kakoune-snippets" config %{
 	map global insert '§' "z<a-;>: snippets-expand-or-jump 'tab'<ret>"
 	map global normal '§' ": snippets-select-next-placeholders<ret>"
 	map global normal ',' ": snippets-insert-replace-first-placeholder<ret>"
+	map global normal '<a-,>' ': snippets-insert %sh{ echo "$(xsel --output --clipboard)" } <ret>'
 	alias global as snippets-add-snippet
 	alias global sr snippets-directory-reload
 
@@ -218,7 +218,7 @@ set global indentwidth 0
 hook global WinCreate .* %{
 	add-highlighter window/numbers          number-lines -relative -hlcursor # -separator " ▏"
 	add-highlighter window/matching         show-matching
-	add-highlighter window/wrap             wrap -word -indent -marker '↪'
+	add-highlighter window/wrap             wrap -word -indent -marker '↪' -width 75
 	add-highlighter window/show-whitespaces show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
 	add-highlighter window/operators        regex (\+|-|\*|&|=|\\|\?|%|\|-|!|\||->|\.|,|<|>|:|\^|/|~) 0:operator
 	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:yellow
@@ -276,3 +276,24 @@ map global tig s ': suspend-and-resume "tig status"<ret>' -docstring 'show git s
 map global tig m ': suspend-and-resume "tig"<ret>' -docstring 'show main view (with tig)'
 
 map global user t ': enter-user-mode tig<ret>' -docstring 'tig commands'
+
+define-command show-color -docstring 'show main selection color in status bar' %{
+  evaluate-commands %sh{
+    awk_script='{
+      if ((x=index($1,"#")) > 0)
+        $1 = substr($1, x+1)
+      if (length($1) == 8)
+        $1 = substr($1, 1, 6)
+      if (length($1) == 4)
+        $1 = substr($1, 1, 3)
+      if (length($1) == 3) {
+        r = substr($1, 1, 1)
+        g = substr($1, 2, 1)
+        b = substr($1, 3, 1)
+        $1 = r r g g b b
+      }
+      print "evaluate-commands -client " client " echo -markup {rgb:" $1 "} ██████"
+    }'
+    printf %s\\n "$kak_selection" | awk -v client="$kak_client" "$awk_script" | kak -p "$kak_session"
+  }
+}

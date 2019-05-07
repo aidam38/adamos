@@ -228,7 +228,7 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = Delete
+    close = mod4+Delete
 
     # Close all notifications.
     close_all = shift+Delete

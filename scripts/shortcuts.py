@@ -26,17 +26,17 @@ for l in bashrc_in.readlines():
 # append aliases
 for a in aliases.readlines():
     if(len(a.split()) < 3):
-        lfrc += 'map g' + a.split()[0] + ' cd ' + a.split()[1] + '\n'
-        bashrc += 'alias g' + a.split()[0] + \
+        lfrc += 'map b' + a.split()[0] + ' cd ' + a.split()[1] + '\n'
+        bashrc += 'alias b' + a.split()[0] + \
             '=\'cd ' + a.split()[1] + '\'' + '\n'
     else:
-        lfrc += 'map g' + a.split()[0] + ' cd ' + a.split()[1] + '\n'
+        lfrc += 'map b' + a.split()[0] + ' cd ' + a.split()[1] + '\n'
         lfrc += 'map C' + \
             a.split()[0] + ' :cd ' + a.split()[1] + \
             '; $$EDITOR ' + a.split()[2] + '\n'
-        bashrc += 'alias g' + a.split()[0] + \
+        bashrc += 'alias b' + a.split()[0] + \
             '=\'cd ' + a.split()[1] + '\'' + '\n'
-        bashrc += 'alias c' + \
+        bashrc += 'alias C' + \
             a.split()[0] + '=\'cd ' + a.split()[1] + \
             ' && ' + '$EDITOR ' + a.split()[2] + '\'' + '\n'
 

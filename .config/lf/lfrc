@@ -38,6 +38,10 @@ cmd open ${{
     esac
 }}
 
+cmd open-rifle ${{
+	for f in $fx; do rifle $f || notify-send "$f" ; done
+}}
+
 cmd fzy ${{
 	lf -remote "send $id select '$(fd --no-ignore --color=always --hidden --follow | fzy)'"
 	# selection=$(fzf | sed 's/ /\\ /g' | sed 's/\(.*\)\//\1:/')
@@ -184,14 +188,14 @@ map ů read
 map ú search
 map J push <space>k
 map K push <space>kk
-map gj push G
-map gk push gg
-map <enter> $rifle $f 
+map gj bottom
+map gk top
+map <enter> open-rifle
+map '§' $echo "Enter command with which to open the selected files"; read program && rifle -w "$program" $fx
+# map '!' $mimeopen --ask-default $f
 map e $$EDITOR $f
 map o fzy
 map O fzf-new
-map '§' $mimeopen --ask $f
-map '!' $mimeopen --ask-default $f
 map <a-w> q
 map f $$SHELL
 map F $st -e lf $f & \disown
@@ -242,59 +246,61 @@ cmap <c-b> cmd-word-back
 # unmapping stuff
 map w
 map m
+map G
 
 # directories aliases
-map gst cd /home/adam/builds/st
+map bst cd /home/adam/builds/st
 map Cst :cd /home/adam/builds/st; $$EDITOR config.h
-map gdwm cd /home/adam/builds/dwm
+map bdwm cd /home/adam/builds/dwm
 map Cdwm :cd /home/adam/builds/dwm; $$EDITOR config.h
-map gv cd /home/adam/.config/nvim
+map bv cd /home/adam/.config/nvim
 map Cv :cd /home/adam/.config/nvim; $$EDITOR init.vim
-map gK cd /home/adam/.config/kak
-map CK :cd /home/adam/.config/kak; $$EDITOR kakrc
-map gq cd /home/adam/.config/qutebrowser
+map bk cd /home/adam/.config/kak
+map Ck :cd /home/adam/.config/kak; $$EDITOR kakrc
+map bq cd /home/adam/.config/qutebrowser
 map Cq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
-map gb cd /home/adam
+map bb cd /home/adam
 map Cb :cd /home/adam; $$EDITOR .bashrc
-map gx cd /home/adam
+map bx cd /home/adam
 map Cx :cd /home/adam; $$EDITOR .xinitrc
-map glf cd /home/adam/.config/lf
+map blf cd /home/adam/.config/lf
 map Clf :cd /home/adam/.config/lf; $$EDITOR lfrc
-map gmu cd /home/adam/.config/mutt
+map bmu cd /home/adam/.config/mutt
 map Cmu :cd /home/adam/.config/mutt; $$EDITOR muttrc
-map gal cd /home/adam/scripts
+map bal cd /home/adam/scripts
 map Cal :cd /home/adam/scripts; $$EDITOR aliases
-map gr cd /
-map gse cd /var/service
-map gsv cd /etc/sv/services
-map gh cd /home/adam
-map gc cd /home/adam/.config
-map ge cd /etc
-map gu1 cd /mnt/usb1
-map gu2 cd /mnt/usb2
-map gu3 cd /mnt/usb3
-map gi cd /home/adam/.install
+map bri cd /home/adam/.config/ranger
+map Cri :cd /home/adam/.config/ranger; $$EDITOR rifle.conf
+map bse cd /var/service
+map bsv cd /etc/sv/services
+map bh cd /home/adam
+map bc cd /home/adam/.config
+map be cd /etc
+map bu1 cd /mnt/usb1
+map bu2 cd /mnt/usb2
+map bu3 cd /mnt/usb3
+map bi cd /home/adam/.install
 map Ci :cd /home/adam/.install; $$EDITOR programs
-map gb cd /home/adam/builds
-map gdo cd /home/adam/downloads
-map gdr cd /home/adam/drive
-map gsk cd /home/adam/drive/skola
-map gsa cd /home/adam/drive/skaut/2018-2019
-map gpr cd /home/adam/drive/prihlasky
-map gka cd /home/adam/drive/karate
-map gan cd /home/adam/drive/skola/anki
-map gsot cd /home/adam/soc/asteroidy_tex
+map bb cd /home/adam/builds
+map bdo cd /home/adam/downloads
+map bdr cd /home/adam/drive
+map bsko cd /home/adam/drive/skola
+map bska cd /home/adam/drive/skaut/2018-2019
+map bpr cd /home/adam/drive/prihlasky
+map bka cd /home/adam/drive/karate
+map ban cd /home/adam/drive/skola/anki
+map bsot cd /home/adam/soc/asteroidy_tex
 map Csot :cd /home/adam/soc/asteroidy_tex; $$EDITOR asteroidy.tex
-map gsof cd /home/adam/soc/swift_eunomia
-map gM cd /home/adam/drive/skola/matika
-map gmi cd /home/adam/drive/skola/matika/iKS/2018-2019
-map gmk cd /home/adam/drive/skola/matika/krouzek/2018-2019/
-map gmo cd /home/adam/drive/skola/matika/MO
-map gmp cd /home/adam/drive/skola/matika/prase/2018-2019
-map gms cd /home/adam/drive/skola/matika/sady
-map gol cd /home/adam/drive/skola/olympiady
-map gfo cd /home/adam/drive/skola/olympiady/FO/2018-2019
-map gao cd /home/adam/drive/skola/olympiady/AO/2018-2019
-map gdb cd /home/adam/.bin
-map gsc cd /home/adam/scripts
-map gů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2
+map bsof cd /home/adam/soc/swift_eunomia
+map bM cd /home/adam/drive/skola/matika
+map bmi cd /home/adam/drive/skola/matika/iKS/2018-2019
+map bmk cd /home/adam/drive/skola/matika/krouzek/2018-2019/
+map bmo cd /home/adam/drive/skola/matika/MO
+map bmp cd /home/adam/drive/skola/matika/prase/2018-2019
+map bms cd /home/adam/drive/skola/matika/sady
+map bol cd /home/adam/drive/skola/olympiady
+map bfo cd /home/adam/drive/skola/olympiady/FO/2018-2019
+map bao cd /home/adam/drive/skola/olympiady/AO/2018-2019
+map bdb cd /home/adam/.bin
+map bsc cd /home/adam/scripts
+map bů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2

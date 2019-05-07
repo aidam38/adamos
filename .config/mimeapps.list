@@ -1,5 +1,6 @@
-
 [Default Applications]
+x-scheme-handler/magnet=torrent.desktop;
+x-scheme-handler/mailto=mail.desktop;
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
 x-scheme-handler/about=chromium.desktop
@@ -28,6 +29,10 @@ text/x-python=nvim-usercreated-3.desktop;
 application/octet-stream=nvim-usercreated-5.desktop;
 text/x-tex=nvim-usercreated-3.desktop;
 image/png=rifle_sxiv-usercreated-4.desktop;
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 text/markdown=kak-usercreated-2.desktop;
 text/plain=gnuplot-usercreated-2.desktop;
+text/rust=kak-usercreated-5.desktop;
+application/pdf=chromium-usercreated-1.desktop;
+application/x-mimearchive=chromium-usercreated-3.desktop;
+application/xhtml+xml=qutebrowser-usercreated-1.desktop;
+application/x-php=qutebrowser-usercreated-2.desktop;

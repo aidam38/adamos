@@ -1,14 +1,14 @@
 st /home/adam/builds/st config.h
 dwm /home/adam/builds/dwm config.h
 v /home/adam/.config/nvim init.vim
-K /home/adam/.config/kak kakrc
+k /home/adam/.config/kak kakrc
 q /home/adam/.config/qutebrowser config.py
 b /home/adam .bashrc
 x /home/adam .xinitrc
 lf /home/adam/.config/lf lfrc
 mu /home/adam/.config/mutt muttrc
 al /home/adam/scripts aliases
-r /
+ri /home/adam/.config/ranger rifle.conf
 se /var/service
 sv /etc/sv/services
 h /home/adam
@@ -21,8 +21,8 @@ i /home/adam/.install programs
 b /home/adam/builds
 do /home/adam/downloads
 dr /home/adam/drive
-sk /home/adam/drive/skola
-sa /home/adam/drive/skaut/2018-2019
+sko /home/adam/drive/skola
+ska /home/adam/drive/skaut/2018-2019
 pr /home/adam/drive/prihlasky
 ka /home/adam/drive/karate
 an /home/adam/drive/skola/anki

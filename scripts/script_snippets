@@ -1,0 +1,1 @@
+rsynccopy	Copy a file to another computer through rsync	rsync -avh --progress $1 adam@$2:/home/adam
