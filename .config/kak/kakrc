@@ -4,7 +4,8 @@
 map global normal ů :
 map global normal ú ':exec /(?i)<ret>'
 map global normal <space> ,
-map global normal <minus> ';'
+map global normal <minus> '<a-;>'
+map global normal '_' ';'
 map global user <minus> <space> -docstring "Keep only the main selection"
 map global normal X <a-x>
 map global normal '#' :comment-line<ret>
@@ -16,6 +17,10 @@ map global normal <c-j> ':exec vj<ret>'
 map global normal <c-k> ':exec vk<ret>'
 map global user q ':wq<ret>' -docstring "Save and quit."
 map global user Q ':wq<ret>' -docstring "Quit."
+
+define-command spell-mode %{
+	map global normal '§' ':spell-next<ret>'
+}
 
 # clipboard managment
 hook global NormalKey y|d|c %{ nop %sh{
@@ -224,6 +229,16 @@ hook global WinCreate .* %{
 	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:yellow
 	face global PrimaryCursorEol red,red
 	face global SecondaryCursorEol yellow,yellow
+}
+
+# hook global ModeChange ".*:prompt" %{ face global StatusLine black,green }
+hook global ModeChange ".*:insert" %{
+	face global PrimaryCursor black,green
+	face global PrimaryCursorEol black,magenta
+}
+hook global ModeChange ".*:normal" %{
+	face global PrimaryCursor black,white
+	face global PrimaryCursorEol red,red
 }
 
 # ----------
