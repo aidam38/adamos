@@ -44,23 +44,37 @@ alias sf='sudo lf'
 # alias f='fzf'
 alias ls='ls --color=auto'
 alias z='zathura'
+
 alias i='sudo xbps-install'
+alias iu='sudo xbps-install -Syu'
 alias s='sudo xbps-query -Rs'
-alias q='sudo xbps-query -l'
+alias l='sudo xbps-query l'
+alias q='sudo xbps-query'
 alias u='sudo xbps-remove'
+
 alias au='pulsemixer'
 alias bl='bluetoothctl'
 alias mke='sudo make clean install'
-alias !!='sudo !!'
+# alias !!='sudo !!'
 alias tr='transmission-remote'
 alias scan='scanimage >'
+
 alias gplom='git pull origin master'
 alias gpsom='git push origin master'
 alias gcl='git clone'
+
 alias lp='lp -o fit-to-page'
 alias lpdupl='lp -o fit-to-page -o sides=two-sided-long-edge'
 alias lpdups='lp -o fit-to-page -o sides=two-sided-short-edge'
+
 alias tlin='sudo tlmgr install'
+
+alias drup='rclone copy -LuP /home/adam/drive drive:'
+alias drdown='rclone copy drive: /home/adam/drive -P --exclude SVČ*/ --drive-chunk-size 128M'
+alias drclone='rclone sync -LuP /home/adam/drive drive:'
+alias orup='rclone copy -LuP /home/adam/team_drives/or89 or89:'
+alias orwn='rclone copy or89: /home/adam/team_drives/or89 -P --exclude SVČ*/ --drive-chunk-size 128M'
+alias orclone='rclone sync -LuP /home/adam/team_drives/or89 or89:'
 
 # directories aliases
 alias bst='cd /home/adam/builds/st'

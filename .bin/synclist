@@ -4,6 +4,7 @@
 .config/newsboat/*
 .config/nvim/*
 .config/mutt/*
+.config/sxhkd/*
 .config/qutebrowser/*
 .config/zathura/*
 .config/mimeapps.list

@@ -51,8 +51,8 @@ settings:
         <Ctrl+f>: rl-forward-char
         <Ctrl+h>: rl-backward-delete-char
         <Ctrl+k>: rl-kill-line
-        <Ctrl+n>: command-history-next
-        <Ctrl+p>: command-history-prev
+        <Ctrl+n>: completion-item-focus --history next
+        <Ctrl+p>: completion-item-focus --history prev
         <Ctrl+u>: rl-unix-line-discard
         <Ctrl+w>: rl-unix-word-rubout
         <Ctrl+y>: rl-yank
@@ -122,6 +122,7 @@ settings:
         <Alt+7>: tab-focus 7
         <Alt+8>: tab-focus 8
         <Alt+9>: tab-focus -1
+        <Alt+h>: tab-give
         <Alt+m>: tab-mute
         <Alt+w>: quit --save
         <Back>: back
@@ -157,13 +158,16 @@ settings:
         <Ctrl+v>: null
         <Ctrl+w>: tab-close
         <Ctrl+x>: navigate decrement
+        <Escape>: clear-keychain ;; search ;; fullscreen --leave
         <F11>: fullscreen
         <F1>: enter-mode passthrough
         <F5>: reload
         <Forward>: forward
         <Meta+1>: tab-focus 1
         <Meta+h>: tab-give
+        <Meta+j>: prompt-item-focus prev
         <Meta+m>: tab-mute
+        <Meta+t>: prompt-item-focus prev
         <Meta+é>: tab-focus -1
         <Return>: follow-selected
         <Shift+Tab>: tab-focus last
@@ -178,6 +182,8 @@ settings:
         F: hint all tab-fg
         G: scroll-to-perc
         H: tab-prev
+        I: config-cycle content.user_stylesheets "~/.config/qutebrowser/dark-facebook-messenger-theme.css"
+          ""
         J: scroll-page 0 0.5
         K: scroll-page 0 -0.5
         L: tab-next
@@ -203,8 +209,8 @@ settings:
         cd: download-clear
         co: tab-only
         d<Enter>: download-open mimeopen
-        d<Escape>: download-clear ;; clear-keychain ;; search ;; fullscreen --leave
-        d<Space>: download-open mimeo
+        d<Escape>: download-clear
+        d<Space>: download-open
         dc: download-cancel
         dd: set-cmd-text -s :download
         do: download-open rifle
@@ -326,3 +332,5 @@ settings:
         <Return>: prompt-accept
         n: prompt-accept no
         y: prompt-accept yes
+  content.user_stylesheets:
+    global: null

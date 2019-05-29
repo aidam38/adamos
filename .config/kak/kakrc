@@ -223,7 +223,7 @@ set global indentwidth 0
 hook global WinCreate .* %{
 	add-highlighter window/numbers          number-lines -relative -hlcursor # -separator " ▏"
 	add-highlighter window/matching         show-matching
-	add-highlighter window/wrap             wrap -word -indent -marker '↪' -width 75
+	add-highlighter window/wrap             wrap -word -indent -marker '↪' # -width 75
 	add-highlighter window/show-whitespaces show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
 	add-highlighter window/operators        regex (\+|-|\*|&|=|\\|\?|%|\|-|!|\||->|\.|,|<|>|:|\^|/|~) 0:operator
 	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:yellow
@@ -231,7 +231,6 @@ hook global WinCreate .* %{
 	face global SecondaryCursorEol yellow,yellow
 }
 
-# hook global ModeChange ".*:prompt" %{ face global StatusLine black,green }
 hook global ModeChange ".*:insert" %{
 	face global PrimaryCursor black,green
 	face global PrimaryCursorEol black,magenta
@@ -240,6 +239,16 @@ hook global ModeChange ".*:normal" %{
 	face global PrimaryCursor black,white
 	face global PrimaryCursorEol red,red
 }
+
+# other hooks
+
+rmhooks global reload_sxhkd
+hook -group reload_sxhkd global BufWritePost .*sxhkd.* %{
+  nop %sh{ pkill -USR1 -x sxhkd }
+  echo pkill -USR1 -x sxhkd
+}
+
+hook -group kakrc global BufCreate .*sxhkd.* %{ set buffer filetype sh }
 
 # ----------
 

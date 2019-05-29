@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rclone copy -L -uP /home/adam/drive drive:

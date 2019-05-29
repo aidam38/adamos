@@ -1,0 +1,5 @@
+#!/bin/bash
+
+notify-send "$1"
+# echo -n "$1" | xsel --input --primary && xdotool key ctrl+v
+echo -n "\"a" | xvkbd -xsendevent -file - 2>/dev/null

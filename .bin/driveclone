@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rclone sync -LuP /home/adam/drive drive:
