@@ -8,7 +8,7 @@ setxkbmap -layout cz,us -option grp:alt_caps_toggle -option caps:swapescape -opt
 numlockx &
 dunst &
 redshift -l 49.1781233:16.5544039 &
-clipmenud &
+# clipmenud &
 # sudo logkeys --start --keymap /home/adam/scripts/keylogger/cz.keymap -o /home/adam/scripts/keylogger/keys.log &
 
 vol=""

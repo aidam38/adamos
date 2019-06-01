@@ -5,7 +5,7 @@
 # ----------
 echo "Cloning dotfiles from github. (probably already done)"
 cd /home/adam
-sudo -u adam git clone --depth 1 https://github.com/aidam38/adamos /home/adam &>/dev/null
+# sudo -u adam git clone --depth 1 https://github.com/aidam38/adamos /home/adam &>/dev/null
 
 # ----------
 echo "Creating some basic directories in the /home/adam folder"
@@ -15,12 +15,12 @@ sudo -u adam mkdir builds downloads
 # ----------
 echo "Synchronizing the package system and installing basic programs"
 cd /home/adam
-xbps-install -Suv &>/dev/null
+yay -Suv 
 while IFS=, read -r line; do
 	program=($line)
 	if [ -z "${program[1]}" ]; then 
 		echo "(xbps) Installing $program"
-		xbps-install -Sy $program &>/dev/null
+		yay -Sy $program 
 	elif [ -n "${program[1]}" ]; then
 		cd /home/adam/builds
 		echo "(git) Installing ${program[0]} from ${program[1]}"
@@ -40,8 +40,8 @@ sudo ln -sf /home/adam/.config/lf /etc
 
 # ----------
 echo "Disabling services for obsolete ttys." 
-cd /var/service
-rm -f agetty-tty3 & rm -f agetty-tty4 & rm -f agetty-tty5 & rm -f agetty-tty6 &>/dev/null
+# cd /var/service
+# rm -f agetty-tty3 & rm -f agetty-tty4 & rm -f agetty-tty5 & rm -f agetty-tty6 &>/dev/null
 
 # ----------
 echo "Allowing user to run reboot, poweroff and shutdown without password."
@@ -54,9 +54,9 @@ update-grub &>/dev/null
 
 # ----------
 echo "Setting up automatic login."
-cp -R /home/adam/.install/agetty-autologin-tty1 /etc/sv/ &>/dev/null
-ln -s /etc/sv/agetty-autologin-tty1 /var/service 
-rm /var/service/agetty-tty1 &>/dev/null
+# cp -R /home/adam/.install/agetty-autologin-tty1 /etc/sv/ &>/dev/null
+# ln -s /etc/sv/agetty-autologin-tty1 /var/service 
+# rm /var/service/agetty-tty1 &>/dev/null
 
 # ----------
 cd /home/adam

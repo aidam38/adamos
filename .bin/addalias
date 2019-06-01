@@ -1,0 +1,26 @@
+#!/bin/env python
+import sys
+
+# syntax
+# addalias alias file/directory
+
+aliases_in = open('/home/adam/.bin/aliases', 'r')
+al = ''
+
+found = False;
+for a in aliases_in.readlines():
+	if(a.split()[0] == sys.argv[2]):
+		al += sys.argv[2] + " " + sys.argv[1] + "\n"
+		found = True
+	else:
+		al += a
+if(not found):
+	al += sys.argv[2] + " " + sys.argv[1]
+
+aliases_in.close()
+
+aliases_out = open('/home/adam/.bin/aliases', 'w')
+aliases_out.write(al)
+aliases_out.close()
+
+import bookmarks

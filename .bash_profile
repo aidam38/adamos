@@ -16,4 +16,4 @@ xmodmap ~/.Xmodmap
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-exec xinit
+startx

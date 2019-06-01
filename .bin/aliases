@@ -1,0 +1,43 @@
+st /home/adam/builds/st config.h
+dwm /home/adam/builds/dwm config.h
+v /home/adam/.config/nvim init.vim
+k /home/adam/.config/kak kakrc
+q /home/adam/.config/qutebrowser config.py
+b /home/adam .bashrc
+x /home/adam .xinitrc
+lf /home/adam/.config/lf lfrc
+mu /home/adam/.config/mutt muttrc
+al /home/adam/scripts aliases
+ri /home/adam/.config/ranger rifle.conf
+se /var/service
+sv /etc/sv/services
+h /home/adam
+c /home/adam/.config
+e /etc
+u1 /mnt/usb1
+u2 /mnt/usb2
+u3 /mnt/usb3
+i /home/adam/.install programs
+b /home/adam/builds
+do /home/adam/downloads
+dr /home/adam/drive
+sko /home/adam/drive/skola
+ska /home/adam/team_drives/or89
+pr /home/adam/drive/skola/matika/prase/
+ka /home/adam/drive/karate
+an /home/adam/drive/skola/anki
+sot /home/adam/storage/soc/asteroidy_tex
+sof /home/adam/soc/swift_eunomia
+M /home/adam/drive/skola/matika
+mi /home/adam/drive/skola/matika/iKS/2018-2019
+mk /home/adam/drive/skola/matika/krouzek/2018-2019/
+mo /home/adam/drive/skola/matika/MO
+mp /home/adam/drive/skola/matika/prase/2018-2019
+ms /home/adam/drive/skola/matika/sady
+ol /home/adam/drive/skola/olympiady
+fo /home/adam/drive/skola/olympiady/FO/2018-2019
+ao /home/adam/drive/skola/olympiady/AO/2018-2019
+db /home/adam/.bin
+sc /home/adam/scripts
+ů /home/adam/soc/swift_eunomia/eunomia_data/chi2
+skaw /home/adam/team_drives/or89/Design/web/SKAUT-Basic

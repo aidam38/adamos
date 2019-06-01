@@ -1,6 +1,6 @@
 void-repo-nonfree
 base-devel
-xorg-minimal
+xorg
 xinit
 xorg-fonts
 libX11-devel
