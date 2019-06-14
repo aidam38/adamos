@@ -1,0 +1,96 @@
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME,file:$HOME/Painted Stone: Asteroids in the Sloan Digital Sky Survey.mov,file:$HOME/VID_20190517_135923.mp4
+Recent URLs[$e]=file:$HOME/downloads/
+
+[MainWindow]
+Height 1080=1060
+State=AAAA/wAAAAD9AAAAAQAAAAIAAAeAAAABH/wBAAAADfsAAAAYAG4AbwB0AGUAcwBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAARgD////7AAAADgBsAGkAYgByAGEAcgB5AAAAAAD/////AAAAWAD////7AAAAGgBhAHUAZABpAG8AcwBwAGUAYwB0AHIAdQBtAAAAAAD/////AAAAaQD////7AAAAFgBwAHIAbwBqAGUAYwB0AF8AYgBpAG4BAAAAAAAAAOsAAABGAP////wAAADxAAAA8AAAAEQA////+gAAAAABAAAAAvsAAAAYAGUAZgBmAGUAYwB0AF8AcwB0AGEAYwBrAQAAAAD/////AAAARAD////7AAAAHgBjAGwAaQBwAF8AcAByAG8AcABlAHIAdABpAGUAcwAAAAAA/////wAAAEQA/////AAAAecAAAIOAAAAewD////6AAAAAQEAAAAC+wAAAB4AdAByAGEAbgBzAGkAdABpAG8AbgBfAGwAaQBzAHQBAAAAAP////8AAAAAAP////sAAAAWAGUAZgBmAGUAYwB0AF8AbABpAHMAdAEAAAAA/////wAAAAAA/////AAAA/sAAAOFAAABQAD////6AAAAAQEAAAAC+wAAABgAYwBsAGkAcABfAG0AbwBuAGkAdABvAHIBAAAAAP////8AAAFAAP////sAAAAeAHAAcgBvAGoAZQBjAHQAXwBtAG8AbgBpAHQAbwByAQAAAAD/////AAABQAD////7AAAAGAB1AG4AZABvAF8AaABpAHMAdABvAHIAeQAAAAAA/////wAAAEYA////+wAAABYAdgBlAGMAdABvAHIAcwBjAG8AcABlAAAAAAD/////AAABKAD////7AAAAEAB3AGEAdgBlAGYAbwByAG0AAAAAAP////8AAACgAP////sAAAAUAHIAZwBiAF8AcABhAHIAYQBkAGUAAAAAAP////8AAACdAP////sAAAASAGgAaQBzAHQAbwBnAHIAYQBtAAAAAAD/////AAABOQD////7AAAAFABzAGMAcgBlAGUAbgBnAHIAYQBiAAAAAAD/////AAAAYgD///8AAAeAAAACsQAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAAAAABgAZQB4AHQAcgBhAFQAbwBvAGwAQgBhAHIBAAABaf////8AAAAAAAAAAA==
+ToolBarsMovable=Disabled
+Width 1920=1920
+
+[Recent Dirs]
+KdenliveClipFolder[$e]=$HOME/,$HOME/Documents
+KdenliveProjectsFolder[$e]=$HOME,$HOME/Documents
+
+[Recent Files]
+File1[$e]=$HOME/vizualizace_planetek.kdenlive
+Name1[$e]=vizualizace_planetek.kdenlive
+
+[Scope_Histogram]
+autoRefresh=true
+bEnabled=true
+gEnabled=true
+rEnabled=true
+realtime=false
+rec601=false
+sEnabled=false
+yEnabled=true
+
+[Scope_RGB Parade]
+autoRefresh=true
+axis=false
+gradref=false
+paintmode=0
+realtime=false
+
+[Scope_Vectorscope]
+75PBox=false
+autoRefresh=true
+axis=false
+backgroundmode=0
+colorspace_ypbpr=false
+gain=1
+iqlines=false
+paintmode=0
+realtime=false
+
+[Scope_Waveform]
+autoRefresh=true
+paintmode=0
+realtime=false
+rec601=false
+
+[bin]
+treeviewheaders=AAAA/wAAAAAAAAABAAAAAQAAAAABAAAAAAAAAAAAAAADBgAAAAIAAAACAAAAZAAAAAEAAAA5AAAAbwAAAAMBAQABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAMAAABvAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAPoAAAAAEA=
+
+[capture]
+decklink_device_found=false
+decklink_extension=mov
+decklink_parameters=vcodec=dnxhd vb=145000k acodec=pcm_s16le threads=%threads
+grab_extension=mov
+grab_parameters=-crf 25 -vcodec libx264 -preset veryfast -threads 0
+v4l_extension=mpg
+v4l_parameters=qscale=4 ab=192k vcodec=mpeg2video acodec=mp2 threads=%threads
+
+[env]
+defaultimageapp=/usr/bin/gimp
+defaultprojectfolder[$e]=$HOME/Documents
+ffmpegpath[$e]=/usr/bin/ffmpeg
+ffplaypath[$e]=/usr/bin/ffplay
+ffprobepath[$e]=/usr/bin/ffprobe
+mltpath[$e]=/usr/share/mlt/profiles
+rendererpath[$e]=/bin/melt
+
+[project]
+proxyextension=mkv
+proxyparams=-vf yadif,scale=960:-2 -qscale 3 -vcodec mjpeg -acodec pcm_s16le
+
+[sdl]
+audiobackend=sdl2_audio
+sdlAudioBackend=sdl2_audio
+
+[timeline]
+headerwidth=232
+trackheight=61
+
+[unmanaged]
+current_profile=atsc_1080p_25
+default_profile=atsc_1080p_25
+monitor_audio=false
+producerslist=blipflash,count,frei0r.ising0r,frei0r.lissajous0r,frei0r.nois0r,frei0r.onecol0r,frei0r.partik0l,frei0r.plasma,frei0r.test_pat_B,frei0r.test_pat_C,frei0r.test_pat_G,frei0r.test_pat_I,frei0r.test_pat_L,frei0r.test_pat_R,pgm,decklink,avformat,avformat-novalidate,framebuffer,qimage,qtext,kdenlivetitle,sdl_image,abnormal,color,colour,consumer,hold,loader,melt,melt_file,noise,timewarp,tone,xml,xml-string,xml-nogl,pango,pixbuf,ladspa.1047,ladspa.1050,slowmotion
+project_display_ratio=1.7777777777777777
+project_fps=24
+widgetstyle=Default
+
+[version]
+version=19.04.1

@@ -1,8 +1,10 @@
 *
 !.asy/*
+!.config
 !.config/*
 !.config/dunst/*
-!.config/lf/*
+!.config/lf
+!.config/lf/**
 !.config/kak/*
 !.config/kak/**
 !.config/newsboat/*

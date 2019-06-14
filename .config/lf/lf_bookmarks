@@ -1,0 +1,55 @@
+map bst cd /home/adam/builds/st
+map est :cd /home/adam/builds/st; $$EDITOR config.h
+map bdwm cd /home/adam/builds/dwm
+map edwm :cd /home/adam/builds/dwm; $$EDITOR config.h
+map bv cd /home/adam/.config/nvim
+map ev :cd /home/adam/.config/nvim; $$EDITOR init.vim
+map bk cd /home/adam/.config/kak
+map ek :cd /home/adam/.config/kak; $$EDITOR kakrc
+map bq cd /home/adam/.config/qutebrowser
+map eq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
+map bb cd /home/adam
+map eb :cd /home/adam; $$EDITOR .bashrc
+map bx cd /home/adam
+map ex :cd /home/adam; $$EDITOR .xinitrc
+map blf cd /home/adam/.config/lf
+map elf :cd /home/adam/.config/lf; $$EDITOR lfrc
+map bmu cd /home/adam/.config/mutt
+map emu :cd /home/adam/.config/mutt; $$EDITOR muttrc
+map bal cd /home/adam/scripts
+map eal :cd /home/adam/scripts; $$EDITOR aliases
+map bri cd /home/adam/.config/ranger
+map eri :cd /home/adam/.config/ranger; $$EDITOR rifle.conf
+map bse cd /var/service
+map bsv cd /etc/sv/services
+map bh cd /home/adam
+map bc cd /home/adam/.config
+map be cd /etc
+map bu1 cd /mnt/usb1
+map bu2 cd /mnt/usb2
+map bu3 cd /mnt/usb3
+map bi cd /home/adam/.install
+map ei :cd /home/adam/.install; $$EDITOR programs
+map bb cd /home/adam/builds
+map bdo cd /home/adam/downloads
+map bdr cd /home/adam/drive
+map bsko cd /home/adam/drive/skola
+map bska cd /home/adam/team_drives/or89
+map bpr cd /home/adam/drive/skola/matika/prase/
+map bka cd /home/adam/drive/karate
+map ban cd /home/adam/drive/skola/anki
+map bsot cd /home/adam/storage/soc/asteroidy_tex
+map bsof cd /home/adam/soc/swift_eunomia
+map bM cd /home/adam/drive/skola/matika
+map bmi cd /home/adam/drive/skola/matika/iKS/2018-2019
+map bmk cd /home/adam/drive/skola/matika/krouzek/2018-2019/
+map bmo cd /home/adam/drive/skola/matika/MO
+map bmp cd /home/adam/drive/skola/matika/prase/2018-2019
+map bms cd /home/adam/drive/skola/matika/sady
+map bol cd /home/adam/drive/skola/olympiady
+map bfo cd /home/adam/drive/skola/olympiady/FO/2018-2019
+map bao cd /home/adam/drive/skola/olympiady/AO/2018-2019
+map bdb cd /home/adam/.bin
+map bsc cd /home/adam/scripts
+map bů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2
+map bskaw cd /home/adam/team_drives/or89/Design/web/SKAUT-Basic
