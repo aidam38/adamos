@@ -35,7 +35,7 @@ map bdo cd /home/adam/downloads
 map bdr cd /home/adam/drive
 map bsko cd /home/adam/drive/skola
 map bska cd /home/adam/team_drives/or89
-map bpr cd /home/adam/drive/skola/matika/prase/
+map bpra cd /home/adam/drive/skola/matika/prase/
 map bka cd /home/adam/drive/karate
 map ban cd /home/adam/drive/skola/anki
 map bsot cd /home/adam/storage/soc/asteroidy_tex
@@ -53,3 +53,4 @@ map bdb cd /home/adam/.bin
 map bsc cd /home/adam/scripts
 map bů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2
 map bskaw cd /home/adam/team_drives/or89/Design/web/SKAUT-Basic
+map bprg cd "/home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní programy/Adam"
