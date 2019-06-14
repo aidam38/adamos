@@ -1,1 +1,1 @@
-rclone copy -LuP --exclude '.*{/**,}' --exclude 'fotky' or89: /home/adam/team_drives/or89/
+rclone copy -LuP --exclude '.*{/**,}' --exclude 'Fotky' or89: /home/adam/team_drives/or89/

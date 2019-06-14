@@ -1,1 +1,1 @@
-rclone sync -LuP --exclude '.*{/**,}' --exclude 'fotky' or89: /home/adam/team_drives/or89/
+rclone sync -LuP --exclude '.*{/**,}' --exclude 'Fotky' or89: /home/adam/team_drives/or89/
