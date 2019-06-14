@@ -1,0 +1,10 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=${1:1in}]{geometry}
+\usepackage{graphicx, enumitem}
+\usepackage{amsmath, amssymb, amsthm}
+
+\begin{document}
+$2
+\end{document}

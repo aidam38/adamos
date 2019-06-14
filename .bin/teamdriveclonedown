@@ -1,0 +1,1 @@
+rclone sync -LuP --exclude '.*{/**,}' or89: /home/adam/team_drives/or89/

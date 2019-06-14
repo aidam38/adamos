@@ -1,0 +1,1 @@
+rclone copy -LuP --exclude '.*{/**,}' /home/adam/team_drives/or89/ or89:
