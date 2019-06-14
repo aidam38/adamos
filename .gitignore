@@ -23,6 +23,7 @@
 !.wallpapers/**
 !.bash_profile
 !.bashrc
+!.bash_bookmarks
 !.dircolors
 !.Xmodmap
 !.xinitrc
