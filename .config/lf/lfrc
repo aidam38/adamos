@@ -158,7 +158,7 @@ map E $$EDITOR $f
 map o $lf -remote "send $id select '$(fzf)'"
 map O fzf-new
 map <a-w> q
-map f $$SHELL
+map f quit
 map F $st -e lf $f & \disown
 #$lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
 map Ls symlink
@@ -171,7 +171,7 @@ map mv push :$$EDITOR<space>
 map ma makearticle
 map mb makebeamer
 map mx $lf -remote "send $id push :\$chmod<space>755<space>$f<left><left>"
-map mm $lf -remote "send $id push :\$addalias<space>$(dirname $f)<space>"
+map mm $lf -remote "send $id push :\$addalias<space>'$(dirname $f)'<space>"
 map D trash
 map <c-d> delete
 map Z push zh
@@ -185,9 +185,9 @@ map I !du -sh $f
 map x $$f
 map X !$f
 map Y makecopy
-map Ee extract
-map Et push :tar<space>
-map Ez push :zip<space>
+map Ce extract
+map Ct push :tar<space>
+map Cz push :zip<space>
 
 # command line bindings
 cmap <esc> cmd-escape

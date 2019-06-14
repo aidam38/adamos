@@ -141,7 +141,6 @@ settings:
         <Ctrl+Shift+w>: close
         <Ctrl+Tab>: tab-focus last
         <Ctrl+^>: tab-focus last
-        <Ctrl+a>: navigate increment
         <Ctrl+b>: scroll-page 0 -1
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+f>: scroll-page 0 1

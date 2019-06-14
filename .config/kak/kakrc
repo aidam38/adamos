@@ -153,19 +153,19 @@ plug "Delapouite/kakoune-buffers" config %{
 }
 
 # fzf
-plug "andreyorst/fzf.kak" config %{
-    map -docstring 'fzf mode' global normal '<c-p>' ': fzf-mode<ret>'
-    set-option global fzf_preview_width '65%'
-    evaluate-commands %sh{
-        if [ -n "$(command -v fd)" ]; then
-        echo "set-option global fzf_file_command %{fd . --no-ignore --type f --follow --hidden --exclude .git --exclude .svn}"
-        else
-        echo "set-option global fzf_file_command %{find . \( -path '*/.svn*' -o -path '*/.git*' \) -prune -o -type f -follow -print}"
-    fi
-        [ -n "$(command -v bat)" ] && echo "set-option global fzf_highlight_cmd bat"
-        [ -n "${kak_opt_grepcmd}" ] && echo "set-option global fzf_sk_grep_command %{${kak_opt_grepcmd}}"
-        }
-}
+# plug "andreyorst/fzf.kak" config %{
+#     map -docstring 'fzf mode' global normal '<c-p>' ': fzf-mode<ret>'
+#     set-option global fzf_preview_width '65%'
+#     evaluate-commands %sh{
+#         if [ -n "$(command -v fd)" ]; then
+#         echo "set-option global fzf_file_command %{fd . --no-ignore --type f --follow --hidden --exclude .git --exclude .svn}"
+#         else
+#         echo "set-option global fzf_file_command %{find . \( -path '*/.svn*' -o -path '*/.git*' \) -prune -o -type f -follow -print}"
+#     fi
+#         [ -n "$(command -v bat)" ] && echo "set-option global fzf_highlight_cmd bat"
+#         [ -n "${kak_opt_grepcmd}" ] && echo "set-option global fzf_sk_grep_command %{${kak_opt_grepcmd}}"
+#         }
+# }
 
 
 # surround
@@ -242,13 +242,13 @@ hook global ModeChange ".*:normal" %{
 
 # other hooks
 
-rmhooks global reload_sxhkd
-hook -group reload_sxhkd global BufWritePost .*sxhkd.* %{
-  nop %sh{ pkill -USR1 -x sxhkd }
-  echo pkill -USR1 -x sxhkd
-}
+# rmhooks global reload_sxhkd
+# hook -group reload_sxhkd global BufWritePost .*sxhkd.* %{
+#   nop %sh{ pkill -USR1 -x sxhkd }
+#   echo pkill -USR1 -x sxhkd
+# }
 
-hook -group kakrc global BufCreate .*sxhkd.* %{ set buffer filetype sh }
+# hook -group kakrc global BufCreate .*sxhkd.* %{ set buffer filetype sh }
 
 # ----------
 

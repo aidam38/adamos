@@ -38,10 +38,20 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GOPATH="/home/adam/.go"
 
 # program aliases
+function lf-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    lf -last-dir-path="$tempfile"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+alias f='lf-cd'
+alias sf='sudo lf-cd'
+
 alias v='nvim'
 alias suv='sudo nvim'
-alias f='lf'
-alias sf='sudo lf'
 # alias f='fzf'
 alias ls='ls --color=auto'
 alias z='zathura'

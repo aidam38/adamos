@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rclone sync -LuP drive: /home/adam/drive --exclude SVČ*/
