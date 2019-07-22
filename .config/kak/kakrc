@@ -18,9 +18,9 @@ map global normal <c-k> ':exec vk<ret>'
 map global user q ':wq<ret>' -docstring "Save and quit."
 map global user Q ':wq<ret>' -docstring "Quit."
 
-define-command spell-mode %{
-	map global normal '§' ':spell-next<ret>'
-}
+	define-command spell-mode %{
+		map global normal '§' ':spell-next<ret>'
+	}
 
 # clipboard managment
 hook global NormalKey y|d|c %{ nop %sh{
@@ -37,7 +37,7 @@ map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Comp
 # filetype specific
 # TeX
 hook global BufSetOption filetype=latex %{ 
-	map global user c ':w<ret>: terminal latexmk -pdf -nobibtex $kak_buffile <gt> /dev/null 2<gt>&1 <lt> /dev/null & <ret>' -docstring "Quick compile"
+	map global user c ':w<ret>: terminal latexmk -pdf -nobibtex $kak_buffile<ret>' -docstring "Quick compile"
 	map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Compile using the compile script"
 	# map global buffers L ':edit! -scroll -fifo %sh{echo "${kak_buffile%.tex}.log"} *compile*<ret>' 
 	map global buffers L ':edit! -scroll -fifo "tmp" "*compile*"<ret>' 
@@ -52,8 +52,8 @@ hook global BufSetOption filetype=latex %{
 	}
 }
 
-map global user 'w' %{"wz:echo %sh{echo "Words: $(echo $kak_selection | wc -w), chars: $(echo $kak_selection | wc -m)"}<ret>} -docstring "Count words"
-
+map global user w %{"wz:echo %sh{echo "Words: $(echo $kak_selection | wc -w), chars: $(echo $kak_selection | wc -m)"}<ret>} -docstring "Count words"
+map global user W %{:echo %sh{analysepdf.sh $(echo $kak_buffile | sed "s|\..\{1,4\}$|.pdf|")}<ret>}
 # Plugins
 # initialization of plug.kak
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
