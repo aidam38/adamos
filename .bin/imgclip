@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+file=$1
+file_c="${file%.*}_c.${file##*.}"
+
+convert -resize 2500x2500\> -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB  "$file" "$file_c"
+
+xclip -selection clip -t $(file --mime-type -b "$file_c") -i $file_c
+
+rm "$file_c"

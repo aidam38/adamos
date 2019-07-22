@@ -14,16 +14,19 @@ set previewer ~/.config/lf/prev.sh
 set promptfmt " \[\033[38;5;166m\]%u\[\033[38;5;244m\]@\[\033[38;5;217m\]%h\[\033[38;5;15m\] \[\033[38;5;155;1m\]%w" 
 
 # responsive columns
-# %{{
-    #w=$(tput cols)
-    #if [ $w -le 80 ]; then
-        #lf -remote "send $id set ratios 1:2"
-    #elif [ $w -le 160 ]; then
-        #lf -remote "send $id set ratios 1:2:3"
-    #else
-        #lf -remote "send $id set ratios 1:2:3:5"
-    #fi
-#}}
+cmd recol &{{
+    w=$(tput cols)
+    if [ $w -le 40 ]; then
+        lf -remote "send $id set nopreview"
+        lf -remote "send $id set ratios 1"
+    elif [ $w -le 80 ]; then
+        lf -remote "send $id set preview"
+        lf -remote "send $id set ratios 1:2"
+    else
+        lf -remote "send $id set preview"
+        lf -remote "send $id set ratios 1:2:3"
+    fi
+}}
 
 # make sure trash folder exists
 %mkdir -p ~/.trash
@@ -151,6 +154,7 @@ map J push <space>k
 map K push <space>kk
 map gj bottom
 map gk top
+map s push :glob-select<space>
 map <enter> open-rifle
 map '§' $echo "Enter command with which to open the selected files"; read program && rifle -w "$program" $fx
 # map '!' $mimeopen --ask-default $f
@@ -166,6 +170,8 @@ map Lh hardlink
 map a $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
 map c push :rename<space>
 map <c-r> !bulkrename.sh "$fx"
+map <c-s> $lf -remote "send $id push \$seq<space><space>\$fx<left><left><left><left>"
+map r recol
 map md push :$mkdir<space>
 map mv push :$$EDITOR<space>
 map ma makearticle

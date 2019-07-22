@@ -1,0 +1,10 @@
+#!/bin/bash
+
+i=$1
+shift
+for file in $*; do
+	to=$i.${file##*.}
+	mv $file $to
+	echo "Moved $file to $to"
+	i=$(($i+1))
+done

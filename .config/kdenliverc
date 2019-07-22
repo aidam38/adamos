@@ -1,15 +1,15 @@
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME,file:$HOME/Painted Stone: Asteroids in the Sloan Digital Sky Survey.mov,file:$HOME/VID_20190517_135923.mp4
-Recent URLs[$e]=file:$HOME/downloads/
+Recent Files[$e]=file:$HOME/team_drives/or89/Fotky/tabor2019/vyber,file:$HOME/team_drives/or89/Fotky/tabor2019/vyber/VID_20190704_194108.mp4
+Recent URLs[$e]=file:$HOME/team_drives/or89/Fotky/tabor2019/vyber/
 
 [MainWindow]
 Height 1080=1060
-State=AAAA/wAAAAD9AAAAAQAAAAIAAAeAAAABH/wBAAAADfsAAAAYAG4AbwB0AGUAcwBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAARgD////7AAAADgBsAGkAYgByAGEAcgB5AAAAAAD/////AAAAWAD////7AAAAGgBhAHUAZABpAG8AcwBwAGUAYwB0AHIAdQBtAAAAAAD/////AAAAaQD////7AAAAFgBwAHIAbwBqAGUAYwB0AF8AYgBpAG4BAAAAAAAAAOsAAABGAP////wAAADxAAAA8AAAAEQA////+gAAAAABAAAAAvsAAAAYAGUAZgBmAGUAYwB0AF8AcwB0AGEAYwBrAQAAAAD/////AAAARAD////7AAAAHgBjAGwAaQBwAF8AcAByAG8AcABlAHIAdABpAGUAcwAAAAAA/////wAAAEQA/////AAAAecAAAIOAAAAewD////6AAAAAQEAAAAC+wAAAB4AdAByAGEAbgBzAGkAdABpAG8AbgBfAGwAaQBzAHQBAAAAAP////8AAAAAAP////sAAAAWAGUAZgBmAGUAYwB0AF8AbABpAHMAdAEAAAAA/////wAAAAAA/////AAAA/sAAAOFAAABQAD////6AAAAAQEAAAAC+wAAABgAYwBsAGkAcABfAG0AbwBuAGkAdABvAHIBAAAAAP////8AAAFAAP////sAAAAeAHAAcgBvAGoAZQBjAHQAXwBtAG8AbgBpAHQAbwByAQAAAAD/////AAABQAD////7AAAAGAB1AG4AZABvAF8AaABpAHMAdABvAHIAeQAAAAAA/////wAAAEYA////+wAAABYAdgBlAGMAdABvAHIAcwBjAG8AcABlAAAAAAD/////AAABKAD////7AAAAEAB3AGEAdgBlAGYAbwByAG0AAAAAAP////8AAACgAP////sAAAAUAHIAZwBiAF8AcABhAHIAYQBkAGUAAAAAAP////8AAACdAP////sAAAASAGgAaQBzAHQAbwBnAHIAYQBtAAAAAAD/////AAABOQD////7AAAAFABzAGMAcgBlAGUAbgBnAHIAYQBiAAAAAAD/////AAAAYgD///8AAAeAAAACsQAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAAAAABgAZQB4AHQAcgBhAFQAbwBvAGwAQgBhAHIBAAABaf////8AAAAAAAAAAA==
+State=AAAA/wAAAAD9AAAAAQAAAAIAAAeAAAABH/wBAAAADfsAAAAYAG4AbwB0AGUAcwBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAARgD////7AAAADgBsAGkAYgByAGEAcgB5AAAAAAD/////AAAAWAD////7AAAAGgBhAHUAZABpAG8AcwBwAGUAYwB0AHIAdQBtAAAAAAD/////AAAAaQD////7AAAAFgBwAHIAbwBqAGUAYwB0AF8AYgBpAG4BAAAAAAAAAOsAAABGAP////wAAADxAAAA8AAAAEQA////+gAAAAABAAAAAvsAAAAYAGUAZgBmAGUAYwB0AF8AcwB0AGEAYwBrAQAAAAD/////AAAARAD////7AAAAHgBjAGwAaQBwAF8AcAByAG8AcABlAHIAdABpAGUAcwAAAAAA/////wAAAEQA/////AAAAecAAAIOAAAAewD////6AAAAAQEAAAAC+wAAAB4AdAByAGEAbgBzAGkAdABpAG8AbgBfAGwAaQBzAHQBAAAAAP////8AAAAAAP////sAAAAWAGUAZgBmAGUAYwB0AF8AbABpAHMAdAEAAAAA/////wAAAAAA/////AAAA/sAAAOFAAABQAD////6AAAAAQEAAAAC+wAAABgAYwBsAGkAcABfAG0AbwBuAGkAdABvAHIBAAAAAP////8AAAFAAP////sAAAAeAHAAcgBvAGoAZQBjAHQAXwBtAG8AbgBpAHQAbwByAQAAAAD/////AAABQAD////7AAAAGAB1AG4AZABvAF8AaABpAHMAdABvAHIAeQAAAAAA/////wAAAEYA////+wAAABYAdgBlAGMAdABvAHIAcwBjAG8AcABlAAAAAAD/////AAABKAD////7AAAAEAB3AGEAdgBlAGYAbwByAG0AAAAAAP////8AAACgAP////sAAAAUAHIAZwBiAF8AcABhAHIAYQBkAGUAAAAAAP////8AAACdAP////sAAAASAGgAaQBzAHQAbwBnAHIAYQBtAAAAAAD/////AAABOQD////7AAAAFABzAGMAcgBlAGUAbgBnAHIAYQBiAAAAAAD/////AAAARwD///8AAAeAAAACqgAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAAAAABgAZQB4AHQAcgBhAFQAbwBvAGwAQgBhAHIBAAACH/////8AAAAAAAAAAA==
 ToolBarsMovable=Disabled
 Width 1920=1920
 
 [Recent Dirs]
-KdenliveClipFolder[$e]=$HOME/,$HOME/Documents
+KdenliveClipFolder[$e]=$HOME/team_drives/or89/Fotky/tabor2019/vyber/,$HOME/,$HOME/Documents
 KdenliveProjectsFolder[$e]=$HOME,$HOME/Documents
 
 [Recent Files]
@@ -86,11 +86,12 @@ trackheight=61
 [unmanaged]
 current_profile=atsc_1080p_25
 default_profile=atsc_1080p_25
+defaultrescaleheight=540
+defaultrescalewidth=960
 monitor_audio=false
-producerslist=blipflash,count,frei0r.ising0r,frei0r.lissajous0r,frei0r.nois0r,frei0r.onecol0r,frei0r.partik0l,frei0r.plasma,frei0r.test_pat_B,frei0r.test_pat_C,frei0r.test_pat_G,frei0r.test_pat_I,frei0r.test_pat_L,frei0r.test_pat_R,pgm,decklink,avformat,avformat-novalidate,framebuffer,qimage,qtext,kdenlivetitle,sdl_image,abnormal,color,colour,consumer,hold,loader,melt,melt_file,noise,timewarp,tone,xml,xml-string,xml-nogl,pango,pixbuf,ladspa.1047,ladspa.1050,slowmotion
+producerslist=abnormal,color,colour,consumer,hold,loader,melt,melt_file,noise,timewarp,tone,avformat,avformat-novalidate,blipflash,count,xml,xml-string,xml-nogl,qimage,qtext,kdenlivetitle,sdl_image,decklink,pgm,slowmotion,framebuffer,frei0r.ising0r,frei0r.lissajous0r,frei0r.nois0r,frei0r.onecol0r,frei0r.partik0l,frei0r.plasma,frei0r.test_pat_B,frei0r.test_pat_C,frei0r.test_pat_G,frei0r.test_pat_I,frei0r.test_pat_L,frei0r.test_pat_R,pango,pixbuf
 project_display_ratio=1.7777777777777777
-project_fps=24
 widgetstyle=Default
 
 [version]
-version=19.04.1
+version=19.04.3

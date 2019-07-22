@@ -25,6 +25,7 @@ export OPENER="mimeopen"
 export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:/home/adam/.go/bin/:~/.npm-global/bin:$PATH"
 export XDG_CONFIG_HOME="/home/adam/.config"
 export TEXMFHOME='~/.texmf'
+export SUDO_ASKPASS="$HOME/.bin/dmenupass"
 
 eval $(dircolors -b /home/adam/.dircolors)
 
