@@ -135,17 +135,17 @@ plug "occivink/kakoune-snippets" config %{
 }
 
 # snippet collection
-plug "andreyorst/kakoune-snippet-collection"
+plug "aidam38/kakoune-snippet-collection"
 
 # powerline
-plug "andreyorst/powerline.kak" config %{
+plug "https://github.com/andreyorst/powerline.kak" config %{
 	hook -once global WinCreate .* %{
 		powerline-format bufname filetype mode_info line_column position
 	}
 }
 
 # buffers
-plug "Delapouite/kakoune-buffers" config %{
+plug "https://github.com/Delapouite/kakoune-buffers" config %{
 	hook global WinDisplay .* info-buffers
 	# Suggested mappings
 	map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
@@ -183,10 +183,10 @@ plug "occivink/kakoune-find"
 # TODO
 
 # kak-lsp
-hook global KakBegin .* %{
-	eval %sh{kak-lsp --kakoune -s $kak_session}
-	lsp-enable
-}
+# hook global KakBegin .* %{
+# 	eval %sh{kak-lsp --kakoune -s $kak_session}
+# 	lsp-enable
+# }
 
 # kakoune-phantom-selection
 plug "occivink/kakoune-phantom-selection" config %{

@@ -28,9 +28,6 @@ cmd recol &{{
     fi
 }}
 
-# make sure trash folder exists
-%mkdir -p ~/.trash
-
 # additional and command-line commands
 #
 # define a custom 'open' command
@@ -55,9 +52,8 @@ cmd fzy ${{
 # rename current file without overwrite
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
-# move current file or selected files to trash folder
-# (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv -f $fx ~/.trash
+# make sure trash folder exists
+%mkdir -p ~/.trash
 
 cmd paste-legacy ${{
     load=$(lf -remote 'load')
@@ -173,12 +169,12 @@ map <c-r> !bulkrename.sh "$fx"
 map <c-s> $lf -remote "send $id push \$seq<space><space>\$fx<left><left><left><left>"
 map r recol
 map md push :$mkdir<space>
-map mv push :$$EDITOR<space>
+map mk push :$$EDITOR<space>
 map ma makearticle
 map mb makebeamer
 map mx $lf -remote "send $id push :\$chmod<space>755<space>$f<left><left>"
 map mm $lf -remote "send $id push :\$addalias<space>'\$(dirname<space>\$f)'<space>"
-map D trash
+map D $pwd=$(pwd) && lf -remote "send $id push d:cd<space>~/.trash<enter>p\:cd<space>$pwd<enter>"
 map <c-d> delete
 map Z push zh
 map t :set sortby time; set reverse
@@ -214,6 +210,20 @@ map w
 map m
 map G
 map e
+
+# controversial mappings
+cmd open_mark ${{
+	mark=$(cat ~/.bin/aliases | fzf -n 1)
+	lf -remote "send $id cd $(echo $mark | awk '{print $2}')"
+}}
+cmd edit_mark ${{
+	mark=$(cat ~/.bin/aliases | fzf -n 1)
+	lf -remote "send $id select $(echo $mark | awk '{print $2}')"
+	cd "$(echo $mark | awk '{print $2}')"
+	$EDITOR "$(echo $mark | awk '{print $3}')"
+}}
+map b open_mark
+map e edit_mark
 
 # bookmarks
 source "~/.config/lf/lf_bookmarks"

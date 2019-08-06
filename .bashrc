@@ -22,7 +22,7 @@ export EDITOR="kak"
 export PAGER="less"
 export MANPAGER="less"
 export OPENER="mimeopen"
-export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:/home/adam/.go/bin/:~/.npm-global/bin:/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
+export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:/home/adam/.go/bin/:~/.npm-global/bin:/usr/local/texlive/2019/bin/x86_64-linux:/root/.cargo/bin:$PATH"
 export XDG_CONFIG_HOME="/home/adam/.config"
 export TEXMFHOME='~/.texmf'
 export SUDO_ASKPASS="$HOME/.bin/dmenupass"
@@ -53,16 +53,17 @@ alias sf='sudo lf-cd'
 
 alias v='nvim'
 alias suv='sudo nvim'
+alias k='kak'
+alias suk='sudo kak'
 # alias f='fzf'
 alias ls='ls --color=auto'
 alias z='zathura'
 
-alias i='sudo xbps-install'
-alias iu='sudo xbps-install -Syu'
-alias s='sudo xbps-query -Rs'
-alias l='sudo xbps-query l'
-alias q='sudo xbps-query'
-alias u='sudo xbps-remove'
+alias i='yay -S'
+alias iu='yay -Syu'
+alias s='yay -Ss'
+alias l='yay -Q'
+alias u='yay -Ru'
 
 alias au='pulsemixer'
 alias bl='bluetoothctl'
@@ -70,6 +71,7 @@ alias mke='sudo make clean install'
 # alias !!='sudo !!'
 alias tr='transmission-remote'
 alias scan='scanimage >'
+alias restartsxhkd='killall -SIGUSR1 sxhkd'
 
 alias gplom='git pull origin master'
 alias gpsom='git push origin master'

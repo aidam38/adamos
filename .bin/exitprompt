@@ -1,10 +1,10 @@
-#/bin/bash
+#!/bin/bash
 
-choice=$(echo "Shutdown\nZzz\nReboot" | dmenu -i) 
-if [ "$choice" = "Shutdown" ]; then
-	sudo poweroff now
-if [ "$choice" = "Zzz" ]; then
-	sudo zzz now
-elif [ "$choice" = "Reboot" ]; then
+choice=$(echo -e "Suspend\nShutdown\nReboot" | dmenu -i) 
+if [[ "$choice" == "Suspend" ]]; then
+	systemctl suspend
+elif [[ "$choice" == "Shutdown" ]]; then
+	sudo shutdown now
+elif [[ "$choice" == "Reboot" ]]; then
 	sudo reboot now
 fi

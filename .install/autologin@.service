@@ -1,0 +1,2 @@
+[Service]
+ExecStart=-/sbin/agetty -a adam %I 38400

@@ -2,9 +2,22 @@
 # Automatic instalation script of adamos - Void linux based operation system with dwm, st, ranger ... for personal use of Adam Krivka
 # IMPORTANT: Make sure you run this script as the default user (you) and as 'sudo'
 
-echo "By now you should have done the following things: 
+echo "By now you should have done the following things:
+- partitioned your hard drive
+	/dev/sda1 bootable (512M)
+	/dev/sda2 swap (around 2G)
+	/dev/sda3 /mnt (around 30G)
+	/dev/sda4 /mnt/home (the rest)
 - formatted your partitions
+	mkfs.ext3 /dev/sda3
+	mkfs.ext4 /dev/sda4
+	mkswap /dev/sda2
 - mounted your partitions (/dev/sda3 to /mnt and /dev/sda4 to /mnt/home)
+	swapon /dev/sda2
+	mount /dev/sda3 /mnt
+	mkdir /mnt/home
+	mount /dev/sda4 /mnt/home
+- connected to the internet
 - be in root (not in /mnt root)
 "
 
@@ -13,14 +26,32 @@ if [[ $yn == "Nn*" ]]; then
 	exit
 fi
 
+read -p "Do the first part?" part
+if [[ part = "y" ]]; then
 echo "Setting up Arch Linux"
-pacstrap /mnt base
-timedatectl set-ntp true
+
 genfstab -U /mnt >> /mnt/etc/fstab
+
+pacstrap /mnt base base-devel
+
 arch-chroot /mnt
+
+pacman -Syu grub git neovim kakoune wpa_supplicant
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "Enter root password"
+passwd
+
+read -p "Enter normal user username: " username
+useradd -m -g users -G wheel,storage,power,users -s /bin/bash $username
+echo "Enter $username's password."
+passwd $username
+
+fi
+
 ln -sf /usr/share/zoneinfo/Europe/Prague /etc/localtime
+timedatectl set-ntp true
 hwclock --systohc
 sed "s/#en_US.UTF-8\sUTF-8\en_US.UTF-8 UTF-8/" /etc/locale.gen
 locale-gen
@@ -28,12 +59,6 @@ echo "LANG=en_US.UTF8" >> /etc/locale.conf
 echo "KEYMAP=cz-qwert" >> /etc/vconsole.conf
 read -p "Add hostname: " hostname
 hostnamectl set-hostname $hostname
-echo "Enter root password"
-passwd
-read -p "Enter normal user username: " username
-useradd -m -g users -G wheel,storage,power,users -s /bin/bash $username
-echo "Enter $username's password."
-passwd $username
 
 # ----------
 echo "Cloning dotfiles from github. (probably already done)"

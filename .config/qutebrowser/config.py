@@ -1352,7 +1352,7 @@ c.tabs.title.alignment = 'left'
 #`{protocol}`: Protocol (http/https/...) of the current web page. *
 #`{audio}`: Indicator for audio/mute status.
 #Type: FormatString
-c.tabs.title.format = '{audio}{index}: {title}'
+c.tabs.title.format = '{audio}{index}: {current_title}'
 
 #Format to use for the tab title for pinned tabs. The same placeholders
 #like for `tabs.title.format` are defined.
@@ -1424,7 +1424,7 @@ c.window.hide_decoration = False
 #Format to use for the window title. The same placeholders like for
 #`tabs.title.format` are defined.
 #Type: FormatString
-c.window.title_format = '{perc}{title}{title_sep}qutebrowser'
+c.window.title_format = '{perc}{current_title}{title_sep}qutebrowser'
 
 #Default zoom level.
 #Type: Perc
@@ -1456,7 +1456,7 @@ config.bind('7', 'tab-focus 7')
 config.bind('8', 'tab-focus 8')
 config.bind('9', 'tab-focus 9')
 config.bind('0', 'tab-focus -1')
-config.bind('<Mod1-H>', 'tab-give')
+config.bind('<Mod4-g>', 'tab-give')
 config.bind('<Shift-Tab>', 'tab-focus last')
 config.bind('h', 'scroll left')
 config.bind('j', 'scroll down')
