@@ -165,7 +165,7 @@ map Ls symlink
 map Lh hardlink
 map a $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
 map c push :rename<space>
-map <c-r> !bulkrename.sh "$fx"
+map <c-r> !bulkrename "$fx"
 map <c-s> $lf -remote "send $id push \$seq<space><space>\$fx<left><left><left><left>"
 map r recol
 map md push :$mkdir<space>

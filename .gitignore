@@ -11,6 +11,7 @@
 !.config/nvim/*
 !.config/mutt/*
 !.config/ranger/rifle.conf
+!.config/sxhkd/*
 !.config/qutebrowser/*
 !.config/zathura/*
 !.config/mimeapps.list

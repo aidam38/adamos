@@ -1,0 +1,15 @@
+[Image Saving]
+NumberStartsFrom=1
+
+[Options For Brother:*brother]
+KSane::InvertColors=false
+br-x=215.880234
+br-y=355.567444
+mode=24bit Color[Fast]
+resolution=600 DPI
+source=Automatic Document Feeder(left aligned)
+tl-x=0.000000
+tl-y=0.000000
+
+[Window]
+Geometry=740,400

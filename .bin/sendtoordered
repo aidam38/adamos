@@ -1,0 +1,11 @@
+#!/bin/bash
+
+[[ -d ./ordered ]] || mkdir ordered
+lastfile=$(ls -1v ordered | tail -n 1)
+lastid=${lastfile%.*}
+
+for file in $*; do
+	lastid=$((lastid+1))
+	cp "$file" "ordered/$lastid.${file##*.}"
+	notify-send "Copied $file to ordered/$to"
+done
