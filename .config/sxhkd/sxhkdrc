@@ -1,0 +1,42 @@
+super + Return
+	st
+super + shift + Return
+	scratchpad
+super + q
+	qutebrowser
+super + e
+	st -c neomutt neomutt
+
+super + c
+	clipmenu
+super + shift + c
+	clipdel
+super + F9
+	dmenumount
+super + shift + F9
+	dmenuumount
+
+super + {F5,F6}
+	light {-U,-A} 10; updatebar
+super + F12
+	exitprompt
+
+super + F2 
+	pamixer -d 5
+super + F3
+	pamixer -i 5
+super + shift + F2 
+	pamixer -d 25
+super + shift + F3
+	pamixer -i 25
+super + F7
+	dmenurecord
+
+super + Print
+	screenshot
+super + Home
+	killall dunst &>/dev/null; killall spt &>/dev/null; dunst &; spt
+super + End
+	killall -SIGUSR1 spt
+super + Insert
+	killall -SIGUSR2 spt
