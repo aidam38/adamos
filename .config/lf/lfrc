@@ -28,17 +28,8 @@ cmd recol &{{
     fi
 }}
 
-# additional and command-line commands
-#
-# define a custom 'open' command
+# define a custom 'open' command using rifle
 cmd open ${{
-    case $(file --mime-type $f -L -b) in
-        text/*) $EDITOR $fx;;
-        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
-    esac
-}}
-
-cmd open-rifle ${{
 	for f in $fx; do rifle $f || notify-send "$f" ; done
 }}
 
@@ -51,9 +42,6 @@ cmd fzy ${{
 
 # rename current file without overwrite
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-
-# make sure trash folder exists
-%mkdir -p ~/.trash
 
 cmd paste-legacy ${{
     load=$(lf -remote 'load')
@@ -151,19 +139,18 @@ map K push <space>kk
 map gj bottom
 map gk top
 map s push :glob-select<space>
-map <enter> open-rifle
+map <enter> open
 map '§' $echo "Enter command with which to open the selected files"; read program && rifle -w "$program" $fx
 # map '!' $mimeopen --ask-default $f
 map E $$EDITOR $f
 map o $lf -remote "send $id select '$(fzf)'"
-map O fzf-new
+map O $st -e lf.sh $(fzf) &>/dev/null & \disown
 map <a-w> q
 map f quit
-map F $st -e lf $f & \disown
-#$lf -remote "send $id select $(fd --no-ignore --color=always --hidden --follow | fzf)"
 map Ls symlink
 map Lh hardlink
-map a $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
+map a $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')<a-b><left>"
+map A $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
 map c push :rename<space>
 map <c-r> !bulkrename "$fx"
 map <c-s> $lf -remote "send $id push \$seq<space><space>\$fx<left><left><left><left>"
@@ -174,7 +161,7 @@ map ma makearticle
 map mb makebeamer
 map mx $lf -remote "send $id push :\$chmod<space>755<space>$f<left><left>"
 map mm $lf -remote "send $id push :\$addalias<space>'\$(dirname<space>\$f)'<space>"
-map D $pwd=$(pwd) && lf -remote "send $id push d:cd<space>~/.trash<enter>p\:cd<space>$pwd<enter>"
+map D %trash-put $fx
 map <c-d> delete
 map Z push zh
 map t :set sortby time; set reverse
@@ -226,4 +213,4 @@ map b open_mark
 map e edit_mark
 
 # bookmarks
-source "~/.config/lf/lf_bookmarks"
+# source "~/.config/lf/lf_bookmarks"

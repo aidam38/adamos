@@ -1,6 +1,0 @@
-switch ${1:variable} {
-	case ${2:value}:
-		$3
-	$4
-}
-$0

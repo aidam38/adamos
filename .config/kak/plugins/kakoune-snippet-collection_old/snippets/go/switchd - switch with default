@@ -1,7 +1,0 @@
-switch ${1:variable} {
-	case ${2:value}:
-		$3
-	default:
-		$4
-}
-$0

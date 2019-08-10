@@ -1,5 +1,0 @@
-type ${1:name} struct {
-	$2
-}
-
-$0

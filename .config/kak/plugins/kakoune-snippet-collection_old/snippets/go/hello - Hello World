@@ -1,9 +1,0 @@
-package main
-
-import "fmt"
-
-func main() {
-	fmt.Printf("${1:Hello, world\n}")
-}
-
-$0

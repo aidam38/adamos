@@ -53,4 +53,7 @@ map bdb cd /home/adam/.bin
 map bsc cd /home/adam/scripts
 map bů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2
 map bskaw cd /home/adam/team_drives/or89/Design/web/SKAUT-Basic
-map bprg cd "/home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní programy/Adam"
+map bprg cd /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní\
+map eprg :cd /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní\; $$EDITOR programy/Adam
+map bsx cd $(dirname
+map esx :cd $(dirname; $$EDITOR $f)

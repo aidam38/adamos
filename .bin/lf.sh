@@ -1,7 +1,7 @@
 #!/bin/bash
 function lf-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
-    lf -last-dir-path="$tempfile"
+    lf -last-dir-path="$tempfile" $*
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"
@@ -9,4 +9,4 @@ function lf-cd {
     rm -f -- "$tempfile"
 }
 
-lf-cd && $SHELL
+lf-cd $* && $SHELL

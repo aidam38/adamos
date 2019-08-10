@@ -76,7 +76,7 @@ plug "delapouite/kakoune-text-objects"
 
 # kakoune-lf
 plug "TeddyDD/kakoune-lf" config %{
-    map global user l ':lf<ret>' -docstring "Launch lf"
+    map global user f ':lf<ret>' -docstring "Launch lf"
     declare-option -docstring %{shell command run to spawn a new terminal} str termcmd 'st -e bash -c'
 }
 

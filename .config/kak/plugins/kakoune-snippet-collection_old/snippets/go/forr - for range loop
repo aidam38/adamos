@@ -1,3 +1,0 @@
-for ${1:e} := range ${2:collection}  {
-	$0
-}

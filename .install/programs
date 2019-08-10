@@ -15,10 +15,12 @@ neovim
 kakoune
 lf
 ranger
+trash-cli
 fzf
 fd
 qutebrowser
 rsync
+openssh
 NetworkManager
 ffmpeg
 feh

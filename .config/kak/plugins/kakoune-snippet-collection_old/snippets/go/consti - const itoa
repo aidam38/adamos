@@ -1,4 +1,0 @@
-const (
-	${1:name} = iota
-	$0
-)

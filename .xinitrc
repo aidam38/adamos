@@ -12,7 +12,8 @@ sxhkd &
 # sudo logkeys --start --keymap /home/adam/scripts/keylogger/cz.keymap -o /home/adam/scripts/keylogger/keys.log &
 
 while true; do
-	updatebar && sleep 1
+	updatebar;
+	sleep 1
 done &
 
 exec dwm
