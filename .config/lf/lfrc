@@ -160,7 +160,7 @@ map mk push :$$EDITOR<space>
 map ma makearticle
 map mb makebeamer
 map mx $lf -remote "send $id push :\$chmod<space>755<space>$f<left><left>"
-map mm $lf -remote "send $id push :\$addalias<space>'\$(dirname<space>\$f)'<space>"
+map mm $lf -remote "send $id push :\$addalias<space>\$(dirname<space>\$f)<space>"
 map D %trash-put $fx
 map <c-d> delete
 map Z push zh

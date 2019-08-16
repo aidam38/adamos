@@ -13,6 +13,8 @@ libgfortran
 make
 neovim
 kakoune
+aspell
+aspell-es
 lf
 ranger
 trash-cli

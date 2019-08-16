@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
 compton -CG --no-fading-openclose --no-fading-destroyed-argb --focus-exclude "x = 0 && y = 0 && override_redirect = true" &
-sxhkd &
 feh --bg-scale /home/adam/.wallpapers/bg.* &
 setxkbmap -layout cz,us -option grp:alt_caps_toggle -option caps:swapescape -option terminate:ctrl_alt_bksp -option altwin:swap_lalt_lwin &
 numlockx &
@@ -16,4 +15,5 @@ while true; do
 	sleep 1
 done &
 
+sxhkd -c ~/.config/sxhkd/sxhkdrc -m 1 &
 exec dwm

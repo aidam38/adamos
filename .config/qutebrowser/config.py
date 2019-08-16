@@ -1735,4 +1735,4 @@ config.bind('<Return>', 'prompt-accept', mode='yesno')
 config.bind('n', 'prompt-accept no', mode='yesno')
 config.bind('y', 'prompt-accept yes', mode='yesno')
 
-config.bind('I', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/dark-facebook-messenger-theme.css" ""')
+config.bind('I', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/fb-messenger-dark.css" ""')
