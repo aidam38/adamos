@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+mark=$(cat ~/.bin/aliases | fzf -n 1 | awk '{$1=""; print $0}' | xargs)
+if [[ -d "$mark" ]]; then
+	lf -remote "send $id cd "$(echo $mark | sed 's/\s/\\ /g')""
+elif [[ -f "$mark" ]]; then
+	lf -remote "send $id select "$(echo $mark | sed 's/\s/\\ /g')""
+fi

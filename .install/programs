@@ -15,11 +15,16 @@ neovim
 kakoune
 aspell
 aspell-es
+ncdu
 lf
 ranger
 trash-cli
+zip
+unzip
+p7zip
 fzf
 fd
+entr
 qutebrowser
 rsync
 openssh

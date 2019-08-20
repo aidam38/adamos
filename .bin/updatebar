@@ -8,4 +8,4 @@ else
 	vol="$(pamixer --get-volume)"
 fi
 
-xsetroot -name "☀$(printf "%.*f\n" 0 $brightness)% | ⚡$battery% | ♫$vol% | $(date "+%a %d. %m. | %T")"
+xsetroot -name "☀$(printf "%.*f\n" 0 $brightness)% | ⚡$battery% | 🔊$vol% | $(date "+%a %d. %m. | %T")"

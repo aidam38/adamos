@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+function get_vol_and_bar() {
+	volume=$(printf "%3d%" $(pamixer --get-volume))
+	bar=$(echo "$(seq -s "─" $(($volume/5)))$(seq -s " " $(((100-$volume)/5)))" | sed 's/[0-9]//g')
+}
+
+case $1 in
+	up)
+		if [[ "$(pamixer --get-mute)" == "true" ]]; then
+			pamixer --mute ; pamixer --toggle-mute
+		fi
+		pamixer -i 5
+		get_vol_and_bar
+		dunstify -t 2000 -r 555 "🔊$volume% | $bar |"
+		;;
+	down)
+		# pamixer --mute ; pamixer --toggle-mute
+		pamixer -d 5
+		get_vol_and_bar
+		dunstify -t 2000 -r 555 "🔊$volume% | $bar |"
+		;;
+	mute)
+		pamixer --toggle-mute
+		if [[ "$(pamixer --get-mute)" == "true" ]]; then
+			dunstify -t 2000 -r 555 "🔊 -1% | mute"
+		else
+			get_vol_and_bar
+			dunstify -t 2000 -r 555 "🔊$volume% | $bar |"
+		fi
+		;;
+esac

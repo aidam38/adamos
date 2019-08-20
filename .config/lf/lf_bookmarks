@@ -1,25 +1,14 @@
-map bst cd /home/adam/builds/st
-map est :cd /home/adam/builds/st; $$EDITOR config.h
-map bdwm cd /home/adam/builds/dwm
-map edwm :cd /home/adam/builds/dwm; $$EDITOR config.h
-map bv cd /home/adam/.config/nvim
-map ev :cd /home/adam/.config/nvim; $$EDITOR init.vim
-map bk cd /home/adam/.config/kak
-map ek :cd /home/adam/.config/kak; $$EDITOR kakrc
-map bq cd /home/adam/.config/qutebrowser
-map eq :cd /home/adam/.config/qutebrowser; $$EDITOR config.py
-map bb cd /home/adam
-map eb :cd /home/adam; $$EDITOR .bashrc
-map bx cd /home/adam
-map ex :cd /home/adam; $$EDITOR .xinitrc
-map blf cd /home/adam/.config/lf
-map elf :cd /home/adam/.config/lf; $$EDITOR lfrc
-map bmu cd /home/adam/.config/mutt
-map emu :cd /home/adam/.config/mutt; $$EDITOR muttrc
-map bal cd /home/adam/scripts
-map eal :cd /home/adam/scripts; $$EDITOR aliases
-map bri cd /home/adam/.config/ranger
-map eri :cd /home/adam/.config/ranger; $$EDITOR rifle.conf
+map bst cd /home/adam/builds/st/config.h
+map bdwm cd /home/adam/builds/dwm/config.h
+map bv cd /home/adam/.config/nvim/init.vim
+map bk cd /home/adam/.config/kak/kakrc
+map bq cd /home/adam/.config/qutebrowser/config.py
+map bb cd /home/adam/.bashrc
+map bx cd /home/adam/.xinitrc
+map blf cd /home/adam/.config/lf/lfrc
+map bmu cd /home/adam/.config/mutt/muttrc
+map bal cd /home/adam/.bin/aliases
+map bri cd /home/adam/.config/ranger/rifle.conf
 map bse cd /var/service
 map bsv cd /etc/sv/services
 map bh cd /home/adam
@@ -28,8 +17,7 @@ map be cd /etc
 map bu1 cd /mnt/usb1
 map bu2 cd /mnt/usb2
 map bu3 cd /mnt/usb3
-map bi cd /home/adam/.install
-map ei :cd /home/adam/.install; $$EDITOR programs
+map bi cd /home/adam/.install/programs
 map bb cd /home/adam/builds
 map bdo cd /home/adam/downloads
 map bdr cd /home/adam/drive
@@ -53,6 +41,7 @@ map bdb cd /home/adam/.bin
 map bsc cd /home/adam/scripts
 map bů cd /home/adam/soc/swift_eunomia/eunomia_data/chi2
 map bskaw cd /home/adam/team_drives/or89/Design/web/SKAUT-Basic
-map bprg cd /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní\
-map eprg :cd /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní\; $$EDITOR programy/Adam
+map bprg cd /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní
+map eprg :cd /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní; $$EDITOR programy/Adam
 map bntm cd /home/adam/builds/notemap
+map bsx cd /home/adam/.config/sxhkd/sxhkdrc

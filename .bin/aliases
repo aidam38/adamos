@@ -1,14 +1,14 @@
-st /home/adam/builds/st config.h
-dwm /home/adam/builds/dwm config.h
-v /home/adam/.config/nvim init.vim
-k /home/adam/.config/kak kakrc
-q /home/adam/.config/qutebrowser config.py
-b /home/adam .bashrc
-x /home/adam .xinitrc
-lf /home/adam/.config/lf lfrc
-mu /home/adam/.config/mutt muttrc
-al /home/adam/scripts aliases
-ri /home/adam/.config/ranger rifle.conf
+st /home/adam/builds/st/config.h
+dwm /home/adam/builds/dwm/config.h
+v /home/adam/.config/nvim/init.vim
+k /home/adam/.config/kak/kakrc
+q /home/adam/.config/qutebrowser/config.py
+b /home/adam/.bashrc
+x /home/adam/.xinitrc
+lf /home/adam/.config/lf/lfrc
+mu /home/adam/.config/mutt/muttrc
+al /home/adam/.bin/aliases
+ri /home/adam/.config/ranger/rifle.conf
 se /var/service
 sv /etc/sv/services
 h /home/adam
@@ -17,7 +17,7 @@ e /etc
 u1 /mnt/usb1
 u2 /mnt/usb2
 u3 /mnt/usb3
-i /home/adam/.install programs
+i /home/adam/.install/programs
 b /home/adam/builds
 do /home/adam/downloads
 dr /home/adam/drive
@@ -41,5 +41,6 @@ db /home/adam/.bin
 sc /home/adam/scripts
 ů /home/adam/soc/swift_eunomia/eunomia_data/chi2
 skaw /home/adam/team_drives/or89/Design/web/SKAUT-Basic
-prg /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní\ programy/Adam
+prg /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní programy/Adam
 ntm /home/adam/builds/notemap
+sx /home/adam/.config/sxhkd/sxhkdrc

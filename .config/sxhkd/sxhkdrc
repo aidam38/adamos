@@ -29,21 +29,14 @@ super + F9
 super + shift + F9
 	dmenuumount
 
-super + {F5,F6}
-	light {-U,-A} 10; updatebar
 super + shift + y
 	exitprompt
 
-super + F1
-	pamixer -t ; notify-send -t "500" "♫-1%" ; updatebar
-super + F2 
-	pamixer -d 5 ; notify-send -t "500" "♫$(pamixer --get-volume)% (-5)" ; updatebar
-super + F3
-	pamixer -i 5 ; notify-send -t "500" "♫$(pamixer --get-volume)% (+5)" ; updatebar
-super + shift + F2 
-	pamixer -d 25 ; notify-send -t "500" "♫$(pamixer --get-volume)% (-25)" ; updatebar
-super + shift + F3
-	pamixer -i 25 ; notify-send -t "500" "♫$(pamixer --get-volume)% (+25)" ; updatebar
+super + {F5,F6}
+	bright {down,up} ; updatebar
+
+super + {F1,F2,F3}
+	volume {mute,down,up} ; updatebar
 
 super + F7
 	dmenurecord

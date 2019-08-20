@@ -211,16 +211,16 @@ plug "occivink/kakoune-find"
 
 # kakoune-phantom-selection
 plug "occivink/kakoune-phantom-selection" config %{
-	map global user n ": phantom-sel-enable<ret>" -docstring "Enable phantom selection"
-	map global user N ": phantom-sel-disable<ret>" -docstring "Disable phantom selection"
-	define-command phantom-sel-enable -docstring "" %{
-		evaluate-commands phantom-sel-add-selection
-		map global normal n ": phantom-sel-iterate-next<ret>"
-		map global normal N ": phantom-sel-iterate-prev<ret>"
+	map global user n ": phantom-selection-enable<ret>" -docstring "Enable phantom selection"
+	map global user N ": phantom-selection-disable<ret>" -docstring "Disable phantom selection"
+	define-command phantom-selection-enable -docstring "" %{
+		evaluate-commands phantom-selection-add-selection
+		map global normal n ": phantom-selection-iterate-next<ret>"
+		map global normal N ": phantom-selection-iterate-prev<ret>"
 	}
-	define-command phantom-sel-disable -docstring "" %{
-		evaluate-commands phantom-sel-select-all
-		evaluate-commands phantom-sel-clear
+	define-command phantom-selection-disable -docstring "" %{
+		evaluate-commands phantom-selection-select-all
+		evaluate-commands phantom-selection-clear
 		map global normal n n
 		map global normal N N
 	}
@@ -260,13 +260,12 @@ hook global ModeChange ".*:normal" %{
 
 # other hooks
 
-# rmhooks global reload_sxhkd
-# hook -group reload_sxhkd global BufWritePost .*sxhkd.* %{
-#   nop %sh{ pkill -USR1 -x sxhkd }
-#   echo pkill -USR1 -x sxhkd
-# }
+hook global BufWritePost .*sxhkd.* %{
+  nop %sh{ pkill -USR1 -x sxhkd }
+  echo pkill -USR1 -x sxhkd
+}
 
-# hook -group kakrc global BufCreate .*sxhkd.* %{ set buffer filetype sh }
+hook -group kakrc global BufCreate .*sxhkd.* %{ set buffer filetype sh }
 
 # ----------
 

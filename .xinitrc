@@ -17,3 +17,4 @@ done &
 
 sxhkd -c ~/.config/sxhkd/sxhkdrc -m 1 &
 exec dwm
+# exec bspwm

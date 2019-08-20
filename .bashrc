@@ -14,6 +14,7 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # global environment variables and colors
+export TERM="st"
 export TERMINAL="st"
 export VISUAL="kak"
 export EDITOR="kak"
