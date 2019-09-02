@@ -6,6 +6,8 @@
 .config/mutt/*
 .config/ranger/*
 .config/sxhkd/*
+.config/sxiv/*
+.config/sxiv/exec/*
 .config/qutebrowser/*
 .config/zathura/*
 .config/mimeapps.list

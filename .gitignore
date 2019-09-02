@@ -11,6 +11,8 @@
 !.config/nvim/*
 !.config/mutt/*
 !.config/ranger/rifle.conf
+!.config/sxiv/*
+!.config/sxiv/exec/*
 !.config/sxhkd/*
 !.config/qutebrowser/*
 !.config/zathura/*
