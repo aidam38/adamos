@@ -23,10 +23,11 @@ export EDITOR="kak"
 export PAGER="less"
 export MANPAGER="less"
 export OPENER="mimeopen"
-export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:/home/adam/.go/bin:/usr/local/texlive/2019/bin/x86_64-linux:/root/.cargo/bin:$PATH"
+export PATH="/home/adam/.bin:/home/adam/scripts:/home/adam/.fzf/bin:/home/adam/.cargo/bin:/home/adam/.go/bin:/usr/local/texlive/2019/bin/x86_64-linux:/root/.cargo/bin:$(du "$HOME/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH"
 export XDG_CONFIG_HOME="/home/adam/.config"
 export TEXMFHOME='~/.texmf'
 export SUDO_ASKPASS="$HOME/.bin/dmenupass"
+export $(dbus-launch)
 
 eval $(dircolors -b /home/adam/.dircolors)
 
@@ -56,12 +57,13 @@ alias v='nvim'
 alias suv='sudo nvim'
 alias k='kak'
 alias suk='sudo kak'
-# alias f='fzf'
+alias fzf='fzf --ansi'
+alias fd='fd --no-ignore-vcs --color=always'
 alias ls='ls --color=auto'
 alias z='zathura'
 
 alias i='yay -S'
-alias iu='yay -Syu'
+alias ii='yay -Syu'
 alias s='yay -Ss'
 alias l='yay -Q'
 alias u='yay -Ru'
@@ -69,8 +71,8 @@ alias u='yay -Ru'
 alias au='pulsemixer'
 alias bl='bluetoothctl'
 alias mke='sudo make clean install'
+alias ...=". .bashrc"
 # alias !!='sudo !!'
-alias tr='transmission-remote'
 alias scan='scanimage >'
 alias restartsxhkd='killall -SIGUSR1 sxhkd'
 
@@ -91,4 +93,4 @@ alias orup='rclone copy -LuP /home/adam/team_drives/or89 or89:'
 alias orwn='rclone copy or89: /home/adam/team_drives/or89 -P --exclude SVČ*/ --drive-chunk-size 128M'
 alias orclone='rclone sync -LuP /home/adam/team_drives/or89 or89:'
 
-source ~/.bash_bookmarks
+# source ~/.bash_bookmarks

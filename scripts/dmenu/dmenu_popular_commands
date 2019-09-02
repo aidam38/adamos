@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cat ~/scripts/dmenu/list_of_popular_commands | dmenu -l 10 "$@" | ${SHELL:-"/bin/sh"} &

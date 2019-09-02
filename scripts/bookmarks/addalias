@@ -4,7 +4,7 @@ import sys
 # syntax
 # addalias alias file/directory
 
-aliases_in = open('/home/adam/.bin/aliases', 'r')
+aliases_in = open('/home/adam/scripts/bookmarks/aliases', 'r')
 al = ''
 
 found = False;
@@ -19,8 +19,6 @@ if(not found):
 
 aliases_in.close()
 
-aliases_out = open('/home/adam/.bin/aliases', 'w')
+aliases_out = open('/home/adam/scripts/bookmarks/aliases', 'w')
 aliases_out.write(al)
 aliases_out.close()
-
-import bookmarks

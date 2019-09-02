@@ -1443,7 +1443,10 @@ c.zoom.mouse_divider = 512
 c.zoom.text_only = False
 
 #Unbinding all keys
-c.bindings.default = {} 
+c.bindings.default = {}
+
+for key in c.bindings.default:
+    c.bindings.default[key] = {}
 
 #Bindings for normal mode
 config.bind('1', 'tab-focus 1')
@@ -1735,4 +1738,5 @@ config.bind('<Return>', 'prompt-accept', mode='yesno')
 config.bind('n', 'prompt-accept no', mode='yesno')
 config.bind('y', 'prompt-accept yes', mode='yesno')
 
-config.bind('I', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/fb-messenger-dark.css" ""')
+config.bind('Im', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/fb-messenger-dark.css" ""')
+config.bind('Ia', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/gruvbox-all-sites.css" ""')

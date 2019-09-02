@@ -163,6 +163,7 @@ settings:
         <F5>: reload
         <Forward>: forward
         <Meta+1>: tab-focus 1
+        <Meta+g>: tab-give
         <Meta+h>: tab-give
         <Meta+j>: prompt-item-focus prev
         <Meta+m>: tab-mute
@@ -175,14 +176,16 @@ settings:
         '?': set-cmd-text ?
         '@': run-macro
         B: set-cmd-text -s :quickmark-load -t
+        Ca: config-cycle content.user_stylesheets "~/.config/qutebrowser/gruvbox-all-sites.css"
+          ""
+        Cm: config-cycle content.user_stylesheets "~/.config/qutebrowser/fb-messenger-dark.css"
+          ""
         D: null
         Dc: download-cancel
         Ds: download-cancel
         F: hint all tab-fg
         G: scroll-to-perc
         H: tab-prev
-        I: config-cycle content.user_stylesheets "~/.config/qutebrowser/dark-facebook-messenger-theme.css"
-          ""
         J: scroll-page 0 0.5
         K: scroll-page 0 -0.5
         L: tab-next
@@ -192,6 +195,7 @@ settings:
         PP: open -t -- {primary}
         Pp: open -t -- {clipboard}
         R: reload -f
+        S: inspector
         Sb: open qute://bookmarks#bookmarks
         Sh: open qute://history
         Sq: open qute://bookmarks
@@ -291,7 +295,7 @@ settings:
         yf: hint links yank
         yp: yank pretty-url
         yt: yank title
-        yy: yank
+        yy: yank -s ;; yank
         '{{': navigate prev -t
         '}}': navigate next -t
         ú: set-cmd-text /

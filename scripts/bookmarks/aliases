@@ -7,7 +7,7 @@ b /home/adam/.bashrc
 x /home/adam/.xinitrc
 lf /home/adam/.config/lf/lfrc
 mu /home/adam/.config/mutt/muttrc
-al /home/adam/.bin/aliases
+al /home/adam/scripts/bookmarks/aliases
 ri /home/adam/.config/ranger/rifle.conf
 se /var/service
 sv /etc/sv/services
@@ -17,8 +17,8 @@ e /etc
 u1 /mnt/usb1
 u2 /mnt/usb2
 u3 /mnt/usb3
-i /home/adam/.install/programs
-b /home/adam/builds
+in /home/adam/.install/programs
+bu /home/adam/builds
 do /home/adam/downloads
 dr /home/adam/drive
 sko /home/adam/drive/skola
@@ -44,3 +44,6 @@ skaw /home/adam/team_drives/or89/Design/web/SKAUT-Basic
 prg /home/adam/team_drives/or89/Tábor/2019/Program/Konkrétní programy/Adam
 ntm /home/adam/builds/notemap
 sx /home/adam/.config/sxhkd/sxhkdrc
+en /home/adam/vyzkum/asteroidy/swift_eunomia_article
+vy /home/adam/vyzkum/asteroidy
+kt /home/adam/drive/karate/karate_tabor2019

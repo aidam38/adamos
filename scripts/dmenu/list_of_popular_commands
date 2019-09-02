@@ -1,0 +1,4 @@
+displayselect
+st -e nmtui
+dmenumount
+dmenuumount

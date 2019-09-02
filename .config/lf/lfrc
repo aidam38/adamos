@@ -7,7 +7,7 @@ set drawbox on
 set dircounts
 set color256
 set info size
-set findlen 2
+set findlen 0
 set noanchorfind
 set period 1
 set previewer ~/.config/lf/prev.sh
@@ -65,7 +65,7 @@ cmd symlink &{{
     load=$(lf -remote 'load')
     list=$(echo "$load" | sed '1d')
     while read -r line; do
-        ln -s $line . && lf -remote "send $id echo Symlinked $line to current directory." || lf -remote "send $id echo Failed to symlink file $line"
+        ln -s $1 $line . && lf -remote "send $id echo Symlinked $line to current directory." || lf -remote "send $id echo Failed to symlink file $line"
     done <<< "$list"
     lf -remote 'send load'
     lf -remote 'send clear'
@@ -134,6 +134,7 @@ cmd zip ${{
 # basic
 map ů read
 map ú search
+map / $lf -remote "send $id select '$(fd --no-ignore-vcs --color=always | fzf --ansi)'"
 map J push <space>k
 map K push <space>kk
 map gj bottom
@@ -142,16 +143,19 @@ map s push :glob-select<space>
 map <enter> open
 map '§' $echo "Enter command with which to open the selected files"; read program && rifle -w "$program" $fx
 # map '!' $mimeopen --ask-default $f
+map Y $imgclip $f
 map E $$EDITOR $f
 map <a-w> q
 map f quit
-map Ls symlink
+map F ${{nohup st -e lf.sh "$f" &>/dev/null &}}
+map Lsa symlink
+map Lsr symlink -r
 map Lh hardlink
 map a $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')<a-b><left>"
 map A $lf -remote "send $id push :rename<space>$(basename $f | sed 's/ /<space>/g')"
 map c push :rename<space>
 map <c-r> !bulkrename "$fx"
-map <c-s> $lf -remote "send $id push \$seq<space><space>\$fx<left><left><left><left>"
+map <c-s> $lf -remote "send $id push \$order<space><space>\$fx<left><left><left><left>"
 map r recol
 map md push :$mkdir<space>
 map mk push :$$EDITOR<space>
@@ -171,10 +175,42 @@ map i !stat $f ; du -sh $f ; mimetype $f
 map I !du -sh $f
 map x $$f
 map X !$f
-map Y makecopy
 map Ce extract
 map Ct push :tar<space>
 map Cz push :zip<space>
+
+# bookmarking
+cmd open_mark ${{
+	mark=$(cat ~/scripts/bookmarks/aliases | fzf -n 1 | awk '{$1=""; print $0}' | xargs)
+	if [[ $1 == "-t" ]]; then
+		nohup st -e lf.sh "$mark" &>/dev/null &
+	else
+		if [[ -d "$mark" ]]; then
+			lf -remote "send $id cd "$(echo $mark | sed 's/\s/\\ /g')""
+		elif [[ -f "$mark" ]]; then
+			lf -remote "send $id select "$(echo $mark | sed 's/\s/\\ /g')""
+		fi
+	fi
+}}
+
+cmd edit_mark ${{
+	mark=$(cat ~/scripts/bookmarks/aliases | fzf -n 1 | awk '{$1=""; print $0}' | xargs)
+	if [[ -f "$mark" ]]; then
+		lf -remote "send $id select $mark"
+		if [[ $1 == "-t" ]]; then
+			nohup st -e $EDITOR "$mark" &>/dev/null &
+		else
+			$EDITOR "$mark"
+		fi
+	fi
+}}
+
+map o $lf -remote "send $id select '$(fzf)'"
+map O ${{nohup st -e lf.sh "$(fzf)" &>/dev/null &}}
+map b open_mark
+map B open_mark -t
+map e edit_mark
+map E edit_mark -t
 
 # command line bindings
 cmap <esc> cmd-escape
@@ -194,45 +230,3 @@ cmap <c-b> cmd-word-back
 map w
 map m
 map G
-map e
-
-# controversial mappings
-cmd open_mark ${{
-	mark=$(cat ~/.bin/aliases | fzf -n 1 | awk '{$1=""; print $0}' | xargs)
-	if [[ -d "$mark" ]]; then
-		lf -remote "send $id cd "$(echo $mark | sed 's/\s/\\ /g')""
-	elif [[ -f "$mark" ]]; then
-		lf -remote "send $id select "$(echo $mark | sed 's/\s/\\ /g')""
-	fi
-}}
-
-cmd open_mark_in_new_tab ${{
-	mark=$(cat ~/.bin/aliases | fzf -n 1 | awk '{$1=""; print $0}' | xargs)
-	nohup st -e lf.sh "$mark" &>/dev/null &
-}}
-
-cmd edit_mark ${{
-	mark=$(cat ~/.bin/aliases | fzf -n 1 | awk '{$1=""; print $0}' | xargs)
-	if [[ -f "$mark" ]]; then
-		lf -remote "send $id select $mark"
-		$EDITOR "$mark"
-	fi
-}}
-
-cmd edit_mark_in_new_window ${{
-	mark=$(cat ~/.bin/aliases | fzf -n 1 | awk '{$1=""; print $0}' | xargs)
-	if [[ -f "$mark" ]]; then
-		lf -remote "send $id select $mark"
-		nohup st -e $EDITOR "$mark" &>/dev/null &
-	fi
-}}
-
-map o $lf -remote "send $id select '$(fzf)'"
-map O ${{nohup st -e lf.sh "$(fzf)" &>/dev/null &}}
-map b open_mark
-map B open_mark_in_new_tab
-map e edit_mark
-map E edit_mark_in_new_window
-
-# bookmarks
-# source "~/.config/lf/lf_bookmarks"

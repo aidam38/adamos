@@ -7,6 +7,7 @@ numlockx &
 dunst &
 redshift -l 49.1781233:16.5544039 &
 clipmenud &
+dbus_start &
 # xmodmap /home/adam/.Xmodmap &
 # sudo logkeys --start --keymap /home/adam/scripts/keylogger/cz.keymap -o /home/adam/scripts/keylogger/keys.log &
 

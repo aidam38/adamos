@@ -6,7 +6,7 @@ super + shift + Return
 super + q
 	qutebrowser
 super + e
-	st -c neomutt neomutt
+	dmenu_popular_commands
 super + f
 	st -e lf.sh
 super + a
@@ -47,7 +47,7 @@ super + F8
 super + Print
 	screenshot
 super + Home
-	killall dunst &>/dev/null; killall spt &>/dev/null; dunst &; spt
+	killall spt &>/dev/null; spt
 super + End
 	killall -SIGUSR1 spt
 super + Insert

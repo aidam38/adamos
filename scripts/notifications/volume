@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function get_vol_and_bar() {
-	volume=$(printf "%3d%" $(pamixer --get-volume))
+	volume=$(printf "%3d" $(pamixer --get-volume))
 	bar=$(echo "$(seq -s "─" $(($volume/5)))$(seq -s " " $(((100-$volume)/5)))" | sed 's/[0-9]//g')
 }
 

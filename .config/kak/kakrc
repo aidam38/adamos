@@ -15,6 +15,7 @@ map global insert <a-space> "<esc>/<lt>\+\+<gt><ret>c"
 map global normal <a-v> v
 map global normal <c-j> ':exec vj<ret>'
 map global normal <c-k> ':exec vk<ret>'
+map global normal <a-s> <a-`>
 map global user q ':wq<ret>' -docstring "Save and quit."
 map global user Q ':wq<ret>' -docstring "Quit."
 
