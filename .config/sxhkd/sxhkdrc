@@ -19,6 +19,8 @@ super + r
 	scratchpad pmath.sh
 super + s
 	spotify
+super + g
+	grabc | xclip
 
 super + c
 	clipmenu

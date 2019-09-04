@@ -47,3 +47,6 @@ sx /home/adam/.config/sxhkd/sxhkdrc
 en /home/adam/vyzkum/asteroidy/swift_eunomia_article
 vy /home/adam/vyzkum/asteroidy
 kt /home/adam/drive/karate/karate_tabor2019
+sxiv /home/adam/builds/sxiv/config.h
+
+dunst /home/adam/.config/dunst/dunstrc

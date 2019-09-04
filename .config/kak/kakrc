@@ -83,6 +83,11 @@ source "%val{config}/plugins/plug.kak/rc/plug.kak"
 # kak-tree
 # plug "ul/kak-tree"
 
+plug "alexherbo2/auto-pairs.kak" %{
+    map global user 's' ': auto-pairs-surround<ret>' -docstring "surround selection"
+    hook global WinCreate .* auto-pairs-enable
+}
+
 # kakoune-extra
 plug "lenormf/kakoune-extra" load %{
 	grepmenu.kak
@@ -205,10 +210,10 @@ plug "occivink/kakoune-find"
 # TODO
 
 # kak-lsp
-# hook global KakBegin .* %{
-# 	eval %sh{kak-lsp --kakoune -s $kak_session}
-# 	lsp-enable
-# }
+hook global KakBegin .* %{
+	eval %sh{kak-lsp --kakoune -s $kak_session}
+	lsp-enable
+}
 
 # kakoune-phantom-selection
 plug "occivink/kakoune-phantom-selection" config %{

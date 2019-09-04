@@ -1,2 +1,2 @@
 #!/bin/bash
-cat ~/.bin/list_of_apps | dmenu "$@" | ${SHELL:-"/bin/sh"} &
+cat ~/scripts/dmenu/list_of_apps | dmenu "$@" | ${SHELL:-"/bin/sh"} &

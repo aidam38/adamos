@@ -15,7 +15,7 @@ for a in aliases_in.readlines():
 	else:
 		al += a
 if(not found):
-	al += sys.argv[2] + " " + sys.argv[1]
+	al += "\n" + sys.argv[2] + " " + sys.argv[1]
 
 aliases_in.close()
 

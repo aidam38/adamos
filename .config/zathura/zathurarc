@@ -30,8 +30,6 @@ map a adjust_window best-fit
 map [fullscreen] a adjust_window best-fit
 map w adjust_window width
 map [fullscreen] w adjust_window width
-map f toggle_fullscreen
-map [fullscreen] f toggle_fullscreen
 map b toggle_statusbar
 map [fullscreen] b toggle_statusbar
 set continuous-hist-save 
