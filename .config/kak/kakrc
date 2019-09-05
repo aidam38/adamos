@@ -99,7 +99,9 @@ plug "lenormf/kakoune-extra" load %{
 plug "occivink/kakoune-vertical-selection"
 
 # kakoune-text-objects
-plug "delapouite/kakoune-text-objects"
+plug "delapouite/kakoune-text-objects" config %{
+	map global normal <a-c> ":vertical-selection-up-and-down<ret>"
+}
 
 # kakoune-lf
 plug "TeddyDD/kakoune-lf" config %{
@@ -210,9 +212,27 @@ plug "occivink/kakoune-find"
 # TODO
 
 # kak-lsp
-hook global KakBegin .* %{
-	eval %sh{kak-lsp --kakoune -s $kak_session}
-	lsp-enable
+# hook global KakBegin .* %{
+# 	map global user l ':enter-user-mode lsp<ret>'             -docstring 'enter user mode lsp'
+# 	eval %sh{kak-lsp --kakoune -s $kak_session}
+# 	lsp-enable
+# }
+
+plug "ul/kak-lsp" config %{
+	define-command lsp-restart %{ lsp-stop; lsp-start }
+	set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\s,=;*(){}\[\]]\z<ret>'"
+	set-option global lsp_diagnostic_line_error_sign "!"
+	set-option global lsp_diagnostic_line_warning_sign "?"
+	map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
+	map window lsp "n" "<esc>: lsp-find-error --include-warnings<ret>" -docstring "find next error or warning"
+	map window lsp "p" "<esc>: lsp-find-error --previous --include-warnings<ret>" -docstring "find previous error or warning"
+	lsp-enable-window
+	hook -always global KakEnd .* lsp-exit
+	lsp-auto-hover-enable
+	lsp-auto-hover-insert-mode-disable
+	set-option window lsp_hover_anchor true
+	set-face window DiagnosticError default+u
+	set-face window DiagnosticWarning default+u
 }
 
 # kakoune-phantom-selection
