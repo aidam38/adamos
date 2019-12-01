@@ -1,25 +1,22 @@
-# Adam Křivka (aidam38) kakrc
+# Adam Křivka's (aidam38) kakrc
 
 # basic key bindings
 map global normal ů :
 map global normal ú ':exec /(?i)<ret>'
 map global normal <space> ,
 map global normal <minus> '<a-;>'
-map global normal '_' ';'
-map global user <minus> <space> -docstring "Keep only the main selection"
+map global user <space> ';'
+map global user <esc> <space> -docstring "Keep only the main selection"
 map global normal X <a-x>
 map global normal '#' :comment-line<ret>
 map global normal <c-r> ":source ~/.config/kak/kakrc<ret>"
-map global normal <a-space> "/<lt>\+\+<gt><ret>c"
-map global insert <a-space> "<esc>/<lt>\+\+<gt><ret>c"
 map global normal <a-v> v
-map global normal <c-j> ':exec vj<ret>'
-map global normal <c-k> ':exec vk<ret>'
 map global normal <a-s> <a-`>
 map global user q ':wq<ret>' -docstring "Save and quit."
 map global user Q ':wq<ret>' -docstring "Quit."
 
-define-command spell-mode %{
+define-command spell-mode -docstring "Start spell-checking a map keys to go effectively through mistakes." %{
+	spell cs
 	map global normal '§' ':spell-next<ret>'
 }
 
@@ -27,16 +24,17 @@ define-command spell-mode %{
 hook global NormalKey y|d|c %{ nop %sh{
 	printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
 }}
-
 map global normal P '<a-!>xsel --output --clipboard<ret>'
 
-map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Compile using the compile script"
+# compilation
+map global user c ':w<ret>:terminal compile "%val{buffile}"<ret>' -docstring "Compile using the compile script"
 
-# temporary binds
-# map global user C ':exec ":nop %sh{ cd /home/adam/builds/manim && python3 -m manim $kak_buffile  -pl }"<left><left><left><left><left><left><left>'
+# building
+map global user m ':w<ret>:terminal ./make.sh <ret>' -docstring "Make using the make command"
 
+# wrapping
 declare-option -hidden bool wrap75chars false
-define-command -docstring "Toggle wrapping by 75 chars and the full page" wrap %{
+define-command wrap -docstring "Toggle wrapping by 75 chars and the full page" %{
 	remove-highlighter window/wrap
 	eval %sh{
 	if [[ "$kak_opt_wrap75chars" == "true" ]]; then
@@ -48,20 +46,47 @@ define-command -docstring "Toggle wrapping by 75 chars and the full page" wrap %
 	fi
 	}
 }
+define-command nowrap -docstring "Disable wrapping completely" %{
+    remove-highlighter window/wrap
+}
+
+# highlighters
+hook global WinCreate .* %{
+	add-highlighter window/numbers          number-lines -relative -hlcursor # -separator " ▏"
+	add-highlighter window/matching         show-matching
+	add-highlighter window/wrap             wrap -word -indent -marker '↪' # -width 75
+	add-highlighter window/show-whitespaces show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
+	add-highlighter window/operators        regex (\+|-|\*|&|=|\\|\?|%|\|-|!|\||->|\.|,|<|>|:|\^|/|~) 0:operator
+	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:yellow
+	face global PrimaryCursorEol red,red
+	face global SecondaryCursorEol yellow,yellow
+}
+
+hook global ModeChange ".*:insert" %{
+	face global PrimaryCursor black,green
+	face global PrimaryCursorEol black,magenta
+}
+hook global ModeChange ".*:normal" %{
+	face global PrimaryCursor black,white
+	face global PrimaryCursorEol red,red
+}
+
+# other hooks
+hook global BufWritePost .*sxhkd.* %{
+  nop %sh{ pkill -USR1 -x sxhkd }
+  echo pkill -USR1 -x sxhkd
+}
+
+hook -group kakrc global BufCreate .*sxhkd.* %{ set buffer filetype sh }
 
 # filetype specific
-# TeX
+# LaTeX
 map global user k ':terminal zathura %sh{ echo $kak_buffile | sed "s|\..\{1,4\}$|.pdf|" }<ret>' -docstring "Preview pdf in the current folder" #{
 hook global BufSetOption filetype=latex %{ 
-	map global user c ':w<ret>: terminal latexmk -pdf -nobibtex $kak_buffile<ret>' -docstring "Quick compile"
 	map global user C ':w<ret>:terminal compile %val{buffile}<ret>' -docstring "Compile using the compile script"
-	# map global buffers L ':edit! -scroll -fifo %sh{echo "${kak_buffile%.tex}.log"} *compile*<ret>' 
-	# map global user k ':terminal zathura %sh{ echo $kak_buffile | sed "s|\..\{1,4\}$|.pdf|" }<ret>' -docstring "Preview pdf in the current folder" #{
-	map global user f 'a}<a-;>i\textbf{<esc><esc><esc>' #}{
-	map global user i 'a}<a-;>i\textit{<esc><esc><esc>' #}
+	map global user C ':w<ret>:terminal compile -a %val{buffile}<ret>' -docstring "Compile using the compile script (alternative flag)"
 	map global user e ':exec /(?<=\\end\{)\w+(?=\})'
 	# map global user e '<a-:>a<ret>\end{!asdf!}<esc><a-;>O\begin{!asdf!}<esc>gh/!asdf!<ret>Nc'
-
 	hook global BufClose .* %{
 		nop %sh{texclear $kak_buffile}
 	}
@@ -72,11 +97,16 @@ hook global BufSetOption filetype=markdown %{
 		exec 'I--- **<esc>!date "+%a %d. %m. %Y | %R"<ret>hi** ---  <ret>'
 	}
 	map global user z ":zapis<ret>"
+	remove-highlighter window/wrap
+	set-option window wrap75chars true
+	add-highlighter window/wrap wrap -word -indent -marker '↪' -width 75
 }
 
+# counting words
 map global user w %{"wz:echo %sh{echo "Words: $(echo $kak_selection | wc -w), chars: $(echo $kak_selection | wc -m)"}<ret>} -docstring "Count words"
-map global user W %{:echo %sh{analysepdf.sh $(echo $kak_buffile | sed "s|\..\{1,4\}$|.pdf|")}<ret>}
-# Plugins
+map global user W %{:echo %sh{analysepdf $(echo $kak_buffile | sed "s|\..\{1,4\}$|.pdf|")}<ret>}
+
+# plugins
 # initialization of plug.kak
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
@@ -93,15 +123,13 @@ plug "lenormf/kakoune-extra" load %{
 	grepmenu.kak
 }
 
-# kak-crosshairs
-# plug "andreyorst/kak-crosshairs"
 # kakoune-vertical-selection
-plug "occivink/kakoune-vertical-selection"
-
-# kakoune-text-objects
-plug "delapouite/kakoune-text-objects" config %{
+plug "occivink/kakoune-vertical-selection" config %{
 	map global normal <a-c> ":vertical-selection-up-and-down<ret>"
 }
+
+# kakoune-text-objects
+plug "delapouite/kakoune-text-objects" 
 
 # kakoune-lf
 plug "TeddyDD/kakoune-lf" config %{
@@ -144,22 +172,22 @@ plug "occivink/kakoune-snippets" config %{
 		}
 	}
 	define-command snippets-expand-or-jump -params 1 %{
-	execute-keys <backspace>
-	try %{
-		snippets-expand-trigger %{
-		set-register / "%opt{snippets_triggers_regex}\z"
-		execute-keys 'hGhs<ret>'
-	}
-	} catch %{
-		snippets-select-next-placeholders
-	} catch %sh{
-		case $1 in
-		ret|tab)
-			printf "%s\n" "execute-keys -with-hooks <$1>" ;;
-		*)
-			printf "%s\n" "execute-keys -with-hooks $1" ;;
-		esac
+		execute-keys <backspace>
+		try %{
+			snippets-expand-trigger %{
+			set-register / "%opt{snippets_triggers_regex}\z"
+			execute-keys 'hGhs<ret>'
 		}
+		} catch %{
+			snippets-select-next-placeholders
+		} catch %sh{
+			case $1 in
+			ret|tab)
+				printf "%s\n" "execute-keys -with-hooks <$1>" ;;
+			*)
+				printf "%s\n" "execute-keys -with-hooks $1" ;;
+			esac
+			}
 	}
 }
 
@@ -173,6 +201,16 @@ plug "https://github.com/andreyorst/powerline.kak" config %{
 	}
 }
 
+# beacon (andreyoyrst)
+source "%val{config}/beacon.kak"
+
+plug "andreyorst/base16-gruvbox.kak" noload do %{
+    mkdir -p $HOME/.config/kak/colors
+    find $PWD -type f -name "*.kak" -exec ln -sf {} $HOME/.config/kak/colors/ \;
+} config %{
+    colorscheme base16-gruvbox-dark-soft # or any other variant
+}
+
 # buffers
 plug "https://github.com/Delapouite/kakoune-buffers" config %{
 	hook global WinDisplay .* info-buffers
@@ -180,22 +218,6 @@ plug "https://github.com/Delapouite/kakoune-buffers" config %{
 	map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
 	map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
 }
-
-# fzf
-# plug "andreyorst/fzf.kak" config %{
-#     map -docstring 'fzf mode' global normal '<c-p>' ': fzf-mode<ret>'
-#     set-option global fzf_preview_width '65%'
-#     evaluate-commands %sh{
-#         if [ -n "$(command -v fd)" ]; then
-#         echo "set-option global fzf_file_command %{fd . --no-ignore --type f --follow --hidden --exclude .git --exclude .svn}"
-#         else
-#         echo "set-option global fzf_file_command %{find . \( -path '*/.svn*' -o -path '*/.git*' \) -prune -o -type f -follow -print}"
-#     fi
-#         [ -n "$(command -v bat)" ] && echo "set-option global fzf_highlight_cmd bat"
-#         [ -n "${kak_opt_grepcmd}" ] && echo "set-option global fzf_sk_grep_command %{${kak_opt_grepcmd}}"
-#         }
-# }
-
 
 # surround
 plug "h-youhei/kakoune-surround" config %{
@@ -211,28 +233,23 @@ plug "h-youhei/kakoune-surround" config %{
 plug "occivink/kakoune-find"
 # TODO
 
-# kak-lsp
-# hook global KakBegin .* %{
-# 	map global user l ':enter-user-mode lsp<ret>'             -docstring 'enter user mode lsp'
-# 	eval %sh{kak-lsp --kakoune -s $kak_session}
-# 	lsp-enable
-# }
-
-plug "ul/kak-lsp" config %{
-	define-command lsp-restart %{ lsp-stop; lsp-start }
-	set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\s,=;*(){}\[\]]\z<ret>'"
-	set-option global lsp_diagnostic_line_error_sign "!"
-	set-option global lsp_diagnostic_line_warning_sign "?"
-	map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
-	map window lsp "n" "<esc>: lsp-find-error --include-warnings<ret>" -docstring "find next error or warning"
-	map window lsp "p" "<esc>: lsp-find-error --previous --include-warnings<ret>" -docstring "find previous error or warning"
-	lsp-enable-window
-	hook -always global KakEnd .* lsp-exit
-	lsp-auto-hover-enable
-	lsp-auto-hover-insert-mode-disable
-	set-option window lsp_hover_anchor true
-	set-face window DiagnosticError default+u
-	set-face window DiagnosticWarning default+u
+hook global BufSetOption filetype=(python|latex|bash) %{ 
+	map global user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
+	plug "ul/kak-lsp" config %{
+		define-command lsp-restart %{ lsp-stop; lsp-start }
+		lsp-diagnostics-lines-enable global
+		set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\s,=;*(){}\[\]]\z<ret>'"
+		set-option global lsp_diagnostic_line_error_sign "!"
+		set-option global lsp_diagnostic_line_warning_sign "?"
+		map window lsp "n" "<esc>: lsp-find-error --include-warnings<ret>" -docstring "find next error or warning"
+		map window lsp "p" "<esc>: lsp-find-error --previous --include-warnings<ret>" -docstring "find previous error or warning"
+		hook -always global KakEnd .* lsp-exit
+		lsp-auto-hover-enable
+		lsp-auto-hover-insert-mode-disable
+		set-option window lsp_hover_anchor true
+		# set-face window DiagnosticError default+u
+		# set-face window DiagnosticWarning default+u
+	}
 }
 
 # kakoune-phantom-selection
@@ -255,95 +272,14 @@ plug "occivink/kakoune-phantom-selection" config %{
 # kakoune-sudo-write
 plug "occivink/kakoune-sudo-write"
 
-#plug "kakoune-goyo"
-
 # options
 set-option global scrolloff 7,7
 
-set global tabstop 4
-set global indentwidth 0
+set-option global tabstop 4
+set-option global indentwidth 4
 
-# highlighters
-hook global WinCreate .* %{
-	add-highlighter window/numbers          number-lines -relative -hlcursor # -separator " ▏"
-	add-highlighter window/matching         show-matching
-	add-highlighter window/wrap             wrap -word -indent -marker '↪' # -width 75
-	add-highlighter window/show-whitespaces show-whitespaces -tab "▏" -lf " " -nbsp "⋅" -spc " "
-	add-highlighter window/operators        regex (\+|-|\*|&|=|\\|\?|%|\|-|!|\||->|\.|,|<|>|:|\^|/|~) 0:operator
-	add-highlighter window/delimiters       regex (\(|\)|\[|\]|\{|\}|\;|') 0:yellow
-	face global PrimaryCursorEol red,red
-	face global SecondaryCursorEol yellow,yellow
-}
 
-hook global ModeChange ".*:insert" %{
-	face global PrimaryCursor black,green
-	face global PrimaryCursorEol black,magenta
-}
-hook global ModeChange ".*:normal" %{
-	face global PrimaryCursor black,white
-	face global PrimaryCursorEol red,red
-}
-
-# other hooks
-
-hook global BufWritePost .*sxhkd.* %{
-  nop %sh{ pkill -USR1 -x sxhkd }
-  echo pkill -USR1 -x sxhkd
-}
-
-hook -group kakrc global BufCreate .*sxhkd.* %{ set buffer filetype sh }
-
-# ----------
-
-def suspend-and-resume \
--params 1..2 \
--docstring 'suspend-and-resume <cli command> [<kak command after resume>]: backgrounds current kakoune client and runs specified cli command.  Upon exit of command the optional kak command is executed.' \
-    %{ evaluate-commands %sh{
-
-# Note we are adding '&& fg' which resumes the kakoune client process after the cli command exits
-cli_cmd="$1 && fg"
-post_resume_cmd="$2"
-
-# automation is different platform to platform
-platform=$(uname -s)
-case $platform in
-	Darwin)
-	automate_cmd="sleep 0.01; osascript -e 'tell application \"System Events\" to keystroke \"$cli_cmd\\n\" '"
-	kill_cmd="/bin/kill"
-	break
-	;;
-	Linux)
-	automate_cmd="sleep 0.2; xdotool type '$cli_cmd'; xdotool key Return"
-	kill_cmd="/usr/bin/kill"
-	break
-	;;
-esac
-
-# Uses platforms automation to schedule the typing of our cli command
-nohup sh -c "$automate_cmd"  > /dev/null 2>&1 &
-# Send kakoune client to the background
-$kill_cmd -SIGTSTP $kak_client_pid
-
-# ...At this point the kakoune client is paused until the " && fg " gets run in the $automate_cmd
-
-# Upon resume, run the kak command is specified
-if [ ! -z "$post_resume_cmd" ]; then
-	echo "$post_resume_cmd"
-fi
-}}
-
-def tig-blame -override -docstring 'Open blame in tig for current file and line' %{
-Note here we aren't passing any command on resume of kakoune
-suspend-and-resume "tig blame +%val{cursor_line} %val{buffile}"
-}
-
-declare-user-mode tig
-map global tig b ': tig-blame<ret>' -docstring 'show blame (with tig)'
-map global tig s ': suspend-and-resume "tig status"<ret>' -docstring 'show git status (with tig)'
-map global tig m ': suspend-and-resume "tig"<ret>' -docstring 'show main view (with tig)'
-
-map global user t ': enter-user-mode tig<ret>' -docstring 'tig commands'
-
+# miscellanoues
 define-command show-color -docstring 'show main selection color in status bar' %{
   evaluate-commands %sh{
     awk_script='{

@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 
-imgreduce $1
-convert ${1%.*}_c.${1##*.} ${1%.*}.pdf
+mkdir "tmp"
+for image in $*; do
+	imgreduce $image "tmp/${image%.*}.jpg"
+done
+
+echo "$(find tmp/*) ${1%.*}.pdf" | xargs convert
+rm -r tmp

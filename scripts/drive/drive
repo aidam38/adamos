@@ -1,0 +1,38 @@
+#!/bin/bash
+
+action=$2
+direction=$3
+remote=$1
+
+if [[ "$remote" == "disk" ]]; then
+	if [[ $direction == "up" ]]; then
+		notify-send "Doing '$action' on 'disk' upwards"
+		rclone $action -LP --ignore-errors --exclude SVČ*/ --exclude Sdílená*/ --exclude "CM Parlament*/" --drive-import-formats docx,odt /home/adam/drive drive:
+	fi
+	if [[ $direction == "down" ]]; then
+		notify-send "Doing '$action' on 'disk' downwards"
+		rclone $action -LP --ignore-errors --exclude SVČ*/ --exclude Sdílená*/ --exclude "CM Parlament*/" drive: /home/adam/drive
+	fi
+fi
+
+if [[ "$remote" == "or89" ]]; then
+	if [[ $direction == "up" ]]; then
+		notify-send "Doing '$action' on 'or89' upwards"
+		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --exclude 'Fotky/**' --drive-import-formats docx,odt /home/adam/team_drives/or89/ or89:
+	fi
+	if [[ $direction == "down" ]]; then
+		notify-send "Doing '$action' on 'or89' downwards"
+		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' or89: /home/adam/team_drives/or89/
+	fi
+fi
+
+if [[ "$remote" == "axinit" ]]; then
+	if [[ $direction == "up" ]]; then
+		notify-send "Doing '$action' on 'axinit' upwards"
+		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/team_drives/axinit/ axinit:
+	fi
+	if [[ $direction == "down" ]]; then
+		notify-send "Doing '$action' on 'axinit' downwards"
+		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' axinit: /home/adam/team_drives/axinit/
+	fi
+fi

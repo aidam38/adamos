@@ -15,8 +15,7 @@ for a in aliases_in.readlines():
 	else:
 		al += a
 if(not found):
-	al += "\n" + sys.argv[2] + " " + sys.argv[1]
-
+	al += sys.argv[2] + " " + sys.argv[1] + "\n"
 aliases_in.close()
 
 aliases_out = open('/home/adam/scripts/bookmarks/aliases', 'w')

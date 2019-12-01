@@ -5,7 +5,7 @@ feh --bg-scale /home/adam/.wallpapers/bg.* &
 setxkbmap -layout cz,us -option grp:alt_caps_toggle -option caps:swapescape -option terminate:ctrl_alt_bksp -option altwin:swap_lalt_lwin &
 numlockx &
 dunst &
-redshift -l 49.1781233:16.5544039 &
+xflux -z 49.1781233 -g 16.5544039 &
 clipmenud &
 dbus_start &
 # xmodmap /home/adam/.Xmodmap &
@@ -15,6 +15,12 @@ while true; do
 	updatebar;
 	sleep 1
 done &
+
+while true; do
+	battery_notifications.sh;
+	sleep 10
+done &
+
 
 sxhkd -c ~/.config/sxhkd/sxhkdrc -m 1 &
 exec dwm

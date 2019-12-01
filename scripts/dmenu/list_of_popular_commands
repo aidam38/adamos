@@ -1,6 +1,6 @@
-displayselect
+two_monitors.sh
+arandr
 st -e nmtui
 dmenumount
 dmenuumount
 dmenuemoji
-blueberry

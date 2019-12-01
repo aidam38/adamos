@@ -1,0 +1,8 @@
+convert           \
+   -verbose       \
+   -density 150   \
+   -alpha remove  \
+    "$1"          \
+   -quality 100   \
+   -sharpen 0x1.0 \
+    "$2"

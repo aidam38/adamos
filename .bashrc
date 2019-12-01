@@ -14,8 +14,8 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # global environment variables and colors
-export TERM="st"
-export TERMINAL="st"
+export TERM="st-256color"
+export TERMINAL="st-256color"
 export VISUAL="kak"
 export EDITOR="kak"
 # export PAGER="kak-pager"
@@ -61,12 +61,14 @@ alias fzf='fzf --ansi'
 alias fd='fd --no-ignore-vcs --color=always'
 alias ls='ls --color=auto'
 alias z='zathura'
+alias pandoc='pandoc --filter=pandoc-docx-pagebreakpy'
 
-alias i='yay -S'
-alias ii='yay -Syu'
+alias i='yay -S --noconfirm'
+alias ii='yay -Syu --noconfirm'
 alias s='yay -Ss'
 alias l='yay -Q'
 alias u='yay -Ru'
+alias uu='yay -Rdd'
 
 alias au='pulsemixer'
 alias bl='bluetoothctl'

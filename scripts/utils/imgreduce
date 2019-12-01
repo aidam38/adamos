@@ -1,3 +1,7 @@
 #!/bin/bash
 
-convert -resize 1500x1500\> -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB  "$1" "${1%.*}_c.${1##*.}"
+if [[ -z $2 ]]; then
+	convert -resize 2000x2000\> -sampling-factor 4:2:0 -strip -auto-orient -interlace JPEG -colorspace RGB  "$1" "${1%.*}_c.jpg"  #-density 80 -quality 85
+else
+	convert -resize 2000x2000\> -sampling-factor 4:2:0 -strip -auto-orient -interlace JPEG -colorspace RGB  "$1" "$2"  #-density 80 -quality 85
+fi

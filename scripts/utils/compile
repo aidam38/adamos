@@ -1,12 +1,19 @@
 #!/bin/bash
 # A script for automatic compiling of stuff from vim
 
-case "$1" in
-	*\.tex) latexmk --shell-escape -pdf $1 || read ;;
-	*\.rmd) echo "require(rmarkdown); render('$file')" | R -q --vanilla ;;
-	*\.md) pandoc -o "$(basename $1 .md).pdf" $1 ;;
+case "${!#}" in
+	*\.tex)
+		if [[ "$1" == "-a" ]]; then
+			shift
+			latexmk --shell-escape -pdf $1 || read -n 1 -s -r -p "Press any key to continue"
+		else
+			latexmk -pdf -nobibtex $1
+		fi ;;
+	*\.rmd) echo "require(rmarkdown); render('$1')" | R -q --vanilla ;;
+	*\.md) pandoc -o "${1%.*}.pdf" "$1" ;;
 	*\.plt) gnuplot $1 || read;;
 	*\.asy) asy $1 || read -n 1 -s -r -p "Press any key to continue" ;;
 	*\.c) gcc $1 -lm -o $(echo $1 | sed 's/..$//') ;;
+	*\.py) python3 $1 || read -n 1 -s -r -p "Press any key to continue" ;;
 	*) ./$1
 esac

@@ -14,6 +14,5 @@ for key in data:
 
 data_sorted = sorted(data_iter, key=lambda x: x[1], reverse=True)
 
-
 for i in range(len(data_sorted)):
     print(str(i) + " " + data_sorted[i][0] + " " + str(data_sorted[i][1]))

@@ -102,6 +102,7 @@ cmd extract ${{
         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
         *.tar.gz|*.tgz) tar xzvf $f;;
         *.tar.xz|*.txz) tar xJvf $f;;
+        *.gz) gunzip $f;;
         *.zip) unzip $f;;
         *.rar) unrar x $f;;
         *.7z) 7z x $f;;
@@ -143,7 +144,7 @@ map s push :glob-select<space>
 map <enter> open
 map '§' $echo "Enter command with which to open the selected files"; read program && rifle -w "$program" $fx
 # map '!' $mimeopen --ask-default $f
-map Y $imgclip $f
+map Y $imgclip "$f"
 map E $$EDITOR $f
 map <a-w> q
 map f quit
@@ -159,16 +160,17 @@ map <c-s> $lf -remote "send $id push \$order<space><space>\$fx<left><left><left>
 map r recol
 map md push :$mkdir<space>
 map mk push :$$EDITOR<space>
+map me push :$echo<space>-e<space>"\n"<space><gt><space>
 map ma makearticle
 map mb makebeamer
 map mx $lf -remote "send $id push :\$chmod<space>755<space>$f<left><left>"
-map mm $lf -remote "send $id push :\$addalias<space>\"$f\"<space>"
 map D %trash-put $fx
 map <c-d> delete
 map Z push zh
 map t :set sortby time; set reverse
 map T :set sortby natural; set reverse!
 map <esc> clear; unselect
+map - unselect
 map <f-5> source /home/adam/.config/lf/lfrc; echo "Config loaded."
 map i !stat $f ; du -sh $f ; mimetype $f 
 # map i !stat $f
@@ -211,6 +213,7 @@ map b open_mark
 map B open_mark -t
 map e edit_mark
 map E edit_mark -t
+map mm $lf -remote "send $id push :\$addalias<space>\"$f\"<space>"
 
 # command line bindings
 cmap <esc> cmd-escape

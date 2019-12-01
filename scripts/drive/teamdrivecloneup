@@ -1,2 +1,3 @@
 #!/bin/bash
-rclone sync -LuP --exclude '.*{/**,}' /home/adam/team_drives/or89/ or89:
+
+rclone sync -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/team_drives/or89/ or89:

@@ -25,6 +25,8 @@ super + c
 	clipmenu
 super + shift + c
 	clipdel
+super + y
+	
 super + F9
 	dmenumount
 super + shift + F9
@@ -43,7 +45,7 @@ super + F7
 	dmenurecord
 
 super + F8
-	st -e nmtui
+	nm-connection-editor
 
 super + Print
 	screenshot

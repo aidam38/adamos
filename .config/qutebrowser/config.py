@@ -1506,6 +1506,7 @@ config.bind('d<space>', 'download-open')
 config.bind('dr', 'download-open st lf') 
 config.bind('dd', 'set-cmd-text -s :download') 
 config.bind('dc', 'download-cancel')
+config.bind('dg', 'yank -s ;; yank ;; spawn -u gcl.sh')
 config.bind('t', 'open -t')
 config.bind('<Alt-W>', 'quit --save')
 

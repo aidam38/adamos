@@ -1,0 +1,317 @@
+= Kakoune Language Server Protocol Client
+
+kak-lsp is a https://microsoft.github.io/language-server-protocol/[Language Server Protocol] client for http://kakoune.org[Kakoune] implemented in https://www.rust-lang.org[Rust].
+
+== Installation
+
+NOTE: `kak-lsp.toml` destination in all described installation methods is just an example.
+Also, kak-lsp doesn't read the configuration file from the current working directory or binary's dir by default.
+Please consult <<Configuring kak-lsp>> to figure out where does kak-lsp expect `kak-lsp.toml`
+to be in your environment and how to specify a custom path to it.
+However, if you don't need to change configuration then feel free to skip copying it anywhere as the default configuration is embedded into kak-lsp binary.
+
+=== Pre-built binaries
+
+==== MacOS
+
+===== Homebrew
+
+----
+brew install ul/kak-lsp/kak-lsp
+----
+
+===== Manual
+
+----
+curl -O -L https://github.com/ul/kak-lsp/releases/download/v6.2.1/kak-lsp-v6.2.1-x86_64-apple-darwin.tar.gz
+tar xzvf kak-lsp-v6.2.1-x86_64-apple-darwin.tar.gz
+
+# replace `~/.local/bin/` with something on your `$PATH`
+mv kak-lsp ~/.local/bin/
+
+mkdir -p ~/.config/kak-lsp
+mv kak-lsp.toml ~/.config/kak-lsp/
+----
+
+==== Linux
+
+===== Package managers
+
+* Arch Linux: `pacman -S kak-lsp` or https://aur.archlinux.org/packages/kak-lsp-git/[AUR/kak-lsp-git]
+* Void Linux: `xbps -S kak-lsp`
+
+===== Others
+
+----
+wget https://github.com/ul/kak-lsp/releases/download/v6.2.1/kak-lsp-v6.2.1-x86_64-unknown-linux-musl.tar.gz
+tar xzvf kak-lsp-v6.2.1-x86_64-unknown-linux-musl.tar.gz
+
+# replace `~/.local/bin/` with something on your `$PATH`
+mv kak-lsp ~/.local/bin/
+
+mkdir -p ~/.config/kak-lsp
+mv kak-lsp.toml ~/.config/kak-lsp/
+----
+
+==== FreeBSD
+
+----
+wget https://github.com/ul/kak-lsp/releases/download/v6.2.1/kak-lsp-v6.2.1-x86_64-unknown-freebsd.tar.gz
+tar xzvf kak-lsp-v6.2.1-x86_64-unknown-freebsd.tar.gz
+
+# replace `~/.local/bin/` with something on your `$PATH`
+mv kak-lsp ~/.local/bin/
+
+mkdir -p ~/.config/kak-lsp
+mv kak-lsp.toml ~/.config/kak-lsp/
+----
+
+=== From the source
+
+----
+git clone https://github.com/ul/kak-lsp
+cd kak-lsp
+
+cargo install --locked --force --path .
+
+# replace `~/.config` with OS-specific dir as described at https://docs.rs/dirs/2.0.1/dirs/fn.config_dir.html
+mkdir -p ~/.config/kak-lsp
+
+# or just link if you are okay with default config
+cp kak-lsp.toml ~/.config/kak-lsp/
+----
+
+=== With plug.kak
+
+If you don't mind using plugin manager, you can install kak-lsp
+with https://github.com/andreyorst/plug.kak[plug.kak]. Add this code to your `kakrc`:
+
+----
+plug "ul/kak-lsp" do %{
+    cargo install --locked --force --path .
+}
+----
+
+You can replace `cargo install` with `ln -sf target/release/kak-lsp ~/.local/bin/`
+where `~/.local/bin/` can be replaced to something in your `$PATH`.
+
+Examples of configuration with plug.kak can be found at https://github.com/ul/kak-lsp/wiki/Usage-with-plug.kak[Wiki].
+
+== Language servers
+
+kak-lsp doesn't manage installation of language servers, please install them
+by yourself for the languages you plan to use kak-lsp with. Please consult the
+https://github.com/ul/kak-lsp/wiki/How-to-install-servers[How to install servers] wiki page for
+quick installation of language servers supported by kak-lsp out of the box.
+
+== Usage
+
+NOTE: Contents below corresponds to the master branch HEAD and could be slightly out-of-sync with
+the version installed from pre-built binaries. The most common case is new commands being in a
+pre-release testing stage. Please refer README.asciidoc revision tagged with version you use or
+README.asciidoc from the release archive (included starting from version 5.10.0).
+
+To enable LSP support for configured languages (see the next section) just add the following
+commands to your `kakrc`:
+
+----
+eval %sh{kak-lsp --kakoune -s $kak_session}
+lsp-enable
+----
+
+A bit more involved but recommended way is to enable kak-lsp only for specific filetypes you need
+via `lsp-enable-window`, e.g.:
+
+----
+eval %sh{kak-lsp --kakoune -s $kak_session}
+hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+    lsp-enable-window
+}
+----
+
+Either way you get:
+
+* completions
+* `lsp-definition` command to go to definition, mapped to `gd` by default
+* `lsp-hover` command to show hover info;
+  to automatically show hover when you move around use `lsp-auto-hover-enable`;
+  to show hover anchored to hovered position do `set global lsp_hover_anchor true`
+* `lsp-find-error` command to jump to the next or previous error in the file
+* `lsp-references` command to find references for a symbol under the main cursor, mapped to `gr` by default
+  `\*references*` buffer has `grep` filetype so you can use all commands provided by `grep.kak`, including `grep-jump`.
+* `lsp-highlight-references` command to highlight references in current buffer for a symbol under the main cursor with `Reference` face (which is equal to `MatchingChar` face by default)
+* `lsp-document-symbol` command to list current buffer's symbols
+* `lsp-workspace-symbol` command to list project-wide symbols matching the query
+* `lsp-workspace-symbol-incr` command to incrementally list project-wide symbols matching the query
+* `lsp-diagnostics` command to list project-wide diagnostics (current buffer determines project and language to collect diagnostics)
+* inline diagnostics highlighting using `DiagnosticError` and `DiagnosticWarning` faces; could be disabled with `lsp-inline-diagnostics-disable` command
+* flags in the left margin on lines with errors or warnings; could be disabled with `lsp-diagnostic-lines-disable` command
+* `lsp-formatting` command to format current buffer, according to the `tabstop` and `lsp_insert_spaces` options
+* `lsp-formatting-sync` command to format current buffer synchronously, suitable for use with `BufWritePre` hook:
+
+----
+hook global WinSetOption filetype=rust %{
+    hook window BufWritePre .* lsp-formatting-sync
+}
+----
+
+* `lsp-rename <new_name>` and `lsp-rename-prompt` commands to rename the symbol under the main cursor.
+* `lsp-code-actions` command to open a menu with code actions available for the current main cursor position
+* `lsp_diagnostic_error_count`  and `lsp_diagnostic_warning_count` options which contains number of diagnostics errors and warnings published for the current buffer. For example, you can put it into your modeline to see at a glance if there are errors in the current file
+* starting new kak-lsp session when Kakoune session begins and stopping it when Kakoune session ends
+
+NOTE: By default, kak-lsp exits when it doesn't receive any request from Kakoune during 30 minutes,
+even if Kakoune session is still up and running. Change `server.timeout` in `kak-lsp.toml` to tweak
+duration, or set it to 0 to disable this behaviour. In any scenario making new request would lead to
+attempt to spin up server if it is down.
+
+* `lsp` user mode (see https://github.com/mawww/kakoune/blob/master/doc/pages/modes.asciidoc#user-modes[Kakoune docs] for more details about user modes):
+
+|===
+| Binding | Command
+
+| a | lsp-code-actions
+| c | lsp-capabilities
+| d | lsp-definition
+| e | lsp-diagnostics
+| f | lsp-formatting
+| h | lsp-hover
+| r | lsp-references
+| s | lsp-signature-help
+| S | lsp-document-symbol
+| o | lsp-workspace-symbol-incr
+| n | lsp-find-error
+| p | lsp-find-error --previous
+| & | lsp-highlight-references
+|===
+
+To know which subset of kak-lsp commands is backed by current buffer filetype's language server use
+`lsp-capabilities` command.
+
+All commands are also represented as subcommands of umbrella `lsp` command if you prefer this style.
+For example, you can use `lsp references` instead of `lsp-references`.
+
+== Configuration
+
+kak-lsp itself has configuration, but it also adds configuration options to Kakoune that affect the Kakoune integration.
+
+=== Configuring kak-lsp
+
+kak-lsp is configured via configuration file in https://github.com/toml-lang/toml[TOML] format. By
+default kak-lsp tries to read `kak-lsp/kak-lsp.toml` under OS-specific config dir as described https://docs.rs/dirs/2.0.1/dirs/fn.config_dir.html[here],
+but you can override it with command-line option `--config`.
+
+Look into the default `kak-lsp.toml` in the root of repository, it should be quite self-descriptive.
+The only example which is not covered by default `kak-lsp.toml` is setting initialization options
+for a language server. It's done like this:
+
+[source=toml]
+----
+[language.go.initialization_options]
+formatTool = "gofmt"
+----
+
+If you are setting any options to server via cli do not forget to append them to
+`%sh{kak-lsp --kakoune ...}` in your `kakrc`. It's not needed if you change options in
+`~/.config/kak-lsp/kak-lsp.toml` file.
+
+Please let us know if you have any ideas about how to make default config more sensible.
+
+=== Configuring Kakoune
+
+kak-lsp's Kakoune integration declares the following options:
+
+* `lsp_completion_trigger` (str): This option is set to a Kakoune command, which is executed every time the user pauses in insert mode. If the command succeeds, kak-lsp will send a completion request to the language server.
+* `lsp_diagnostic_line_error_sign` (str): When using `lsp-diagnostic-lines-enable` and the language server detects an error, kak-lsp will add a flag to the left-most column of the window, using this string and the `LineFlagErrors` face.
+* `lsp_diagnostic_line_warning_sign` (str): When using `lsp-diagnostic-lines-enable` and the language server detects an warning, kak-lsp will add a flag to the left-most column of the window, using this string and the `LineFlagErrors` face.
+* `lsp_hover_anchor` (bool): When using `lsp-hover` or `lsp-auto-hover-enable`, if this option is `true` then the hover information will be displayed next to the active selection. Otherwise, the information will be displayed in a box in the lower-right corner.
+* `lsp_hover_max_lines` (int): If greater than 0 then limit rendered hover information to the given number of lines.
+* `lsp_hover_insert_mode_trigger` (str): This option is set to a Kakoune command. When using `lsp-auto-hover-insert-mode-enable`, this command is executed every time the user pauses in insert mode. If the command succeeds, kak-lsp will send a hover-information request for the text selected by the command.
+* `lsp_insert_spaces` (bool): When using `lsp-formatting`, if this option is `true`, kak-lsp will ask the language server to indent with spaces rather than tabs.
+* `lsp_auto_highlight_references` (bool): If this option is `true` then `lsp-highlight-references` is executed every time user pauses in normal mode.
+* `lsp_server_configuration` (str-to-str-map): At startup, and when this option is modified, kak-lsp
+will send its contents to the language server in a `workspace/DidChangeConfiguration` notification.
+Some languages servers allow dynamic configuration in this way. See below for more information about
+this option.
+* `lsp_server_initialization_options` (str-to-str-map): When `initialize` request is sent to the
+language server kak-lsp will ask Kakoune for this option value in the buffer which provoked start of
+the language server. If value is non-empty then it will override `initialization_options` set for
+the buffer's filetype in `kak-lsp.toml`. See below for more information about this option.
+
+The `lsp_server_configuration` and `lsp_server_initialization_options` options are unusual, since
+the language server wants deeply-nested JSON objects, which are hard to represent in Kakoune. If a
+language server's documentation says it wants a structure like this:
+
+[source=json]
+----
+{
+    "settings": {
+        "rust": {
+            "clippy_preference": "on"
+        }
+    }
+}
+----
+
+...you can achieve the same thing in Kakoune with:
+
+----
+set-option global lsp_server_configuration rust.clippy_preference="on"
+----
+
+That is, the keys of the `lsp_server_configuration` option are a `.`-delimited path of JSON objects. For implementation reasons, the values use TOML serialisation rules rather than JSON rules, but they're pretty much the same thing for strings, numbers and booleans, which are the most common configuration types.
+
+== Limitations
+
+=== Encoding
+
+kak-lsp works only with UTF-8 documents.
+
+=== `Position.character` interpretation
+
+Currently, kak-lsp doesn't conform to the spec regarding the interpretation of `Position.character`.
+LSP spec says that
+
+____
+A position inside a document (see Position definition below) is expressed as a zero-based line and
+character offset. The offsets are based on a UTF-16 string representation. So a string of the form
+`a𐐀b` the character offset of the character `a` is 0, the character offset of `𐐀` is 1 and the
+character offset of `b` is 3 since `𐐀` is represented using two code units in UTF-16.
+____
+
+However, kak-lsp treats `Position.character` as an offset in UTF-8 code points by default.
+Fortunately, it appears to produce the same result within the Basic Multilingual Plane (BMP) which
+includes a lot of characters.
+
+Unfortunately, many language servers violate the spec as well, and in an inconsistent manner. Please
+refer https://github.com/Microsoft/language-server-protocol/issues/376 for more information. There
+are two main types of violations we met in the wild:
+
+1) Using UTF-8 code points, just like kak-lsp does. Those should work well with kak-lsp for
+characters outside BMP out of the box.
+
+2) Using UTF-8 code units (bytes), just like Kakoune does. Those are supported by kak-lsp but
+require adding `offset_encoding = "utf-8"` to language server configuration in `kak-lsp.toml`.
+
+== Troubleshooting
+
+If kak-lsp fails try to put this line in your `kakrc` after `kak-lsp --kakoune` invocation:
+
+----
+set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+----
+
+to enable debug logging.
+
+If it will not give enough insights to fix the problem or if the problem is a bug in kak-lsp itself
+please don't hesitate to raise an issue.
+
+NOTE: Some Kakoune plugins could interfere with kak-lsp, particularly completions providers.
+E.g. `racer.kak` competes for autocompletion in Rust files.
+
+== Versioning
+
+kak-lsp follows https://semver.org/[SemVer] with one notable difference from common practice: we
+don't use 0 major version to indicate that product is not yet reached stability. Even for non-stable
+and not feature-complete product user should be clearly informed about breaking change. Therefore we
+start with major version 1 and increment it each time when upgrade requires user's attention.

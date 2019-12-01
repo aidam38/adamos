@@ -9,11 +9,11 @@ function show_brightness_notification() {
 
 case $1 in
 	up)
-		light -A $(light -G)
+		sudo light -A $(light -G)
 		show_brightness_notification
 	;;
 	down)
-		light -U $(echo "$(light -G)/2" | $(which bc) -l)
+		sudo light -U $(echo "$(light -G)/2" | $(which bc) -l)
 		show_brightness_notification
 	;;
 esac
