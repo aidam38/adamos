@@ -52,6 +52,7 @@ function lf-cd {
 }
 alias f='lf-cd'
 alias sf='sudo lf-cd'
+alias recaudio="parec --monitor-stream="$(pacmd list-sink-inputs | awk '$1 == "index:" {print $2}')" | opusenc --raw - recording-$(date +"%F_%H-%M-%S").opus"
 
 alias v='nvim'
 alias suv='sudo nvim'

@@ -7,15 +7,13 @@ remote=$1
 if [[ "$remote" == "disk" ]]; then
 	if [[ $direction == "up" ]]; then
 		notify-send "Doing '$action' on 'disk' upwards"
-		rclone $action -LP --ignore-errors --exclude SVČ*/ --exclude Sdílená*/ --exclude "CM Parlament*/" --drive-import-formats docx,odt /home/adam/drive drive:
+		rclone $action -LPu --ignore-errors --drive-import-formats docx,odt /home/adam/drive drive:moje/
 	fi
 	if [[ $direction == "down" ]]; then
 		notify-send "Doing '$action' on 'disk' downwards"
-		rclone $action -LP --ignore-errors --exclude SVČ*/ --exclude Sdílená*/ --exclude "CM Parlament*/" drive: /home/adam/drive
+		rclone $action -LPu --ignore-errors drive:moje/ /home/adam/drive
 	fi
-fi
-
-if [[ "$remote" == "or89" ]]; then
+elif [[ "$remote" == "or89" ]]; then
 	if [[ $direction == "up" ]]; then
 		notify-send "Doing '$action' on 'or89' upwards"
 		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --exclude 'Fotky/**' --drive-import-formats docx,odt /home/adam/team_drives/or89/ or89:
@@ -24,9 +22,7 @@ if [[ "$remote" == "or89" ]]; then
 		notify-send "Doing '$action' on 'or89' downwards"
 		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' or89: /home/adam/team_drives/or89/
 	fi
-fi
-
-if [[ "$remote" == "axinit" ]]; then
+elif [[ "$remote" == "axinit" ]]; then
 	if [[ $direction == "up" ]]; then
 		notify-send "Doing '$action' on 'axinit' upwards"
 		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/team_drives/axinit/ axinit:
@@ -34,5 +30,14 @@ if [[ "$remote" == "axinit" ]]; then
 	if [[ $direction == "down" ]]; then
 		notify-send "Doing '$action' on 'axinit' downwards"
 		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' axinit: /home/adam/team_drives/axinit/
+	fi
+else
+	if [[ $direction == "up" ]]; then
+		notify-send "Doing '$action' on '$remote' upwards"
+		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/team_drives/$remote/ $remote:
+	fi
+	if [[ $direction == "down" ]]; then
+		notify-send "Doing '$action' on '$remote' downwards"
+		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' $remote: /home/adam/team_drives/$remote/
 	fi
 fi

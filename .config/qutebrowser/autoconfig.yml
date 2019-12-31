@@ -88,10 +88,12 @@ settings:
         '"i': hint images
         '"o': hint links fill :open {hint-url}
         '"r': hint --rapid links tab-bg
+        '"s': hint links spawn umpv {hint-url}
         '"y': hint links yank
         '''': enter-mode jump_mark
         +: zoom-in
         ',': tab-move -
+        ',m': spawn umpv {url}
         '-': zoom-out
         .: tab-move +
         /: set-cmd-text /
@@ -189,6 +191,10 @@ settings:
         F: hint all tab-fg
         G: scroll-to-perc
         H: tab-prev
+        Ia: config-cycle content.user_stylesheets "~/.config/qutebrowser/gruvbox-all-sites.css"
+          ""
+        Im: config-cycle content.user_stylesheets "~/.config/qutebrowser/fb-messenger-dark.css"
+          ""
         J: scroll-page 0 0.5
         K: scroll-page 0 -0.5
         L: tab-next
@@ -198,7 +204,7 @@ settings:
         PP: open -t -- {primary}
         Pp: open -t -- {clipboard}
         R: reload -f
-        S: inspector
+        S: hint links spawn umpv {hint-url}
         Sb: open qute://bookmarks#bookmarks
         Sh: open qute://history
         Sq: open qute://bookmarks
@@ -219,9 +225,11 @@ settings:
         d<Space>: download-open
         dc: download-cancel
         dd: set-cmd-text -s :download
+        dg: yank -s ;; yank ;; spawn -u gcl.sh
         do: download-open rifle
         dr: download-open st lf
         f: hint
+        fs: hint links spawn umpv {hint-url}
         g$: tab-focus -1
         g0: tab-focus 1
         gB: set-cmd-text -s :bookmark-load -t
@@ -254,7 +262,8 @@ settings:
         pp: open -- {clipboard}
         q: record-macro
         r: reload
-        sf: save
+        s: spawn umpv {url}
+        sf: hint links spawn umpv {hint-url}
         sk: set-cmd-text -s :bind
         sl: set-cmd-text -s :set -t
         ss: set-cmd-text -s :set
@@ -340,3 +349,5 @@ settings:
         y: prompt-accept yes
   content.user_stylesheets:
     global: null
+  tabs.position:
+    global: top
