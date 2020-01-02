@@ -2,6 +2,7 @@
 # Automatic instalation script of adamos - Arch linux based operation system with dwm, st, ranger ... for personal use of Adam Krivka
 # IMPORTANT: Make sure you run this script as the root user.
 
+
 echo "By now you should have done the following things:
 - partitioned your hard drive
 	/dev/sda1 bootable (512M)
@@ -88,7 +89,7 @@ sudo -u adam git clone --depth 1 https://github.com/aidam38/adamos /home/adam
 # ----------
 echo "Creating some basic directories in the /home/adam folder"
 cd /home/adam
-sudo -u adam mkdir builds downloads
+sudo -u adam mkdir builds downloads mount mount/usb mount/harddrive mount/android
 
 # ----------
 
