@@ -550,7 +550,7 @@ c.content.headers.referer = 'same-domain'
 #User agent to send. Unset to send the default. Note that the value
 #read from JavaScript is always the global value.
 #Type: String
-c.content.headers.user_agent = None
+# c.content.headers.user_agent = None
 
 #Enable host blocking.
 #Type: Bool

@@ -11,7 +11,7 @@ getmount() { \
 	[ "$mp" = "" ] && exit 1
 	if [ ! -d "$mp" ]; then
 		mkdiryn=$(printf "No\\nYes" | dmenu -i -p "$mp does not exist. Create it?")
-		[ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
+		[ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" ||  mkdir -p "$mp")
 	fi
 	}
 
@@ -22,8 +22,8 @@ mountusb() { \
 	getmount "$HOME/mount -type d $alreadymounted"
 	partitiontype="$(lsblk -no "fstype" "$chosen")"
 	case "$partitiontype" in
-		"vfat") sudo -u $USER mount -t vfat "$chosen" "$mp" -o rw,umask=0000;;
-		*) sudo -u $USER mount "$chosen" "$mp"; user="$(whoami)"; ug="$(groups | awk '{print $1}')"; sudo chown "$user":"$ug" "$mp";;
+		"vfat") sudo mount -t vfat "$chosen" "$mp" -o rw,umask=0000;;
+		*) sudo -u $USER mount "$chosen" "$mp"; user="$(whoami)"; ug="$(groups | awk '{print $1}')";  chown "$user":"$ug" "$mp";;
 	esac
 	notify-send "💻 USB mounting" "$chosen mounted to $mp."
 	}
