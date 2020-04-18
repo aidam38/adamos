@@ -23,8 +23,12 @@ super + s
 	spotify
 super + g
 	echo -e "$(grabc)ff" | xsel --input --clipboard
+# super + c
+# 	clipmenu
+# super + shift + c
+# 	clipdel
 super + c
-	clipmenu
+	clipman pick -t dmenu
 super + shift + c
 	clipdel
 super + y

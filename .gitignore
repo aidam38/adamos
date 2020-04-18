@@ -2,6 +2,8 @@
 !.asy/*
 !.config
 !.config/*
+!.config/alacritty/*
+!.config/Code - OSS/*
 !.config/dunst/*
 !.config/lf
 !.config/lf/**
@@ -14,6 +16,8 @@
 !.config/sxiv/*
 !.config/sxiv/exec/*
 !.config/sxhkd/*
+!.config/sway/*
+!.config/waybar/*
 !.config/qutebrowser/*
 !.config/zathura/*
 !.config/mimeapps.list
@@ -21,6 +25,8 @@
 !.install/**
 !.bin
 !.bin/**
+!.screenlayout
+!.screenlayout/**
 !scripts
 !scripts/**
 !.wallpapers
