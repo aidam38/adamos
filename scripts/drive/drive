@@ -7,37 +7,37 @@ remote=$1
 if [[ "$remote" == "disk" ]]; then
 	if [[ $direction == "up" ]]; then
 		notify-send "Doing '$action' on 'disk' upwards"
-		rclone $action -LPu --ignore-errors --drive-import-formats docx,odt /home/adam/drive drive:moje/
+		rclone $action -LPu --ignore-errors --drive-import-formats docx,odt /home/adam/drives/disk disk:moje/
 	fi
 	if [[ $direction == "down" ]]; then
 		notify-send "Doing '$action' on 'disk' downwards"
-		rclone $action -LPu --ignore-errors drive:moje/ /home/adam/drive
+		rclone $action -LPu --ignore-errors disk:moje/ /home/adam/drives/disk
 	fi
 elif [[ "$remote" == "or89" ]]; then
 	if [[ $direction == "up" ]]; then
 		notify-send "Doing '$action' on 'or89' upwards"
-		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --exclude 'Fotky/**' --drive-import-formats docx,odt /home/adam/team_drives/or89/ or89:
+		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --exclude 'Fotky/**' --drive-import-formats docx,odt /home/adam/drives/or89/ or89:
 	fi
 	if [[ $direction == "down" ]]; then
 		notify-send "Doing '$action' on 'or89' downwards"
-		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' or89: /home/adam/team_drives/or89/
+		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' or89: /home/adam/drives/or89/
 	fi
 elif [[ "$remote" == "axinit" ]]; then
 	if [[ $direction == "up" ]]; then
 		notify-send "Doing '$action' on 'axinit' upwards"
-		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/team_drives/axinit/ axinit:
+		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/drives/axinit/ axinit:
 	fi
 	if [[ $direction == "down" ]]; then
 		notify-send "Doing '$action' on 'axinit' downwards"
-		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' axinit: /home/adam/team_drives/axinit/
+		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' axinit: /home/adam/drives/axinit/
 	fi
 else
 	if [[ $direction == "up" ]]; then
 		notify-send "Doing '$action' on '$remote' upwards"
-		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/team_drives/$remote/ $remote:
+		rclone $action -LP --ignore-errors --exclude '.*{/**,}' --drive-import-formats docx,odt /home/adam/drives/$remote/ $remote:
 	fi
 	if [[ $direction == "down" ]]; then
 		notify-send "Doing '$action' on '$remote' downwards"
-		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' $remote: /home/adam/team_drives/$remote/
+		rclone $action -LuP --exclude '.*{/**,}' --exclude 'Fotky/**' $remote: /home/adam/drives/$remote/
 	fi
 fi

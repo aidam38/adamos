@@ -32,6 +32,7 @@ mountandroid() { \
 	chosen=$(echo "$anddrives" | dmenu -i -p "Which Android device?" | cut -d : -f 1)
 	# getmount "/home/$USER/mount/ -type d"
 	notify-send "$chosen"
+	echo $chosen
 	simple-mtpfs --device "$chosen" "$HOME/mount/android"
 	notify-send "🤖 Android Mounting" "Android device mounted to $mp."
 	}

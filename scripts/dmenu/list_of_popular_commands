@@ -1,6 +1,7 @@
 two_monitors.sh
-arandr
-st -e nmtui
+one_monitor.sh
 dmenumount
 dmenuumount
+arandr
+st -e nmtui
 dmenuemoji

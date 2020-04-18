@@ -1,0 +1,1 @@
+/home/adam/.screenlayout/one_monitor.sh

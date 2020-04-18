@@ -34,6 +34,7 @@ NetworkManager
 ffmpeg
 feh
 maim
+grabc
 ImageMagick
 gimp
 inkscape
@@ -44,12 +45,16 @@ zathura-ps
 neomutt
 offlineimap
 msmtp
+simple-mtpfs
 newsboat
 texlive
+pandoc
+asymptote
 gnuplot
 pulseaudio
 pamixer
 mpv
+vlc
 audacity
 spotify
 rclone
@@ -68,7 +73,13 @@ gotop
 sl
 neofetch
 cmatrix
+sxhkd
+tlp
+light
+bluez
+bluez-utils
+blueberry
 dwm https://github.com/aidam38/dwm.git
 st https://github.com/aidam38/st.git 
 dmenu https://github.com/aidam38/dmenu
-sxiv https://github.com/muennich/sxiv.git
+sxiv https://github.com/aidam38/sxiv.git

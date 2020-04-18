@@ -823,7 +823,7 @@ c.fonts.messages.warning = '10pt monospace'
 #Default monospace fonts. Whenever "monospace" is used in a font
 #setting, it's replaced with the fonts listed here.
 #Type: Font
-c.fonts.monospace = 'Hack, Inconsolata, "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+c.fonts.monospace = 'Iosevka, Hack, Inconsolata, "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
 
 #Font used for prompts.
 #Type: Font
@@ -1509,6 +1509,7 @@ config.bind('dc', 'download-cancel')
 config.bind('dg', 'yank -s ;; yank ;; spawn -u gcl.sh')
 config.bind('t', 'open -t')
 config.bind('<Alt-W>', 'quit --save')
+config.bind('p', 'spawn --userscript qute-bitwarden')
 
 
 config.bind("'", 'enter-mode jump_mark')
@@ -1520,7 +1521,7 @@ config.bind('"b', 'hint all tab-bg')
 config.bind('"d', 'hint links download')
 config.bind('"f', 'hint all tab-fg')
 config.bind('"h', 'hint all hover')
-config.bind('"i', 'hint images')
+config.bind('"i', 'hint images download')
 config.bind('"o', 'hint links fill :open {hint-url}')
 config.bind('"r', 'hint --rapid links tab-bg')
 config.bind('<Mod4-m>', 'tab-mute')
@@ -1741,3 +1742,7 @@ config.bind('y', 'prompt-accept yes', mode='yesno')
 
 config.bind('Im', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/fb-messenger-dark.css" ""')
 config.bind('Ia', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/gruvbox-all-sites.css" ""')
+
+config.bind('xx', 'config-cycle statusbar.hide ;; config-cycle tabs.show always switching')
+config.bind('xt', 'config-cycle tabs.show always switching')
+config.bind('xb', 'config-cycle statusbar.hide')

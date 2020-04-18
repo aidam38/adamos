@@ -128,11 +128,10 @@ settings:
         <Alt+8>: tab-focus 8
         <Alt+9>: tab-focus -1
         <Alt+h>: tab-give
+        <Alt+l>: scroll right
         <Alt+m>: tab-mute
         <Alt+w>: quit --save
         <Back>: back
-        <Ctrl++>: tab-focus 1
-        <Ctrl+1>: tab-focus 1
         <Ctrl+2>: tab-focus 2
         <Ctrl+3>: tab-focus 3
         <Ctrl+Alt+p>: print
@@ -204,7 +203,7 @@ settings:
         PP: open -t -- {primary}
         Pp: open -t -- {clipboard}
         R: reload -f
-        S: hint links spawn umpv {hint-url}
+        S: inspector
         Sb: open qute://bookmarks#bookmarks
         Sh: open qute://history
         Sq: open qute://bookmarks
@@ -258,12 +257,13 @@ settings:
         m: quickmark-save
         n: search-next
         o: set-cmd-text -s :open
+        p: spawn --userscript qute-bitwarden
         pP: open -- {primary}
         pp: open -- {clipboard}
         q: record-macro
         r: reload
         s: spawn umpv {url}
-        sf: hint links spawn umpv {hint-url}
+        sf: save
         sk: set-cmd-text -s :bind
         sl: set-cmd-text -s :set -t
         ss: set-cmd-text -s :set
@@ -298,7 +298,10 @@ settings:
         wo: set-cmd-text -s :open -w
         wp: open -w -- {clipboard}
         xO: set-cmd-text :open -b -r {url:pretty}
+        xb: config-cycle statusbar.hide
         xo: set-cmd-text -s :open -b
+        xt: config-cycle tabs.show always switching
+        xx: config-cycle statusbar.hide ;; config-cycle tabs.show always switching
         yD: yank domain -s
         yP: yank pretty-url -s
         yT: yank title -s
@@ -349,5 +352,9 @@ settings:
         y: prompt-accept yes
   content.user_stylesheets:
     global: null
+  statusbar.hide:
+    global: false
   tabs.position:
     global: top
+  tabs.show:
+    global: always

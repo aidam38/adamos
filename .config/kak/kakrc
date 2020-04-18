@@ -11,7 +11,7 @@ map global normal X <a-x>
 map global normal '#' :comment-line<ret>
 map global normal <c-r> ":source ~/.config/kak/kakrc<ret>"
 map global normal <a-v> v
-map global normal <a-s> <a-`>
+map global normal '<a-;>' '<a-`>'
 map global user q ':wq<ret>' -docstring "Save and quit."
 map global user Q ':wq<ret>' -docstring "Quit."
 
@@ -21,12 +21,13 @@ define-command spell-mode -docstring "Start spell-checking a map keys to go effe
 }
 
 # clipboard managment
-hook global NormalKey y|d|c %{ nop %sh{
-	printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+hook global NormalKey y %{ nop %sh{
+	# printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+	printf %s "$kak_main_reg_dquote" | wl-copy
 }}
-map global normal P '<a-!>xsel --output --clipboard<ret>'
+map global normal P '<a-!>wl-paste<ret>'
 
-# compilation
+# compilation>
 map global user c ':w<ret>:terminal compile "%val{buffile}"<ret>' -docstring "Compile using the compile script"
 
 # building

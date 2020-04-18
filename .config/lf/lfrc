@@ -74,8 +74,10 @@ cmd symlink &{{
 cmd hardlink &{{
     load=$(lf -remote 'load')
     list=$(echo "$load" | sed '1d')
+	dunstify "I'm here"
 	while read line; do
-        ln $line . && lf -remote "send $id echo Hardlinked $lineto current directory." || lf -remote "send $id echo Failed to hardlink file $line"
+        ln $line . && lf -remote "send $id echo Hardlinked $line to current directory." || lf -remote "send $id echo Failed to hardlink file $line"
+		dunstify "$line"
     done <<< "$list"
     lf -remote 'send load'
     lf -remote 'send clear'
@@ -117,6 +119,11 @@ cmd tar ${{
     # cp -r $fx $1
     tar czfv $1.tar.gz $1
     rm -rf $1
+}}
+
+cmd tarr ${{
+    set -f
+    tar czfv $1.tar.gz $fx
 }}
 
 # compress current file or selected files with zip
@@ -179,6 +186,7 @@ map x $$f
 map X !$f
 map Ce extract
 map Ct push :tar<space>
+map CT push :tarr<space>
 map Cz push :zip<space>
 
 # bookmarking

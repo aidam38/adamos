@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/magnet=torrent.desktop;
+x-scheme-handler/magnet=tixati.desktop
 x-scheme-handler/mailto=mail.desktop;
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
@@ -36,3 +36,5 @@ application/pdf=chromium-usercreated-1.desktop;
 application/x-mimearchive=chromium-usercreated-3.desktop;
 application/xhtml+xml=qutebrowser-usercreated-1.desktop;
 application/x-php=qutebrowser-usercreated-2.desktop;
+x-scheme-handler/x-bittorrent=tixati.desktop
+x-scheme-handler/kite=kite-copilot.desktop

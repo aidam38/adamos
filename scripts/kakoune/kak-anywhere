@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+TMPFILE_DIR=/tmp/kak-anywhere
+TMPFILE=$TMPFILE_DIR/kak-anywhere-$(date +"%y%m%d%H%M%S")
+
+
+wl-paste -p > $TMPFILE
+kak $TMPFILE
+cat $TMPFILE | wl-copy

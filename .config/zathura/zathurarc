@@ -33,3 +33,7 @@ map [fullscreen] w adjust_window width
 map b toggle_statusbar
 map [fullscreen] b toggle_statusbar
 set continuous-hist-save 
+map E set first-page-column 1
+map E [fullscreen] set first-page-column 1
+map e set first-page-column 1:2
+map e [fullscreen] set first-page-column 1:2

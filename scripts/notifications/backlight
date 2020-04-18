@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# -s sysfs/leds/tpacpi::kbd_backlight
+
+function show_backlight_notification() {
+	br=$(light -s sysfs/leds/tpacpi::kbd_backlight -G)
+	backlight=$(printf "%.*f" 0 $br)
+	bar=$(echo "$(seq -s "─" $(($backlight/5)))$(seq -s " " $(((100-$backlight)/5)))" | sed 's/[0-9]//g')
+	dunstify -t 2000 -r 556 "☀k$(printf "%3.2f%" $br)% | $bar |"
+}
+
+case $1 in
+	up)
+		sudo light -s sysfs/leds/tpacpi::kbd_backlight -A 50
+		show_backlight_notification
+	;;
+	down)
+		sudo light -s sysfs/leds/tpacpi::kbd_backlight -U 50
+		show_backlight_notification
+	;;
+esac

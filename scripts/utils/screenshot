@@ -1,3 +1,8 @@
 #!/bin/bash
 
-maim -s scr.jpg && xclip -selection clip -t image/jpg -i scr.jpg
+# maim -s scr.jpg && xclip -selection clip -t image/jpg -i scr.jpg
+
+folder=$HOME/screenshots
+name=$(date +%Y-%m-%e-%H-%M)".png"
+grim -g "$(slurp)" $folder/$name
+wl-copy < $folder/$name
